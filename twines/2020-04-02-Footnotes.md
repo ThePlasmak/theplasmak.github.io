@@ -7,5 +7,5 @@ date: 2020-04-02
 https://theplasmak.github.io/twines/files/Footnotes.html
 
 # Instructions
-- Highlight the entire page ''(Ctrl/Command + A)'' to read it.
+- Highlight the entire page to read it. Press Ctrl/Command + A.
 - Click or tap on the numbers.
