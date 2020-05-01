@@ -42,7 +42,7 @@
   <body>
     <div class="container-lg px-3 my-5 markdown-body">
       <h1>
-        <a href="./">recipes</a>
+        <a href="./">twines</a>
         <form id="search_form" autocomplete="off">
           <input id="search_input">
         </form>
@@ -106,7 +106,8 @@
       }
       (async () => {
         // Get GitHub repository file info
-        const response = await fetch('https://api.github.com/repos/etler/recipes/contents/');
+        const response = await fetch('https://api.github.com/repos/ThePlasmak/
+theplasmak.github.io/contents/');
         const data = await response.json();
         // Initialize search fields and results
         const search_form = document.getElementById('search_form');
