@@ -1,2 +1,2 @@
 # theplasmak.github.io
-You can read my Twines here!
+Hello! My Twines are hosted on this site.
