@@ -4,7 +4,7 @@ title: "Footnotes"
 date: 2020-04-02
 ---
 # URL
-https://theplasmak.github.io/twines/Footnotes.html
+https://theplasmak.github.io/twines/files/Footnotes.html
 
 # Instructions
 - Highlight the entire page ''(Ctrl/Command + A)'' to read it.
