@@ -57,10 +57,10 @@
           const filePath = file.path;
           const fileName = filePath.replace('.html', '').toLowerCase().replace(/-/g, '');
           const isHTML = (/.html$/).test(filePath);
-          const isNotLicense = filePath !== 'LICENSE.md';
+          const isNotIndex = filePath !== 'index.html';
           const isInFilter = filter.split(' ')
             .every((token) => fileName.indexOf(token.toLowerCase()) !== -1)
-          return isHTML && isNotLicense && isInFilter;
+          return isHTML && isNotIndex && isInFilter;
         }
       }
       // Match by closest to start of word then earliest word
