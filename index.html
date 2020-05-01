@@ -55,7 +55,7 @@
         filter = filter.toLowerCase()
         return (file) => {
           const filePath = file.path;
-          const fileName = filePath.replace('.html', '').toLowerCase().replace(/_/g, '');
+          const fileName = filePath.replace('.html', '').toLowerCase().replace(/-/g, '');
           const isHTML = (/.html$/).test(filePath);
           const isNotIndex = filePath !== 'index.html';
           const isInFilter = filter.split(' ')
