@@ -5,8 +5,8 @@
   "background_color": "#ffffff",
   "display": "browser",
   "orientation": "portrait",
-  "Scope": "/",
-  "start_url": "/",
+  "Scope": "./",
+  "start_url": "https://theplasmak.github.io/",
   "icons": [
     {
       "src": "./icon-72x72.png",
