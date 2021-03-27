@@ -131,112 +131,1420 @@ a.link-internal {
 
 a:hover .red {
 	color: #F10000;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript">UIBar.destroy();</script><tw-passagedata pid="1" name="End" tags="noheader nofooter" position="450,225" size="100,100">&quot;Put down your pens.&quot;
+}
 
-You wrote a $words-word essay.
+button {
+	cursor: pointer;
+  	color: #F6F7F7;
+	background-color: #131616;
+	background-size: 100% 100%;
+	line-height: normal;
+	padding: 0.4em;
+	transition-duration: 200ms;
+	user-select: none;
+	border-width: 0px;
+	border-radius: 3px;
+}
 
-[[Begin again.|1]]</tw-passagedata><tw-passagedata pid="2" name="Start 1" tags="noheader nofooter" position="325,225" size="100,100">&lt;div align=&#39;left&#39; style=&#39;font-size: 150%;&#39;&gt;
+button:hover {
+	color: #F6F7F7;
+	background-color: #2E88DD;
+	background-size: 100% 100%;
+	border-width: 0px;
+	border-radius: 3px;
+}
+
+input, textarea {
+    color: #fff;
+    background-color: #131616;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">UIBar.destroy();</script><tw-tag name="nofooter" color="purple"></tw-tag>,<tw-tag name="noheader" color="red"></tw-tag>,<tw-tag name="passageready" color="yellow"></tw-tag><tw-passagedata pid="1" name="End" tags="noheader nofooter" position="425,225" size="100,100">&quot;Put down your pens.&quot;
+
+&lt;&lt;if visited(&quot;His name.&quot;) is 1&gt;&gt;You wrote a $words-word &quot;essay&quot;.
+	&lt;&lt;elseif $words is 0&gt;&gt;
+		You did not manage to write a single word.
+	&lt;&lt;elseif $words is 25&gt;&gt;
+		You wrote a pitiful $words-word introduction.
+	&lt;&lt;else&gt;&gt;
+		You wrote a $words-word essay.
+&lt;&lt;endif&gt;&gt;\
+
+[[Begin again.|Start]]</tw-passagedata><tw-passagedata pid="2" name="Start" tags="noheader nofooter passageready" position="300,225" size="100,100">&lt;div align=&#39;left&#39; style=&#39;font-size: 150%;&#39;&gt;
 &#39;&#39;You Have 15 Minutes Left&#39;&#39;&lt;/div&gt;\
 &lt;div align=&#39;left&#39;&gt;\
 &#39;&#39;by Sarah Mak&#39;&#39;&lt;/div&gt;
-[[Start panicking.|1]]</tw-passagedata><tw-passagedata pid="3" name="1" tags="passageready" position="325,350" size="100,100">[[Write.|Write 1]]
-[[Look.|Look]]</tw-passagedata><tw-passagedata pid="4" name="Timer 1" tags="" position="750,100" size="100,100">&lt;span id=&quot;countdown&quot;&gt;You have $seconds minutes left to write an essay.&lt;/span&gt;
+[[Start panicking.|1]]</tw-passagedata><tw-passagedata pid="3" name="1" tags="" position="300,350" size="100,100">&lt;&lt;set $checkpoint to 1&gt;&gt;\
+In front of you, there is a question paper, an answer booklet and your pencil case. Your pencil case contains a black marker and your identity card.
+
+You are holding your blue pen. You need to &#39;&#39;write&#39;&#39; now.
+
+//Submit &#39;&#39;hint&#39;&#39; if you are stuck.//
+
+&lt;&lt;textbox &quot;$playeranswer&quot; &quot;&quot; autofocus&gt;&gt; \
+&lt;&lt;button &quot;Submit&quot;&gt;&gt;
+	&lt;&lt;if $playeranswer.trim().toLowerCase() is &quot;write&quot;&gt;&gt;
+		&lt;&lt;goto &quot;2&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;hint&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Hint 1&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;cry&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Cry&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;eat&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Eat&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;poop&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;shit&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;pee&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;poo&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;pray&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Pray&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sing&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sing&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sorry&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;say sorry&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;feel sorry&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;fuck&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Fuck&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;say fuck&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Fuck&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;stand&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Stand&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;stand up&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Stand&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sit&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sit&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sit down&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sit&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sleep&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sleep&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;remember&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Remember&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;recall&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Remember&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;say&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Say&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;kick&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;punch&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;kill&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;crush&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;win&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Win&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;die&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Die&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;wait&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Wait&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;breathe&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Breathe&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;breathe in&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Breathe&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;breathe out&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Breathe&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;lose&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Lose&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;who are you&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Who Are You&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;decide&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Decide&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;panick&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Panick&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;rest&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Rest&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Blank&quot;&gt;&gt;
+	&lt;&lt;else&gt;&gt;
+		&lt;&lt;goto &quot;Retry&quot;&gt;&gt;
+	&lt;&lt;/if&gt;&gt;
+&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="4" name="Timer 1" tags="" position="750,100" size="100,100">&lt;span id=&quot;countdown&quot;&gt;You have $seconds minutes left to &#39;&#39;write&#39;&#39; an essay.&lt;/span&gt;
 &lt;&lt;silently&gt;&gt;
     &lt;&lt;repeat 1s&gt;&gt;
         &lt;&lt;set $seconds to $seconds - 1&gt;&gt;
         &lt;&lt;if $seconds gt 0&gt;&gt;
-            &lt;&lt;replace &quot;#countdown&quot;&gt;&gt;You have $seconds minutes left to write an essay.&lt;&lt;/replace&gt;&gt;
+            &lt;&lt;replace &quot;#countdown&quot;&gt;&gt;You have $seconds minutes left to &#39;&#39;write&#39;&#39; an essay.&lt;&lt;/replace&gt;&gt;
         &lt;&lt;else&gt;&gt;
             &lt;&lt;replace &quot;#countdown&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
             &lt;&lt;goto &quot;End&quot;&gt;&gt;
             &lt;&lt;stop&gt;&gt;
         &lt;&lt;/if&gt;&gt;
     &lt;&lt;/repeat&gt;&gt;
-&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="StoryTitle" tags="" position="300,100" size="100,100">You Have 15 Minutes Left</tw-passagedata><tw-passagedata pid="6" name="StoryAuthor" tags="" position="200,100" size="100,100">Sarah Mak</tw-passagedata><tw-passagedata pid="7" name="Write 1" tags="" position="250,475" size="100,100">&lt;&lt;set $words += 25&gt;&gt;\
+&lt;&lt;/silently&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="StoryTitle" tags="" position="300,100" size="100,100">You Have 15 Minutes Left</tw-passagedata><tw-passagedata pid="6" name="StoryAuthor" tags="" position="200,100" size="100,100">Sarah Mak</tw-passagedata><tw-passagedata pid="7" name="2" tags="" position="300,450" size="100,100">&lt;&lt;set $checkpoint to 2&gt;&gt;\
+&lt;&lt;set $words to 25&gt;&gt;\
+&lt;&lt;set $tired to true&gt;&gt;\
 You start writing any word that comes into your head, forming a basic but serviceable introduction.
-
-[[Write.|Write 2 (Table Wobble)]]
-
-&lt;&lt;if visited(&quot;Look&quot;)&gt;&gt;\
-[[Look at the desk.|Look at the desk.]]
-[[Look at the question paper.|Look at the question paper.]]
-[[Look at the answer booklet.|Look at the answer booklet.]]
-[[Look at your pencil case.|Look at your pencil case.]]
-&lt;&lt;endif&gt;&gt;\
-
-&lt;&lt;if visited() % 4 is 0&gt;&gt;\
-&lt;span class=&#39;red&#39;&gt;\
-&lt;&lt;link &quot;\n\n//There once was a 12-year-old boy.//&quot; &quot;There once was a 12-year-old boy.&quot;&gt;&gt;\
-&lt;&lt;/link&gt;&gt;\
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="8" name="Look" tags="" position="375,475" size="100,100">You are in an air-conditioned examination room. On your desk, there is a question paper, answer booklet and your pencil case.
-
-[[Write.|Write 1]]
-
-[[Look at the desk.|Look at the desk.]]
-[[Look at the question paper.|Look at the question paper.]]
-[[Look at the answer booklet.|Look at the answer booklet.]]
-[[Look at your pencil case.|Look at your pencil case.]]</tw-passagedata><tw-passagedata pid="9" name="PassageHeader" tags="" position="425,100" size="100,100">&lt;&lt;if not tags().includes(&quot;noheader&quot;)&gt;&gt;\
+\
+&lt;&lt;if visited() % 2 is 0&gt;&gt;
+	&lt;span class=&#39;red&#39;&gt;
+		&lt;&lt;link &quot;//There was once a 12-year-old boy.//&quot; &quot;There was once a 12-year-old boy.&quot;&gt;&gt;
+		&lt;&lt;/link&gt;&gt;
+	&lt;/span&gt;
+&lt;&lt;endif&gt;&gt;
+&lt;&lt;textbox &quot;$playeranswer&quot; &quot;&quot; autofocus&gt;&gt; \
+&lt;&lt;button &quot;Submit&quot;&gt;&gt;
+	&lt;&lt;if $playeranswer.trim().toLowerCase() is &quot;write&quot;&gt;&gt;
+		&lt;&lt;goto &quot;3&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;hint&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Hint 2&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;cry&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Cry&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;eat&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Eat&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;poop&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;shit&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;pee&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;poo&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;pray&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Pray&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sing&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sing&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sorry&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;say sorry&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;feel sorry&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;fuck&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Fuck&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;say fuck&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Fuck&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;stand&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Stand&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;stand up&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Stand&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sit&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sit&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sit down&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sit&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sleep&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sleep&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;remember&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Remember&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;recall&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Remember&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;say&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Say&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;kick&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;punch&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;kill&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;crush&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;win&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Win&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;die&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Die&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;wait&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Wait&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;breathe&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Breathe&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;breathe in&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Breathe&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;breathe out&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Breathe&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;lose&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Lose&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;who are you&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Who Are You&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;decide&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Decide&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;panick&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Panick&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;rest&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Rest&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Blank&quot;&gt;&gt;
+	&lt;&lt;else&gt;&gt;
+		&lt;&lt;goto &quot;Retry&quot;&gt;&gt;
+	&lt;&lt;/if&gt;&gt;
+&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="PassageHeader" tags="" position="400,100" size="100,100">&lt;&lt;if not tags().includes(&quot;noheader&quot;)&gt;&gt;\
 &lt;&lt;include &quot;Timer 1&quot;&gt;&gt;\
 
 
-\&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="10" name="PassageFooter" tags="" position="525,100" size="100,100">&lt;&lt;if not tags().includes(&quot;nofooter&quot;)&gt;&gt;\
+\&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="9" name="PassageFooter" tags="" position="525,100" size="100,100">&lt;&lt;if not tags().includes(&quot;nofooter&quot;)&gt;&gt;\
 
 
 You have written $words words.
-\&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="PassageReady" tags="" position="625,100" size="100,100">&lt;&lt;if tags().includes(&quot;passageready&quot;)&gt;&gt;\
+\&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="10" name="PassageReady" tags="" position="625,100" size="100,100">&lt;&lt;if tags().includes(&quot;passageready&quot;)&gt;&gt;\
 &lt;&lt;set $seconds to 15&gt;&gt;\
 &lt;&lt;set $words to 0&gt;&gt;\
-\&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="12" name="Look at the answer booklet." tags="" position="600,625" size="100,100">The last pages of the booklet are filled your answers, which look like blue-tinted chicken scratches. Your handwriting became more and more unreadable as the examination progressed. Between each part is a gap of a few lines, spaces for you to expand your answers if you have time.
+&lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="11" name="There was once a 12-year-old boy." tags="nofooter noheader" position="1200,1500" size="100,100">&lt;span class=&#39;red&#39;&gt;&lt;&lt;link &quot;//His parents were doctors who wanted him to study hard.//&quot; &quot;His parents were doctors who wanted him to study hard.&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="12" name="His parents were doctors who wanted him to study hard." tags="nofooter noheader" position="1300,1500" size="100,100">&lt;span class=&#39;red&#39;&gt;&lt;&lt;link &quot;//On the exam day, all he could write was his name.//&quot; &quot;On the exam day, all he could write was his name.&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="13" name="On the exam day, all he could write was his name." tags="nofooter noheader" position="1400,1500" size="100,100">&lt;span class=&#39;red&#39;&gt;&lt;&lt;link &quot;//His name.//&quot; &quot;His name.&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="14" name="His name." tags="" position="1500,1500" size="100,100">&lt;&lt;set $words += 2&gt;&gt;\
+&lt;span class=&#39;red&#39;&gt;&lt;&lt;link &quot;//His name.//&quot; &quot;His name.&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="15" name="3" tags="" position="300,550" size="100,100">&lt;&lt;set $checkpoint to 3&gt;&gt;\
+&lt;&lt;set $words to 28&gt;&gt;\
+As you start writing the topic sentence of your first paragraph, your hand cramps. The electric pain runs through your joints.
 
-You do not have time.
+&lt;&lt;if $tired is true&gt;&gt;\
+  &lt;&lt;textbox &quot;$playeranswer&quot; &quot;&quot; autofocus&gt;&gt;\
+	&lt;&lt;button &quot;Submit&quot;&gt;&gt;
+		&lt;&lt;if $playeranswer.trim().toLowerCase() is &quot;write&quot;&gt;&gt;
+			&lt;&lt;goto &quot;3 Fail&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;hint&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Hint 3&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;cry&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Cry&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;eat&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Eat&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;poop&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;shit&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;pee&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;poo&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;pray&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Pray&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sing&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sing&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sorry&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;say sorry&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;feel sorry&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;fuck&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Fuck&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;say fuck&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Fuck&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;stand&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Stand&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;stand up&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Stand&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sit&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sit&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sit down&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sit&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sleep&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sleep&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;remember&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Remember&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;recall&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Remember&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;say&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Say&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;kick&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;punch&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;kill&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;crush&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;win&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Win&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;die&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Die&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;wait&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Wait&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;breathe&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Breathe&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;breathe in&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Breathe&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;breathe out&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Breathe&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;lose&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Lose&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;who are you&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Who Are You&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;decide&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Decide&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;panick&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Panick&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;rest&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Rest&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Blank&quot;&gt;&gt;
+		&lt;&lt;else&gt;&gt;
+			&lt;&lt;goto &quot;Retry&quot;&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/button&gt;&gt;
+&lt;&lt;elseif $tired is false&gt;&gt;\
+  &lt;&lt;textbox &quot;$playeranswer&quot; &quot;&quot; autofocus&gt;&gt;\
+	&lt;&lt;button &quot;Submit&quot;&gt;&gt;
+		&lt;&lt;if $playeranswer.trim().toLowerCase() is &quot;write&quot;&gt;&gt;
+			&lt;&lt;goto &quot;4&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;hint&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Hint 3&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;cry&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Cry&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;eat&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Eat&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;poop&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;shit&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;pee&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;poo&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;pray&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Pray&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sing&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sing&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sorry&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;say sorry&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;feel sorry&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;fuck&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Fuck&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;say fuck&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Fuck&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;stand&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Stand&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;stand up&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Stand&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sit&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sit&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sit down&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sit&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sleep&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sleep&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;remember&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Remember&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;recall&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Remember&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;say&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Say&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;kick&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;punch&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;kill&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;crush&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;win&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Win&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;die&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Die&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;wait&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Wait&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;breathe&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Breathe&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;breathe in&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Breathe&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;breathe out&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Breathe&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;lose&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Lose&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;who are you&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Who Are You&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;decide&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Decide&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;panick&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Panick&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;rest&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Rest&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Blank&quot;&gt;&gt;
+		&lt;&lt;else&gt;&gt;
+			&lt;&lt;goto &quot;Retry&quot;&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/button&gt;&gt;
+&lt;&lt;else&gt;&gt;
+  &lt;&lt;textbox &quot;$playeranswer&quot; &quot;&quot; autofocus&gt;&gt;\
+	&lt;&lt;button &quot;Submit&quot;&gt;&gt;
+		&lt;&lt;if $playeranswer.trim().toLowerCase() is &quot;write&quot;&gt;&gt;
+			&lt;&lt;goto &quot;4&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;hint&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Hint 3&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;cry&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Cry&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;eat&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Eat&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;poop&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;shit&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;pee&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;poo&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;pray&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Pray&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sing&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sing&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sorry&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;say sorry&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;feel sorry&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;fuck&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Fuck&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;say fuck&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Fuck&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;stand&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Stand&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;stand up&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Stand&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sit&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sit&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sit down&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sit&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sleep&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sleep&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;remember&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Remember&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;recall&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Remember&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;say&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Say&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;kick&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;punch&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;kill&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;crush&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;win&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Win&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;die&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Die&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;wait&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Wait&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;breathe&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Breathe&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;breathe in&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Breathe&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;breathe out&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Breathe&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;lose&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Lose&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;who are you&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Who Are You&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;decide&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Decide&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;panick&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Panick&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;rest&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Rest&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Blank&quot;&gt;&gt;
+		&lt;&lt;else&gt;&gt;
+			&lt;&lt;goto &quot;Retry&quot;&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/button&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="16" name="3 Fail" tags="" position="400,550" size="100,100">You still can&#39;t write. 
 
-[[Write.|Write 1]]
+&lt;&lt;back &quot;Go back.&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="17" name="Retry" tags="noheader" position="550,225" size="100,100">You simply stare at the answer booklet, frozen in confusion.
 
-[[Look at the desk.|Look at the desk.]]
-[[Look at the question paper.|Look at the question paper.]]
-[[Look at your pencil case.|Look at your pencil case.]]</tw-passagedata><tw-passagedata pid="13" name="Look at the desk." tags="" position="725,625" size="100,100">It is a common, plastic, dark blue table. You notice that it has begun to wobble slightly.
+[[Go back.|$checkpoint]]</tw-passagedata><tw-passagedata pid="18" name="Blank" tags="noheader" position="650,225" size="100,100">Your mind is blank. It is not time to submit.
 
-[[Write.|Write 1]]
+[[Go back.|$checkpoint]]</tw-passagedata><tw-passagedata pid="19" name="Hint 1" tags="" position="200,350" size="100,100">All you need to do is &#39;&#39;write&#39;&#39;.
 
-&lt;&lt;if visited(&quot;Ask the invigilator for foolscap to balance the table.&quot;)&gt;&gt;\
-&lt;&lt;else&gt;&gt;\
-[[Ask the invigilator for foolscap to balance the table.]]
-&lt;&lt;endif&gt;&gt;\
+[[Go back.|$checkpoint]]</tw-passagedata><tw-passagedata pid="20" name="Cry" tags="noheader" position="675,650" size="100,100">&lt;&lt;set $tired to false&gt;&gt;\
+&lt;&lt;if visited(&quot;Cry&quot;) is 1&gt;&gt;
+	You hid in the toilet to cry during your graduation ceremony as everyone danced to the batch song. You feared this moment.
+&lt;&lt;elseif visited(&quot;Cry&quot;) is 2&gt;&gt;
+	A few tears stain the answer booklet. 
+&lt;&lt;elseif visited(&quot;Cry&quot;) is 3&gt;&gt;
+	You try to muffle your sobs, to avoid disturbing your classmates. And getting an irregularity report.
+&lt;&lt;else&gt;&gt;
+	You have no time to cry, but you do it anyway.
+&lt;&lt;/if&gt;&gt;
 
-[[Look at the question paper.|Look at the question paper.]]
-[[Look at the answer booklet.|Look at the answer booklet.]]
-[[Look at your pencil case.|Look at your pencil case.]]</tw-passagedata><tw-passagedata pid="14" name="Look at the question paper." tags="" position="850,625" size="100,100">You have desperately rushed through every question, except for the final essay. It has been mutilated by your annotations.
+[[Go back.|$checkpoint]]</tw-passagedata><tw-passagedata pid="21" name="Eat" tags="noheader" position="900,600" size="100,100">What do you want to eat?
 
-[[Write.|Write 1]]
+&lt;&lt;textbox &quot;$playeranswer&quot; &quot;&quot; autofocus&gt;&gt; \
+&lt;&lt;button &quot;Submit&quot;&gt;&gt;
+	&lt;&lt;if $playeranswer.trim().toLowerCase() is &quot;pen&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Eat Pen&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;blue pen&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Eat Pen&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;marker&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Eat Marker&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;black marker&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Eat Marker&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;card&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Eat Card&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;identity card&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Eat Card&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;pencil case&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Eat Pencil Case&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;case&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Eat Pencil Case&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;booklet&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Eat Answer Booklet&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;answer booklet&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Eat Answer Booklet&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;paper&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Eat Question Paper&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;question paper&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Eat Question Paper&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;myself&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Eat Myself&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;self&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Eat Myself&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;you&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Eat You&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Blank&quot;&gt;&gt;
+	&lt;&lt;else&gt;&gt;
+		&lt;&lt;goto &quot;Retry&quot;&gt;&gt;
+	&lt;&lt;/if&gt;&gt;
+&lt;&lt;/button&gt;&gt;
 
-[[Look at the desk.|Look at the desk.]]
-[[Look at the answer booklet.|Look at the answer booklet.]]
-[[Look at your pencil case.|Look at your pencil case.]]</tw-passagedata><tw-passagedata pid="15" name="Look at your pencil case." tags="" position="975,625" size="100,100">The parents support group gave every final-year student a clear pencil case, intended for examinations. Inside are a couple of pens with different colours and your identity card.
+[[Go back.|$checkpoint]]</tw-passagedata><tw-passagedata pid="22" name="Eat Pen" tags="noheader" position="1000,600" size="100,100">You attempt to swallow the pen, but you begin to gag. You spit the pen out. The pen is now drizzled with saliva.
 
-[[Write.|Write 1]]
+That&#39;s disgusting.
 
-[[Look at the desk.|Look at the desk.]]
-[[Look at the question paper.|Look at the question paper.]]
-[[Look at the answer booklet.|Look at the answer booklet.]]</tw-passagedata><tw-passagedata pid="16" name="There once was a 12-year-old boy." tags="nofooter" position="75,575" size="100,100">&lt;span class=&#39;red&#39;&gt;&lt;&lt;link &quot;//His parents were doctors who wanted him to study hard.//&quot; &quot;His parents were doctors who wanted him to study hard.&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="17" name="His parents were doctors who wanted him to study hard." tags="nofooter" position="75,675" size="100,100">&lt;span class=&#39;red&#39;&gt;&lt;&lt;link &quot;//On the exam day, all he could write was his name.//&quot; &quot;On the exam day, all he could write was his name.&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="18" name="On the exam day, all he could write was his name." tags="nofooter" position="75,775" size="100,100">&lt;span class=&#39;red&#39;&gt;&lt;&lt;link &quot;//His name.//&quot; &quot;His name.&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="19" name="His name." tags="" position="75,875" size="100,100">&lt;&lt;set $words += 2&gt;&gt;\
-&lt;span class=&#39;red&#39;&gt;&lt;&lt;link &quot;//His name.//&quot; &quot;His name.&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="20" name="Ask the invigilator for foolscap to balance the table." tags="" position="725,750" size="100,100">You wave your arm frantically until the invigilator walks over and passes you a piece of foolscap.
+&lt;&lt;back &quot;Go back.&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="23" name="Eat Card" tags="noheader" position="1200,600" size="100,100">You attempt to swallow your identity card, but it is too big to swallow. Your secondary school photo (which still looks like you somehow) isn&#39;t particularly appetizing either.
 
-&lt;&lt;if visited(&quot;Look&quot;)&gt;&gt;\
-[[Look at the desk.|Look at the desk.]]
-[[Look at the question paper.|Look at the question paper.]]
-[[Look at the answer booklet.|Look at the answer booklet.]]
-[[Look at your pencil case.|Look at your pencil case.]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="21" name="Write 2 (Table Wobble)" tags="" position="250,600" size="100,100">&lt;&lt;set $words += 15&gt;&gt;\
+That&#39;s disgusting.
 
-As you start writing the topic sentence of your first paragraph, the table begins to wobble. Every time you press down your pen, the entire surface quakes. You can&#39;t concentrate.
+&lt;&lt;back &quot;Go back.&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="Eat Marker" tags="noheader" position="1100,600" size="100,100">You attempt to swallow the marker, but you start to gag. The marker is now drizzled with saliva.
 
-[[Write.|Write Table Wobble]]
+That&#39;s disgusting.
 
-&lt;&lt;if visited(&quot;Look&quot;)&gt;&gt;\
-[[Look at the desk.|Look at the desk.]]
-[[Look at the question paper.|Look at the question paper.]]
-[[Look at the answer booklet.|Look at the answer booklet.]]
-[[Look at your pencil case.|Look at your pencil case.]]
-&lt;&lt;endif&gt;&gt;\</tw-passagedata><tw-passagedata pid="22" name="Write Table Wobble" tags="" position="250,725" size="100,100">Double-click this passage to edit it.</tw-passagedata></tw-storydata>
+&lt;&lt;back &quot;Go back.&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="Eat Pencil Case" tags="noheader" position="1300,600" size="100,100">The transparent pencil case that the parent support group gave you is way too large to swallow. Even after you fold it up, you can barely bite around it.
+
+That&#39;s disgusting.
+
+&lt;&lt;back &quot;Go back.&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="Eat Answer Booklet" tags="noheader" position="1400,600" size="100,100">You nibble the corner of the booklet, but you realise that you still need to submit your answers.
+
+That&#39;s disgusting.
+
+&lt;&lt;back &quot;Go back.&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="27" name="Eat Question Paper" tags="noheader" position="1500,600" size="100,100">You nibble a corner, tasting the dry fiber and oily ink. You give up on your pursuit.
+
+That&#39;s disgusting.
+
+&lt;&lt;back &quot;Go back.&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="Toilet" tags="noheader" position="900,800" size="100,100">If you use the toilet now, the exam will be over when you return.
+
+If you do your business here, you&#39;ll get an irregularity report, and become a school legend.
+
+[[Go to the toilet anyway.|Toilet End]] 
+[[Go back.|$checkpoint]]</tw-passagedata><tw-passagedata pid="29" name="Pray" tags="noheader" position="675,850" size="100,100">&lt;&lt;set $tired to false&gt;&gt;\
+&lt;&lt;if visited(&quot;Pray&quot;) is 1&gt;&gt;
+	You pray to something. I guess this makes you feel better, somehow.
+&lt;&lt;elseif visited(&quot;Pray&quot;) is 2&gt;&gt;
+	You continue to hug the Buddha&#39;s foot.
+&lt;&lt;else&gt;&gt;
+	You have no time to pray, but you do it anyway..
+&lt;&lt;/if&gt;&gt;
+
+[[Go back.|$checkpoint]]</tw-passagedata><tw-passagedata pid="30" name="Sing" tags="noheader" position="900,1000" size="100,100">If you sing, you&#39;re get an irregularity report. And horrify everyone around you with your music taste and/or singing ability.
+
+[[Sing anyway.|Sing End]]
+[[Go back.|$checkpoint]]</tw-passagedata><tw-passagedata pid="31" name="Sorry" tags="noheader" position="1100,1100" size="100,100">&lt;&lt;if visited(&quot;Sorry&quot;) is 1&gt;&gt;
+	You&#39;re sorry to all the people you&#39;ll disappoint.
+&lt;&lt;elseif visited(&quot;Sorry&quot;) is 2&gt;&gt;
+	You&#39;re sorry to your teachers, who wasted their time on your consults and lessons. 
+&lt;&lt;elseif visited(&quot;Sorry&quot;) is 3&gt;&gt;
+	You&#39;re sorry to your parents, who wasted their money trying to save your grades.
+&lt;&lt;elseif visited(&quot;Sorry&quot;) is 4&gt;&gt;
+	You&#39;re sorry to your friends, who wasted their effort to patch up your doubts.
+&lt;&lt;else&gt;&gt;
+	You have no more time to feel sorry.
+&lt;&lt;/if&gt;&gt;
+
+[[Go back.|$checkpoint]]</tw-passagedata><tw-passagedata pid="32" name="Fuck" tags="noheader" position="1000,1100" size="100,100">&lt;&lt;if visited(&quot;Fuck&quot;) is 1&gt;&gt;
+	You swear under your breath. I guess this is supposed to make you feel better.
+&lt;&lt;elseif visited(&quot;Fuck&quot;) is 2&gt;&gt;
+	You swear again. You still feel helpless. 
+&lt;&lt;else&gt;&gt;
+	You have no time to swear, or get an irregularity report.
+&lt;&lt;/if&gt;&gt;
+
+[[Go back.|$checkpoint]]</tw-passagedata><tw-passagedata pid="33" name="Toilet End" tags="noheader nofooter" position="1000,800" size="100,100">By the time you return from the toilet, the exam has ended.
+
+You should have just stayed to write.
+
+[[Begin again.|Start]]</tw-passagedata><tw-passagedata pid="34" name="Sing End" tags="noheader nofooter" position="1000,1000" size="100,100">You sing. As I warned you, you get an irregularity report.
+
+You become a school legend, whispered about as a tale of madness.
+
+[[Begin again.|Start]]</tw-passagedata><tw-passagedata pid="35" name="Sit" tags="noheader" position="900,1300" size="100,100">&lt;&lt;if visited(&quot;Sit&quot;) is 1&gt;&gt;
+	You are already sitting on a plastic chair.
+&lt;&lt;else&gt;&gt;
+	You are still sitting on a plastic chair.
+&lt;&lt;/if&gt;&gt;
+
+[[Go back.|$checkpoint]]</tw-passagedata><tw-passagedata pid="36" name="Stand" tags="noheader" position="900,1200" size="100,100">&lt;&lt;if visited(&quot;Stand&quot;) is 1&gt;&gt;
+	You stand up, dragging the chair along the floor.
+
+[[Go back.|$checkpoint]]
+&lt;&lt;elseif visited(&quot;Stand&quot;) is 2&gt;&gt;
+	You stand up again. The students around you turn their heads towards you for a moment. 
+
+[[Go back.|$checkpoint]]
+&lt;&lt;elseif visited(&quot;Stand&quot;) &gt;2&gt;&gt;
+	&lt;goto &quot;Stand End&quot;&gt;&gt;
+&lt;&lt;else&gt;&gt;
+	You have no time to stand.
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="37" name="Stand End" tags="noheader nofooter" position="1000,1200" size="100,100">The sound of your chair scraping against the floor annoys those around you. The invigilator has noticed that you are a nuisance to your classmates. You now have an irregularity report.
+
+[[Begin again.|Start]]</tw-passagedata><tw-passagedata pid="38" name="Sleep" tags="noheader" position="900,1400" size="100,100">You close your eyes. There is nothing else to do but [[sleep|Sleep End]].</tw-passagedata><tw-passagedata pid="39" name="Sleep End" tags="noheader nofooter" position="1000,1400" size="100,100">You sleep through the rest of the exam. Maybe you were too tired. Maybe you felt defeated. Maybe there is nothing else that you can do.
+
+Nevertheless, the invigilator collects your $words-word essay.
+
+[[Begin again.|Start]]</tw-passagedata><tw-passagedata pid="40" name="Remember" tags="noheader" position="675,1150" size="100,100">&lt;&lt;set $tired to false&gt;&gt;\
+&lt;&lt;if visited(&quot;Remember&quot;) is 1&gt;&gt;
+	You already remember what you need to write about.
+&lt;&lt;else&gt;&gt;
+	You remember the people you will disappoint if you fail this essay. Come on. You need to &#39;&#39;write&#39;&#39;.
+&lt;&lt;/if&gt;&gt;
+
+&lt;span class=&#39;red&#39;&gt;[[//Remember the 12-year-old boy.//|There was once a 12-year-old boy.]]&lt;/span&gt;
+[[Go back.|$checkpoint]]</tw-passagedata><tw-passagedata pid="41" name="Hint 2" tags="" position="200,450" size="100,100">You still need to &#39;&#39;write&#39;&#39;.
+
+[[Go back.|$checkpoint]]</tw-passagedata><tw-passagedata pid="42" name="Eat Myself" tags="noheader" position="1600,600" size="100,100">You bite on your hand, covering it in spit. It is salty with your sweat.
+
+You spit it out.
+
+&lt;&lt;back &quot;Go back.&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="43" name="Eat You" tags="noheader" position="1700,600" size="100,100">You can&#39;t eat your inner voice.
+
+&lt;&lt;back &quot;Go back.&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="44" name="Hint 3" tags="" position="200,550" size="100,100">&lt;&lt;if visited(&quot;Hint 3&quot;) is 1&gt;&gt;
+	You need to rest.
+&lt;&lt;else&gt;&gt;
+	Write &#39;&#39;rest&#39;.
+&lt;&lt;/if&gt;&gt;
+
+[[Go back.|$checkpoint]]</tw-passagedata><tw-passagedata pid="45" name="Say" tags="noheader" position="900,1100" size="100,100">What do you want to say?
+
+&lt;&lt;textbox &quot;$playeranswer&quot; &quot;&quot; autofocus&gt;&gt; \
+&lt;&lt;button &quot;Submit&quot;&gt;&gt;
+	&lt;&lt;if $playeranswer.trim().toLowerCase() is &quot;fuck&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Fuck&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sorry&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Blank&quot;&gt;&gt;
+	&lt;&lt;else&gt;&gt;
+		&lt;&lt;goto &quot;Retry&quot;&gt;&gt;
+	&lt;&lt;/if&gt;&gt;
+&lt;&lt;/button&gt;&gt;
+
+[[Go back.|$checkpoint]]</tw-passagedata><tw-passagedata pid="46" name="Violence" tags="noheader" position="900,1500" size="100,100">&lt;&lt;if visited(&quot;Remember&quot;) is 1&gt;&gt;
+	Violence is the answer to many things, but not this essay.
+&lt;&lt;else&gt;&gt;
+	Violence is still not the answer. You need to &#39;&#39;write&#39;&#39;.
+&lt;&lt;/if&gt;&gt;
+
+[[Go back.|$checkpoint]]</tw-passagedata><tw-passagedata pid="47" name="Win" tags="noheader" position="900,1600" size="100,100">You can&#39;t win without writing.
+
+[[Go back.|$checkpoint]]</tw-passagedata><tw-passagedata pid="48" name="4" tags="" position="300,650" size="100,100">&lt;&lt;set $checkpoint to 4&gt;&gt;\
+&lt;&lt;set $words to 105&gt;&gt;\
+&lt;&lt;set $tired to true&gt;&gt;\
+
+The words fly by. You write two short paragraphs that seem reasonably coherent.
+
+&lt;&lt;textbox &quot;$playeranswer&quot; &quot;&quot; autofocus&gt;&gt; \
+&lt;&lt;button &quot;Submit&quot;&gt;&gt;
+	&lt;&lt;if $playeranswer.trim().toLowerCase() is &quot;write&quot;&gt;&gt;
+		&lt;&lt;goto &quot;5&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;hint&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Hint 2&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;cry&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Cry&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;eat&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Eat&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;poop&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;shit&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;pee&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;poo&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;pray&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Pray&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sing&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sing&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sorry&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;say sorry&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;feel sorry&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;fuck&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Fuck&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;say fuck&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Fuck&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;stand&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Stand&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;stand up&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Stand&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sit&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sit&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sit down&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sit&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sleep&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sleep&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;remember&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Remember&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;recall&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Remember&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;say&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Say&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;kick&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;punch&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;kill&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;crush&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;win&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Win&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;die&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Die&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;wait&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Wait&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;breathe&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Breathe&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;breathe in&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Breathe&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;breathe out&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Breathe&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;lose&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Lose&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;who are you&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Who Are You&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;decide&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Decide&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;panick&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Panick&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;rest&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Rest&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Blank&quot;&gt;&gt;
+	&lt;&lt;else&gt;&gt;
+		&lt;&lt;goto &quot;Retry&quot;&gt;&gt;
+	&lt;&lt;/if&gt;&gt;
+&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="49" name="5" tags="" position="300,750" size="100,100">&lt;&lt;set $checkpoint to 5&gt;&gt;\
+&lt;&lt;set $words to 306&gt;&gt;\
+
+In the flow, you write a few more paragraphs with ease.
+
+&lt;&lt;textbox &quot;$playeranswer&quot; &quot;&quot; autofocus&gt;&gt; \
+&lt;&lt;button &quot;Submit&quot;&gt;&gt;
+	&lt;&lt;if $playeranswer.trim().toLowerCase() is &quot;write&quot;&gt;&gt;
+		&lt;&lt;goto &quot;6&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;hint&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Hint 2&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;cry&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Cry&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;eat&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Eat&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;poop&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;shit&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;pee&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;poo&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;pray&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Pray&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sing&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sing&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sorry&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;say sorry&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;feel sorry&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;fuck&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Fuck&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;say fuck&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Fuck&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;stand&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Stand&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;stand up&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Stand&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sit&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sit&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sit down&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sit&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sleep&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sleep&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;remember&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Remember&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;recall&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Remember&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;say&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Say&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;kick&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;punch&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;kill&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;crush&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;win&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Win&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;die&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Die&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;wait&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Wait&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;breathe&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Breathe&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;breathe in&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Breathe&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;breathe out&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Breathe&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;lose&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Lose&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;who are you&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Who Are You&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;decide&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Decide&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;panick&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Panick&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;rest&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Rest&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Blank&quot;&gt;&gt;
+	&lt;&lt;else&gt;&gt;
+		&lt;&lt;goto &quot;Retry&quot;&gt;&gt;
+	&lt;&lt;/if&gt;&gt;
+&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="50" name="6" tags="" position="300,850" size="100,100">&lt;&lt;set $checkpoint to 6&gt;&gt;\
+&lt;&lt;set $words to 406&gt;&gt;\
+
+Another shock of pain. You drop your pen. The callus on your middle finger glistens red.
+
+&lt;&lt;if $tired is true&gt;&gt;
+  &lt;&lt;textbox &quot;$playeranswer&quot; &quot;&quot; autofocus&gt;&gt; \
+	&lt;&lt;button &quot;Submit&quot;&gt;&gt;
+		&lt;&lt;if $playeranswer.trim().toLowerCase() is &quot;write&quot;&gt;&gt;
+			&lt;&lt;goto &quot;6 Fail&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;hint&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Hint 3&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;cry&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Cry&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;eat&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Eat&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;poop&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;shit&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;pee&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;poo&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;pray&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Pray&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sing&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sing&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sorry&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;say sorry&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;feel sorry&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;fuck&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Fuck&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;say fuck&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Fuck&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;stand&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Stand&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;stand up&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Stand&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sit&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sit&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sit down&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sit&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sleep&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sleep&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;remember&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Remember&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;recall&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Remember&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;say&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Say&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;kick&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;punch&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;kill&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;crush&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;win&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Win&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;die&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Die&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;wait&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Wait&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;breathe&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Breathe&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;breathe in&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Breathe&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;breathe out&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Breathe&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;lose&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Lose&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;who are you&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Who Are You&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;decide&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Decide&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;panick&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Panick&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;rest&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Rest&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Blank&quot;&gt;&gt;
+		&lt;&lt;else&gt;&gt;
+			&lt;&lt;goto &quot;Retry&quot;&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/button&gt;&gt;
+&lt;&lt;elseif $tired is false&gt;&gt;
+  &lt;&lt;textbox &quot;$playeranswer&quot; &quot;&quot; autofocus&gt;&gt; \
+	&lt;&lt;button &quot;Submit&quot;&gt;&gt;
+		&lt;&lt;if $playeranswer.trim().toLowerCase() is &quot;write&quot;&gt;&gt;
+			&lt;&lt;goto &quot;7&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;hint&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Hint 3&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;cry&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Cry&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;eat&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Eat&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;poop&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;shit&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;pee&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;poo&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;pray&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Pray&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sing&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sing&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sorry&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;say sorry&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;feel sorry&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;fuck&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Fuck&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;say fuck&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Fuck&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;stand&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Stand&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;stand up&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Stand&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sit&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sit&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sit down&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sit&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sleep&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Sleep&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;remember&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Remember&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;recall&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Remember&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;say&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Say&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;kick&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;punch&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;kill&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;crush&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;win&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Win&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;die&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Die&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;wait&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Wait&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;breathe&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Breathe&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;breathe in&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Breathe&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;breathe out&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Breathe&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;lose&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Lose&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;who are you&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Who Are You&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;decide&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Decide&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;panick&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Panick&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;rest&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Rest&quot;&gt;&gt;
+		&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;&quot;&gt;&gt;
+			&lt;&lt;goto &quot;Blank&quot;&gt;&gt;
+		&lt;&lt;else&gt;&gt;
+			&lt;&lt;goto &quot;Retry&quot;&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/button&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="51" name="Die" tags="noheader" position="900,1700" size="100,100">&lt;&lt;if visited(&quot;Die&quot;) is 1&gt;&gt;
+	Don&#39;t think like that. You have to &#39;&#39;write&#39;&#39;.
+&lt;&lt;elseif visited(&quot;Die&quot;) is 2&gt;&gt;
+	You have to work on these issues later. You have to &#39;&#39;write&#39;&#39; now.
+&lt;&lt;else&gt;&gt;
+	You have no time to think about that now.
+&lt;&lt;/if&gt;&gt;
+[[Go back.|$checkpoint]]</tw-passagedata><tw-passagedata pid="52" name="Wait" tags="noheader" position="675,1050" size="100,100">&lt;&lt;set $tired to false&gt;&gt;\
+&lt;&lt;if visited(&quot;Wait&quot;) is 1&gt;&gt;
+	You wait.
+&lt;&lt;else&gt;&gt;
+	You keep waiting. Time passes.
+&lt;&lt;/if&gt;&gt;
+
+[[Go back.|$checkpoint]]</tw-passagedata><tw-passagedata pid="53" name="Breathe" tags="noheader" position="675,950" size="100,100">&lt;&lt;set $tired to false&gt;&gt;\
+&lt;&lt;if visited(&quot;Breathe&quot;) is 1&gt;&gt;
+	You breathe in and out. You feel more calm.
+&lt;&lt;else&gt;&gt;
+	You breathe in and out again. You feel more calm, but you need to start to &#39;&#39;write&#39;&#39;.
+&lt;&lt;/if&gt;&gt;
+
+[[Go back.|$checkpoint]]</tw-passagedata><tw-passagedata pid="54" name="Lose" tags="noheader" position="1025,1500" size="100,100">&lt;&lt;if visited(&quot;Lose&quot;) is 1&gt;&gt;
+	You haven&#39;t lost yet.
+&lt;&lt;else&gt;&gt;
+	You feel that you have lost, but you haven&#39;t lost yet.
+&lt;&lt;/if&gt;&gt;
+
+[[Go back.|$checkpoint]]</tw-passagedata><tw-passagedata pid="55" name="Who Are You" tags="noheader" position="900,1800" size="100,100">Your inner voice. Or critic. Just &#39;&#39;write&#39;&#39;. 
+
+[[Go back.|$checkpoint]]</tw-passagedata><tw-passagedata pid="56" name="Decide" tags="noheader" position="1025,1800" size="100,100">&lt;&lt;if visited(&quot;Decide&quot;) is 1&gt;&gt;
+	You are already making decisions.
+&lt;&lt;else&gt;&gt;
+	You need to be more specific. You are still making decisions.
+&lt;&lt;/if&gt;&gt;
+
+[[Go back.|$checkpoint]]</tw-passagedata><tw-passagedata pid="57" name="Panick" tags="noheader" position="900,1900" size="100,100">&lt;&lt;if visited(&quot;Panick&quot;) is 1&gt;&gt;
+	You are already panicking.
+&lt;&lt;else&gt;&gt;
+	You are still panicking.
+&lt;&lt;/if&gt;&gt;
+
+[[Go back.|$checkpoint]]</tw-passagedata><tw-passagedata pid="58" name="Rest" tags="noheader" position="675,750" size="100,100">&lt;&lt;set $tired to false&gt;&gt;\
+&lt;&lt;if visited(&quot;Rest&quot;) is 1&gt;&gt;
+	You pause for a moment to rest your hand.
+&lt;&lt;elseif visited(&quot;Rest&quot;) is 2&gt;&gt;
+	You rest.
+&lt;&lt;else&gt;&gt;
+	You have no time to rest, but you do it anyway..
+&lt;&lt;/if&gt;&gt;
+
+[[Go back.|$checkpoint]]</tw-passagedata><tw-passagedata pid="59" name="7" tags="" position="300,950" size="100,100">&lt;&lt;set $checkpoint to 7&gt;&gt;\
+&lt;&lt;set $words to 508&gt;&gt;\
+
+You continue writing the final body paragraph. Grey dead skin cakes around the edge of your pen.
+
+&lt;&lt;textbox &quot;$playeranswer&quot; &quot;&quot; autofocus&gt;&gt; \
+&lt;&lt;button &quot;Submit&quot;&gt;&gt;
+	&lt;&lt;if $playeranswer.trim().toLowerCase() is &quot;write&quot;&gt;&gt;
+		&lt;&lt;goto &quot;8&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;hint&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Hint 2&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;cry&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Cry&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;eat&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Eat&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;poop&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;shit&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;pee&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;poo&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;pray&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Pray&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sing&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sing&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sorry&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;say sorry&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;feel sorry&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;fuck&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Fuck&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;say fuck&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Fuck&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;stand&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Stand&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;stand up&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Stand&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sit&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sit&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sit down&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sit&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sleep&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sleep&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;remember&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Remember&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;recall&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Remember&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;say&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Say&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;kick&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;punch&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;kill&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;crush&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;win&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Win&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;die&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Die&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;wait&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Wait&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;breathe&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Breathe&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;breathe in&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Breathe&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;breathe out&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Breathe&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;lose&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Lose&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;who are you&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Who Are You&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;decide&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Decide&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;panick&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Panick&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;rest&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Rest&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Blank&quot;&gt;&gt;
+	&lt;&lt;else&gt;&gt;
+		&lt;&lt;goto &quot;Retry&quot;&gt;&gt;
+	&lt;&lt;/if&gt;&gt;
+&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="60" name="6 Fail" tags="" position="400,850" size="100,100">You still can&#39;t write.
+
+&lt;&lt;back &quot;Go back.&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="61" name="8" tags="" position="300,1050" size="100,100">&lt;&lt;set $checkpoint to 8&gt;&gt;\
+&lt;&lt;set $words to 602&gt;&gt;\
+
+You write the conclusion. By now, the callus has flattened. It has a plastic sheen.
+
+&lt;&lt;textbox &quot;$playeranswer&quot; &quot;&quot; autofocus&gt;&gt; \
+&lt;&lt;button &quot;Submit&quot;&gt;&gt;
+	&lt;&lt;if $playeranswer.trim().toLowerCase() is &quot;write&quot;&gt;&gt;
+		&lt;&lt;goto &quot;9&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;hint&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Hint 2&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;cry&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Cry&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;eat&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Eat&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;poop&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;shit&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;pee&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;poo&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Toilet&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;pray&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Pray&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sing&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sing&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sorry&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;say sorry&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;feel sorry&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sorry&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;fuck&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Fuck&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;say fuck&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Fuck&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;stand&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Stand&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;stand up&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Stand&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sit&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sit&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sit down&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sit&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;sleep&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Sleep&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;remember&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Remember&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;recall&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Remember&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;say&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Say&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;kick&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;punch&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;kill&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;crush&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Violence&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;win&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Win&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;die&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Die&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;wait&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Wait&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;breathe&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Breathe&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;breathe in&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Breathe&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;breathe out&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Breathe&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;lose&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Lose&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;who are you&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Who Are You&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;decide&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Decide&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;panick&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Panick&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;rest&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Rest&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Blank&quot;&gt;&gt;
+	&lt;&lt;else&gt;&gt;
+		&lt;&lt;goto &quot;Retry&quot;&gt;&gt;
+	&lt;&lt;/if&gt;&gt;
+&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="62" name="9" tags="noheader" position="300,1150" size="100,100">&lt;&lt;set $checkpoint to 9&gt;&gt;\
+&lt;&lt;set $words to 602&gt;&gt;\
+
+It is time to submit.
+
+&lt;&lt;textbox &quot;$playeranswer&quot; &quot;&quot; autofocus&gt;&gt; \
+&lt;&lt;button &quot;Submit&quot;&gt;&gt;
+	&lt;&lt;if $playeranswer.trim().toLowerCase() is &quot;write&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Write&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;submit&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Submit&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;hint&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Hint 9&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;&quot;&gt;&gt;
+		&lt;&lt;goto &quot;11&quot;&gt;&gt;
+	&lt;&lt;else&gt;&gt;
+		&lt;&lt;goto &quot;Retry&quot;&gt;&gt;
+	&lt;&lt;/if&gt;&gt;
+&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="63" name="Hint 9" tags="" position="200,1150" size="100,100">Submit.
+
+[[Go back.|$checkpoint]]</tw-passagedata><tw-passagedata pid="64" name="10" tags="noheader" position="300,1250" size="100,100">&lt;&lt;set $checkpoint to 10&gt;&gt;\
+You have more than 60 years of your life yet.
+
+Yet this essay means everything.
+
+Submit.
+
+&lt;&lt;textbox &quot;$playeranswer&quot; &quot;&quot; autofocus&gt;&gt; \
+&lt;&lt;button &quot;Submit&quot;&gt;&gt;
+	&lt;&lt;if $playeranswer.trim().toLowerCase() is &quot;write&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Write&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;submit&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Submit&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;hint&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Hint 9&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;&quot;&gt;&gt;
+		&lt;&lt;goto &quot;11&quot;&gt;&gt;
+	&lt;&lt;else&gt;&gt;
+		&lt;&lt;goto &quot;Retry&quot;&gt;&gt;
+	&lt;&lt;/if&gt;&gt;
+&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="65" name="Write" tags="noheader" position="675,1300" size="100,100">You have nothing else to write.
+
+[[Go back.|$checkpoint]]</tw-passagedata><tw-passagedata pid="66" name="11" tags="noheader nofooter" position="300,1350" size="100,100">&lt;&lt;set $checkpoint to 11&gt;&gt;\
+Submit to the doubt that the number of words in this essay does not matter.
+
+&lt;&lt;textbox &quot;$playeranswer&quot; &quot;&quot; autofocus&gt;&gt; \
+&lt;&lt;button &quot;Submit&quot;&gt;&gt;
+	&lt;&lt;if $playeranswer.trim().toLowerCase() is &quot;write&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Write&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;submit&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Submit&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;hint&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Hint 9&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;&quot;&gt;&gt;
+		&lt;&lt;goto &quot;12&quot;&gt;&gt;
+	&lt;&lt;else&gt;&gt;
+		&lt;&lt;goto &quot;Retry&quot;&gt;&gt;
+	&lt;&lt;/if&gt;&gt;
+&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="67" name="12" tags="noheader nofooter" position="300,1450" size="100,100">&lt;&lt;set $checkpoint to 12&gt;&gt;\
+Submit to the fear that you&#39;ll disappoint everyone.
+
+&lt;&lt;textbox &quot;$playeranswer&quot; &quot;&quot; autofocus&gt;&gt; \
+&lt;&lt;button &quot;Submit&quot;&gt;&gt;
+	&lt;&lt;if $playeranswer.trim().toLowerCase() is &quot;write&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Write&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;submit&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Submit&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;hint&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Hint 9&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;&quot;&gt;&gt;
+		&lt;&lt;goto &quot;13&quot;&gt;&gt;
+	&lt;&lt;else&gt;&gt;
+		&lt;&lt;goto &quot;Retry&quot;&gt;&gt;
+	&lt;&lt;/if&gt;&gt;
+&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="68" name="13" tags="noheader nofooter" position="300,1550" size="100,100">&lt;&lt;set $checkpoint to 13&gt;&gt;\
+Submit.
+
+&lt;&lt;textbox &quot;$playeranswer&quot; &quot;&quot; autofocus&gt;&gt; \
+&lt;&lt;button &quot;Submit&quot;&gt;&gt;
+	&lt;&lt;if $playeranswer.trim().toLowerCase() is &quot;write&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Write&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;submit&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Submit&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;hint&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Hint 9&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;&quot;&gt;&gt;
+		&lt;&lt;goto &quot;14&quot;&gt;&gt;
+	&lt;&lt;else&gt;&gt;
+		&lt;&lt;goto &quot;Retry&quot;&gt;&gt;
+	&lt;&lt;/if&gt;&gt;
+&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="69" name="14" tags="noheader nofooter" position="300,1650" size="100,100">&lt;&lt;set $checkpoint to 14&gt;&gt;\
+Submit.
+
+&lt;&lt;textbox &quot;$playeranswer&quot; &quot;&quot; autofocus&gt;&gt; \
+&lt;&lt;button &quot;Submit&quot;&gt;&gt;
+	&lt;&lt;if $playeranswer.trim().toLowerCase() is &quot;write&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Write&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;submit&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Submit&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;hint&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Hint 9&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;&quot;&gt;&gt;
+		&lt;&lt;goto &quot;15&quot;&gt;&gt;
+	&lt;&lt;else&gt;&gt;
+		&lt;&lt;goto &quot;Retry&quot;&gt;&gt;
+	&lt;&lt;/if&gt;&gt;
+&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="70" name="15" tags="noheader nofooter" position="300,1750" size="100,100">&lt;&lt;set $checkpoint to 15&gt;&gt;\
+Submit.
+
+&lt;&lt;textbox &quot;$playeranswer&quot; &quot;&quot; autofocus&gt;&gt; \
+&lt;&lt;button &quot;Submit&quot;&gt;&gt;
+	&lt;&lt;if $playeranswer.trim().toLowerCase() is &quot;write&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Write&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;submit&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Submit&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;hint&quot;&gt;&gt;
+		&lt;&lt;goto &quot;Hint 9&quot;&gt;&gt;
+	&lt;&lt;elseif $playeranswer.trim().toLowerCase() is &quot;&quot;&gt;&gt;
+		&lt;&lt;goto &quot;16&quot;&gt;&gt;
+	&lt;&lt;else&gt;&gt;
+		&lt;&lt;goto &quot;Retry&quot;&gt;&gt;
+	&lt;&lt;/if&gt;&gt;
+&lt;&lt;/button&gt;&gt;</tw-passagedata><tw-passagedata pid="71" name="16" tags="noheader nofooter" position="300,1850" size="100,100">&lt;&lt;set $checkpoint to 16&gt;&gt;\
+You submitted the essay.
+
+[[Begin again.|Start]]</tw-passagedata><tw-passagedata pid="72" name="Submit" tags="noheader" position="675,1425" size="100,100">You don&#39;t need to write it. Do it.
+
+[[Go back.|$checkpoint]]</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
 	if(document.documentElement.getAttribute("data-init")==="loading"){!function(window,document,jQuery,undefined){"use strict";function _classCallCheck(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,r=Array(e.length);t<e.length;t++)r[t]=e[t];return r}return Array.from(e)}var _createClass=function(){function e(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(t,r,n){return r&&e(t.prototype,r),n&&e(t,n),t}}(),_slicedToArray=function(){function e(e,t){var r=[],n=!0,a=!1,i=undefined;try{for(var o,s=e[Symbol.iterator]();!(n=(o=s.next()).done)&&(r.push(o.value),!t||r.length!==t);n=!0);}catch(e){a=!0,i=e}finally{try{!n&&s.return&&s.return()}finally{if(a)throw i}}return r}return function(t,r){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,r);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},errorPrologRegExp=/^(?:(?:uncaught\s+(?:exception:\s+)?)?\w*(?:error|exception|_err):\s+)+/i,Alert=function(){function e(e,t,r,n){var a="fatal"===e,i="Apologies! "+(a?"A fatal":"An")+" error has occurred.";i+=a?" Aborting.":" You may be able to continue, but some parts may not work properly.",null==t&&null==r||(i+="\n\nError",null!=t&&(i+=" ["+t+"]"),i+=null!=r?": "+r.replace(errorPrologRegExp,"")+".":": unknown error."),"object"===(void 0===n?"undefined":_typeof(n))&&null!==n&&n.stack&&(i+="\n\nStack Trace:\n"+n.stack),window.alert(i)}function t(t,r,n){e(null,t,r,n)}function r(t,r,n){e("fatal",t,r,n)}return function(e){window.onerror=function(n,a,i,o,s){"complete"===document.readyState?t(null,n,s):(r(null,n,s),window.onerror=e,"function"==typeof window.onerror&&window.onerror.apply(this,arguments))}}(window.onerror),Object.freeze(Object.defineProperties({},{error:{value:t},fatal:{value:r}}))}(),Patterns=function(){var e=function(){var e=new Map([[" ","\\u0020"],["\f","\\f"],["\n","\\n"],["\r","\\r"],["\t","\\t"],["\v","\\v"],[" ","\\u00a0"],[" ","\\u1680"],["᠎","\\u180e"],[" ","\\u2000"],[" ","\\u2001"],[" ","\\u2002"],[" ","\\u2003"],[" ","\\u2004"],[" ","\\u2005"],[" ","\\u2006"],[" ","\\u2007"],[" ","\\u2008"],[" ","\\u2009"],[" ","\\u200a"],["\u2028","\\u2028"],["\u2029","\\u2029"],[" ","\\u202f"],[" ","\\u205f"],["　","\\u3000"],["\ufeff","\\ufeff"]]),t=/^\s$/,r="";return e.forEach(function(e,n){t.test(n)||(r+=e)}),r?"[\\s"+r+"]":"\\s"}(),t="[\\u0020\\f\\t\\v\\u00a0\\u1680\\u180e\\u2000-\\u200a\\u202f\\u205f\\u3000\\ufeff]",r="\\s"===e?"\\S":e.replace(/^\[/,"[^"),n="[0-9A-Z_a-z\\-\\u00c0-\\u00d6\\u00d8-\\u00f6\\u00f8-\\u00ff\\u0150\\u0170\\u0151\\u0171]",a=n.replace("\\-",""),i=function(){var e="(?:[\\x2D.0-9A-Z_a-z\\xB7\\xC0-\\xD6\\xD8-\\xF6\\xF8-\\u037D\\u037F-\\u1FFF\\u200C\\u200D\\u203F\\u2040\\u2070-\\u218F\\u2C00-\\u2FEF\\u3001-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFFD]|[\\uD800-\\uDB7F][\\uDC00-\\uDFFF])";return"[A-Za-z](?:"+e+"*-"+e+"*|[0-9A-Za-z]*)"}(),o=function(){return"("+n+"+)\\(([^\\)\\|\\n]+)\\):|"+t+"*("+n+"+)"+t+"*:([^;\\|\\n]+);|"+t+"*((?:[#.]"+n+"+"+t+"*)+);"}();return Object.freeze({space:e,spaceNoTerminator:t,lineTerminator:"[\\n\\r\\u2028\\u2029]",notSpace:r,anyChar:"(?:.|[\\n\\r\\u2028\\u2029])",anyLetter:n,anyLetterStrict:a,identifierFirstChar:"[$A-Z_a-z]",identifierNextChar:"[$0-9A-Z_a-z]",identifier:"[$A-Z_a-z][$0-9A-Z_a-z]*",variableSigil:"[$_]",variable:"[$_][$A-Z_a-z][$0-9A-Z_a-z]*",macroName:"[A-Za-z][\\w-]*|[=-]",templateName:"[A-Za-z][\\w-]*",htmlTagName:i,cssIdOrClassSigil:"[#.]",cssImage:"\\[[<>]?[Ii][Mm][Gg]\\[(?:\\s|\\S)*?\\]\\]+",inlineCss:o,url:"(?:file|https?|mailto|ftp|javascript|irc|news|data):[^\\s'\"]+"})}();!function(){function e(e,t){var r=Number.parseInt(e,10)||0;if(r<1)return"";var n=void 0===t?"":String(t);for(""===n&&(n=" ");n.length<r;){var a=n.length,i=r-a;n+=a>i?n.slice(0,i):n}return n.length>r&&(n=n.slice(0,r)),n}var t=function(){function e(e,n){var a=String(e);if(!a)return a;switch(n){case"start":return t.test(a)?a.replace(t,""):a;case"end":return r.test(a)?a.replace(r,""):a;default:throw new Error('_trimString called with incorrect where parameter value: "'+n+'"')}}var t=new RegExp("^"+Patterns.space+Patterns.space+"*"),r=new RegExp(""+Patterns.space+Patterns.space+"*$");return e}();Array.prototype.flat||Object.defineProperty(Array.prototype,"flat",{configurable:!0,writable:!0,value:function(){function e(){if(null==this)throw new TypeError("Array.prototype.flat called on null or undefined");var t=0===arguments.length?1:Number(arguments[0])||0;return t<1?Array.prototype.slice.call(this):Array.prototype.reduce.call(this,function(r,n){return n instanceof Array?r.push.apply(r,_toConsumableArray(e.call(n,t-1))):r.push(n),r},[])}return e}()}),Array.prototype.flatMap||Object.defineProperty(Array.prototype,"flatMap",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.flatMap called on null or undefined");return Array.prototype.map.apply(this,arguments).flat()}}),Array.prototype.includes||Object.defineProperty(Array.prototype,"includes",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.includes called on null or undefined");if(0===arguments.length)return!1;var e=this.length>>>0;if(0===e)return!1;var t=arguments[0],r=Number(arguments[1])||0;for(r<0&&(r=Math.max(0,e+r));r<e;++r){var n=this[r];if(n===t||n!==n&&t!==t)return!0}return!1}}),Object.entries||Object.defineProperty(Object,"entries",{configurable:!0,writable:!0,value:function(e){if("object"!==(void 0===e?"undefined":_typeof(e))||null===e)throw new TypeError("Object.entries object parameter must be an object");return Object.keys(e).map(function(t){return[t,e[t]]})}}),Object.fromEntries||Object.defineProperty(Object,"fromEntries",{configurable:!0,writable:!0,value:function(e){return Array.from(e).reduce(function(e,t){if(Object(t)!==t)throw new TypeError("Object.fromEntries iterable parameter must yield objects");return t[0]in e?Object.defineProperty(e,t[0],{configurable:!0,enumerable:!0,writable:!0,value:t[1]}):e[t[0]]=t[1],e},{})}}),Object.getOwnPropertyDescriptors||Object.defineProperty(Object,"getOwnPropertyDescriptors",{configurable:!0,writable:!0,value:function(e){if(null==e)throw new TypeError("Object.getOwnPropertyDescriptors object parameter is null or undefined");var t=Object(e);return Reflect.ownKeys(t).reduce(function(e,r){var n=Object.getOwnPropertyDescriptor(t,r);return void 0!==n&&(r in e?Object.defineProperty(e,r,{configurable:!0,enumerable:!0,writable:!0,value:n}):e[r]=n),e},{})}}),Object.values||Object.defineProperty(Object,"values",{configurable:!0,writable:!0,value:function(e){if("object"!==(void 0===e?"undefined":_typeof(e))||null===e)throw new TypeError("Object.values object parameter must be an object");return Object.keys(e).map(function(t){return e[t]})}}),String.prototype.padStart||Object.defineProperty(String.prototype,"padStart",{configurable:!0,writable:!0,value:function(t,r){if(null==this)throw new TypeError("String.prototype.padStart called on null or undefined");var n=String(this),a=n.length,i=Number.parseInt(t,10);return i<=a?n:e(i-a,r)+n}}),String.prototype.padEnd||Object.defineProperty(String.prototype,"padEnd",{configurable:!0,writable:!0,value:function(t,r){if(null==this)throw new TypeError("String.prototype.padEnd called on null or undefined");var n=String(this),a=n.length,i=Number.parseInt(t,10);return i<=a?n:n+e(i-a,r)}}),String.prototype.trimStart||Object.defineProperty(String.prototype,"trimStart",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.trimStart called on null or undefined");return t(this,"start")}}),String.prototype.trimLeft||Object.defineProperty(String.prototype,"trimLeft",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.trimLeft called on null or undefined");return t(this,"start")}}),String.prototype.trimEnd||Object.defineProperty(String.prototype,"trimEnd",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.trimEnd called on null or undefined");return t(this,"end")}}),String.prototype.trimRight||Object.defineProperty(String.prototype,"trimRight",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.trimRight called on null or undefined");return t(this,"end")}})}(),function(){function _random(){var e=void 0,t=void 0;switch(arguments.length){case 0:throw new Error("_random called with insufficient parameters");case 1:e=0,t=arguments[0];break;default:e=arguments[0],t=arguments[1]}if(e>t){var r=[t,e];e=r[0],t=r[1]}return Math.floor(_nativeMathRandom()*(t-e+1))+e}function _randomIndex(e,t){var r=void 0,n=void 0;switch(t.length){case 1:r=0,n=e-1;break;case 2:r=0,n=Math.trunc(t[1]);break;default:r=Math.trunc(t[1]),n=Math.trunc(t[2])}return Number.isNaN(r)?r=0:!Number.isFinite(r)||r>=e?r=e-1:r<0&&(r=e+r)<0&&(r=0),Number.isNaN(n)?n=0:!Number.isFinite(n)||n>=e?n=e-1:n<0&&(n=e+n)<0&&(n=e-1),_random(r,n)}function _getCodePointStartAndEnd(e,t){var r=e.charCodeAt(t);if(Number.isNaN(r))return{char:"",start:-1,end:-1};if(r<55296||r>57343)return{char:e.charAt(t),start:t,end:t};if(r>=55296&&r<=56319){var n=t+1;if(n>=e.length)throw new Error("high surrogate without trailing low surrogate");var a=e.charCodeAt(n);if(a<56320||a>57343)throw new Error("high surrogate without trailing low surrogate");return{char:e.charAt(t)+e.charAt(n),start:t,end:n}}if(0===t)throw new Error("low surrogate without leading high surrogate");var i=t-1,o=e.charCodeAt(i);if(o<55296||o>56319)throw new Error("low surrogate without leading high surrogate");return{char:e.charAt(i)+e.charAt(t),start:i,end:t}}var _nativeMathRandom=Math.random;Object.defineProperty(Array,"random",{configurable:!0,writable:!0,value:function(e){if("object"!==(void 0===e?"undefined":_typeof(e))||null===e||!Object.prototype.hasOwnProperty.call(e,"length"))throw new TypeError("Array.random array parameter must be an array or array-lke object");var t=e.length>>>0;if(0!==t){return e[0===arguments.length?_random(0,t-1):_randomIndex(t,Array.prototype.slice.call(arguments,1))]}}}),Object.defineProperty(Array.prototype,"concatUnique",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.concatUnique called on null or undefined");var e=Array.from(this);if(0===arguments.length)return e;var t=Array.prototype.reduce.call(arguments,function(e,t){return e.concat(t)},[]),r=t.length;if(0===r)return e;for(var n=Array.prototype.indexOf,a=Array.prototype.push,i=0;i<r;++i){var o=t[i];-1===n.call(e,o)&&a.call(e,o)}return e}}),Object.defineProperty(Array.prototype,"count",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.count called on null or undefined");for(var e=Array.prototype.indexOf,t=arguments[0],r=Number(arguments[1])||0,n=0;-1!==(r=e.call(this,t,r));)++n,++r;return n}}),Object.defineProperty(Array.prototype,"delete",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.delete called on null or undefined");if(0===arguments.length)return[];var e=this.length>>>0;if(0===e)return[];for(var t=Array.prototype.concat.apply([],arguments),r=t.length,n=[],a=0;a<e;++a)for(var i=this[a],o=0;o<r;++o){var s=t[o];if(i===s||i!==i&&s!==s){n.push(a);break}}for(var u=[],l=0,c=n.length;l<c;++l)u[l]=this[n[l]];for(var d=Array.prototype.splice,f=n.length-1;f>=0;--f)d.call(this,n[f],1);return u}}),Object.defineProperty(Array.prototype,"deleteAt",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.deleteAt called on null or undefined");if(0===arguments.length)return[];var e=this.length>>>0;if(0===e)return[];for(var t=Array.prototype.splice,r=[].concat(_toConsumableArray(new Set(Array.prototype.concat.apply([],arguments).map(function(t){return t<0?Math.max(0,e+t):t})).values())),n=[].concat(_toConsumableArray(r)).sort(function(e,t){return t-e}),a=[],i=0,o=r.length;i<o;++i)a[i]=this[r[i]];for(var s=0,u=n.length;s<u;++s)t.call(this,n[s],1);return a}}),Object.defineProperty(Array.prototype,"deleteWith",{configurable:!0,writable:!0,value:function(e,t){if(null==this)throw new TypeError("Array.prototype.deleteWith called on null or undefined");if("function"!=typeof e)throw new Error("Array.prototype.deleteWith predicate parameter must be a function");var r=this.length>>>0;if(0===r)return[];for(var n=Array.prototype.splice,a=[],i=[],o=0;o<r;++o)e.call(t,this[o],o,this)&&(i.push(this[o]),a.push(o));for(var s=a.length-1;s>=0;--s)n.call(this,a[s],1);return i}}),Object.defineProperty(Array.prototype,"first",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.first called on null or undefined");if(0!=this.length>>>0)return this[0]}}),Object.defineProperty(Array.prototype,"includesAll",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.includesAll called on null or undefined");if(1===arguments.length)return Array.isArray(arguments[0])?Array.prototype.includesAll.apply(this,arguments[0]):Array.prototype.includes.apply(this,arguments);for(var e=0,t=arguments.length;e<t;++e)if(!Array.prototype.some.call(this,function(e){return e===this.val||e!==e&&this.val!==this.val},{val:arguments[e]}))return!1;return!0}}),Object.defineProperty(Array.prototype,"includesAny",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.includesAny called on null or undefined");if(1===arguments.length)return Array.isArray(arguments[0])?Array.prototype.includesAny.apply(this,arguments[0]):Array.prototype.includes.apply(this,arguments);for(var e=0,t=arguments.length;e<t;++e)if(Array.prototype.some.call(this,function(e){return e===this.val||e!==e&&this.val!==this.val},{val:arguments[e]}))return!0;return!1}}),Object.defineProperty(Array.prototype,"last",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.last called on null or undefined");var e=this.length>>>0;if(0!==e)return this[e-1]}}),Object.defineProperty(Array.prototype,"pluck",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.pluck called on null or undefined");var e=this.length>>>0;if(0!==e){var t=0===arguments.length?_random(0,e-1):_randomIndex(e,[].concat(Array.prototype.slice.call(arguments)));return Array.prototype.splice.call(this,t,1)[0]}}}),Object.defineProperty(Array.prototype,"pluckMany",{configurable:!0,writable:!0,value:function(e){if(null==this)throw new TypeError("Array.prototype.pluckMany called on null or undefined");var t=this.length>>>0;if(0===t)return[];var r=Math.trunc(e);if(!Number.isInteger(r))throw new Error("Array.prototype.pluckMany want parameter must be an integer");if(r<1)return[];r>t&&(r=t);var n=Array.prototype.splice,a=[],i=t-1;do{a.push(n.call(this,_random(0,i--),1)[0])}while(a.length<r);return a}}),Object.defineProperty(Array.prototype,"pushUnique",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.pushUnique called on null or undefined");var e=arguments.length;if(0===e)return this.length>>>0;for(var t=Array.prototype.indexOf,r=Array.prototype.push,n=0;n<e;++n){var a=arguments[n];-1===t.call(this,a)&&r.call(this,a)}return this.length>>>0}}),Object.defineProperty(Array.prototype,"random",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.random called on null or undefined");var e=this.length>>>0;if(0!==e){return this[0===arguments.length?_random(0,e-1):_randomIndex(e,[].concat(Array.prototype.slice.call(arguments)))]}}}),Object.defineProperty(Array.prototype,"randomMany",{configurable:!0,writable:!0,value:function(e){if(null==this)throw new TypeError("Array.prototype.randomMany called on null or undefined");var t=this.length>>>0;if(0===t)return[];var r=Math.trunc(e);if(!Number.isInteger(r))throw new Error("Array.prototype.randomMany want parameter must be an integer");if(r<1)return[];r>t&&(r=t);var n=new Map,a=[],i=t-1;do{var o=void 0;do{o=_random(0,i)}while(n.has(o));n.set(o,!0),a.push(this[o])}while(a.length<r);return a}}),Object.defineProperty(Array.prototype,"shuffle",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.shuffle called on null or undefined");var e=this.length>>>0;if(0===e)return this;for(var t=e-1;t>0;--t){var r=Math.floor(_nativeMathRandom()*(t+1));if(t!==r){var n=this[t];this[t]=this[r],this[r]=n}}return this}}),Object.defineProperty(Array.prototype,"unshiftUnique",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.unshiftUnique called on null or undefined");var e=arguments.length;if(0===e)return this.length>>>0;for(var t=Array.prototype.indexOf,r=Array.prototype.unshift,n=0;n<e;++n){var a=arguments[n];-1===t.call(this,a)&&r.call(this,a)}return this.length>>>0}}),Object.defineProperty(Function.prototype,"partial",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Function.prototype.partial called on null or undefined");var e=Array.prototype.slice,t=this,r=e.call(arguments,0);return function(){for(var n=[],a=0,i=0;i<r.length;++i)n.push(r[i]===undefined?arguments[a++]:r[i]);return t.apply(this,n.concat(e.call(arguments,a)))}}}),Object.defineProperty(Math,"clamp",{configurable:!0,writable:!0,value:function(e,t,r){var n=Number(e);return Number.isNaN(n)?NaN:n.clamp(t,r)}}),Object.defineProperty(Math,"easeInOut",{configurable:!0,writable:!0,value:function(e){return 1-(Math.cos(Number(e)*Math.PI)+1)/2}}),Object.defineProperty(Number.prototype,"clamp",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Number.prototype.clamp called on null or undefined");if(2!==arguments.length)throw new Error("Number.prototype.clamp called with an incorrect number of parameters");var e=Number(arguments[0]),t=Number(arguments[1]);if(e>t){var r=[t,e];e=r[0],t=r[1]}return Math.min(Math.max(this,e),t)}}),RegExp.escape||function(){var e=/[\\^$*+?.()|[\]{}]/g,t=new RegExp(e.source);Object.defineProperty(RegExp,"escape",{configurable:!0,writable:!0,value:function(r){var n=String(r);return n&&t.test(n)?n.replace(e,"\\$&"):n}})}(),function(){var e=/{(\d+)(?:,([+-]?\d+))?}/g,t=new RegExp(e.source);Object.defineProperty(String,"format",{configurable:!0,writable:!0,value:function(r){function n(e,t,r){if(!t)return e;var n=Math.abs(t)-e.length;if(n<1)return e;var a=String(r).repeat(n);return t<0?e+a:a+e}if(arguments.length<2)return 0===arguments.length?"":r;var a=2===arguments.length&&Array.isArray(arguments[1])?[].concat(_toConsumableArray(arguments[1])):Array.prototype.slice.call(arguments,1);return 0===a.length?r:t.test(r)?(e.lastIndex=0,r.replace(e,function(e,t,r){var i=a[t];if(null==i)return"";for(;"function"==typeof i;)i=i();switch(void 0===i?"undefined":_typeof(i)){case"string":break;case"object":i=JSON.stringify(i);break;default:i=String(i)}return n(i,r?Number.parseInt(r,10):0," ")})):r}})}(),Object.defineProperty(String.prototype,"contains",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.contains called on null or undefined");return-1!==String.prototype.indexOf.apply(this,arguments)}}),Object.defineProperty(String.prototype,"count",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.count called on null or undefined");var e=String(arguments[0]||"");if(""===e)return 0;for(var t=String.prototype.indexOf,r=e.length,n=Number(arguments[1])||0,a=0;-1!==(n=t.call(this,e,n));)++a,n+=r;return a}}),Object.defineProperty(String.prototype,"first",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.first called on null or undefined");return _getCodePointStartAndEnd(String(this),0).char}}),Object.defineProperty(String.prototype,"last",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.last called on null or undefined");var e=String(this);return _getCodePointStartAndEnd(e,e.length-1).char}}),Object.defineProperty(String.prototype,"splice",{configurable:!0,writable:!0,value:function(e,t,r){if(null==this)throw new TypeError("String.prototype.splice called on null or undefined");var n=this.length>>>0;if(0===n)return"";var a=Number(e);Number.isSafeInteger(a)?a<0&&(a+=n)<0&&(a=0):a=0,a>n&&(a=n);var i=Number(t);(!Number.isSafeInteger(i)||i<0)&&(i=0);var o=this.slice(0,a);return void 0!==r&&(o+=r),a+i<n&&(o+=this.slice(a+i)),o}}),Object.defineProperty(String.prototype,"splitOrEmpty",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.splitOrEmpty called on null or undefined");return""===String(this)?[]:String.prototype.split.apply(this,arguments)}}),Object.defineProperty(String.prototype,"toLocaleUpperFirst",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.toLocaleUpperFirst called on null or undefined");var e=String(this),t=_getCodePointStartAndEnd(e,0),r=t.char,n=t.end;return-1===n?"":r.toLocaleUpperCase()+e.slice(n+1)}}),Object.defineProperty(String.prototype,"toUpperFirst",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.toUpperFirst called on null or undefined");var e=String(this),t=_getCodePointStartAndEnd(e,0),r=t.char,n=t.end;return-1===n?"":r.toUpperCase()+e.slice(n+1)}}),Object.defineProperty(Date.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:date)",this.toISOString()]}}),Object.defineProperty(Function.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:eval)","("+this.toString()+")"]}}),Object.defineProperty(Map.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:map)",[].concat(_toConsumableArray(this))]}}),Object.defineProperty(RegExp.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:eval)",this.toString()]}}),Object.defineProperty(Set.prototype,"toJSON",{configurable:!0,writable:!0,value:function(){return["(revive:set)",[].concat(_toConsumableArray(this))]}}),Object.defineProperty(JSON,"reviveWrapper",{configurable:!0,writable:!0,value:function(e,t){if("string"!=typeof e)throw new TypeError("JSON.reviveWrapper code parameter must be a string");return["(revive:eval)",[e,t]]}}),Object.defineProperty(JSON,"_real_stringify",{value:JSON.stringify}),Object.defineProperty(JSON,"stringify",{configurable:!0,writable:!0,value:function(e,t,r){return JSON._real_stringify(e,function(e,r){var n=r;if("function"==typeof t)try{n=t(e,n)}catch(e){}return void 0===n&&(n=["(revive:eval)","undefined"]),n},r)}}),Object.defineProperty(JSON,"_real_parse",{value:JSON.parse}),Object.defineProperty(JSON,"parse",{configurable:!0,writable:!0,value:function value(text,reviver){return JSON._real_parse(text,function(key,val){var value=val;if(Array.isArray(value)&&2===value.length)switch(value[0]){case"(revive:set)":value=new Set(value[1]);break;case"(revive:map)":value=new Map(value[1]);break;case"(revive:date)":value=new Date(value[1]);break;case"(revive:eval)":try{if(Array.isArray(value[1])){var $ReviveData$=value[1][1];value=eval(value[1][0])}else value=eval(value[1])}catch(e){}}else if("string"==typeof value&&"@@revive@@"===value.slice(0,10))try{value=eval(value.slice(10))}catch(e){}if("function"==typeof reviver)try{value=reviver(key,value)}catch(e){}return value})}}),Object.defineProperty(Array.prototype,"contains",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.contains called on null or undefined");return Array.prototype.includes.apply(this,arguments)}}),Object.defineProperty(Array.prototype,"containsAll",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.containsAll called on null or undefined");return Array.prototype.includesAll.apply(this,arguments)}}),Object.defineProperty(Array.prototype,"containsAny",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.containsAny called on null or undefined");return Array.prototype.includesAny.apply(this,arguments)}}),Object.defineProperty(Array.prototype,"flatten",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("Array.prototype.flatten called on null or undefined");return Array.prototype.flat.call(this,1/0)}}),Object.defineProperty(String.prototype,"readBracketedList",{configurable:!0,writable:!0,value:function(){if(null==this)throw new TypeError("String.prototype.readBracketedList called on null or undefined");for(var e=new RegExp("(?:\\[\\[((?:\\s|\\S)*?)\\]\\])|([^\"'\\s]\\S*)","gm"),t=[],r=void 0;null!==(r=e.exec(this));)r[1]?t.push(r[1]):r[2]&&t.push(r[2]);return t}})}();var Browser=function(){var e=navigator.userAgent.toLowerCase(),t=e.includes("windows phone"),r=Object.freeze({Android:!t&&e.includes("android"),BlackBerry:/blackberry|bb10/.test(e),iOS:!t&&/ip(?:hone|ad|od)/.test(e),Opera:!t&&("object"===_typeof(window.operamini)||e.includes("opera mini")),Windows:t||/iemobile|wpdesktop/.test(e),any:function(){return r.Android||r.BlackBerry||r.iOS||r.Opera||r.Windows}}),n=!r.Windows&&!/khtml|trident|edge/.test(e)&&e.includes("gecko"),a=!e.includes("opera")&&/msie|trident/.test(e),i=a?function(){var t=/(?:msie\s+|rv:)(\d+\.\d)/.exec(e);return t?Number(t[1]):0}():null,o=e.includes("opera")||e.includes(" opr/"),s=o?function(){var t=new RegExp((/khtml|chrome/.test(e)?"opr":"version")+"\\/(\\d+\\.\\d+)"),r=t.exec(e);return r?Number(r[1]):0}():null,u=e.includes("vivaldi");return Object.freeze({userAgent:e,isMobile:r,isGecko:n,isIE:a,ieVersion:i,isOpera:o,operaVersion:s,isVivaldi:u})}(),Has=function(){var e=function(){try{return"function"==typeof document.createElement("audio").canPlayType}catch(e){}return!1}(),t=function(){try{return"Blob"in window&&"File"in window&&"FileList"in window&&"FileReader"in window&&(!Browser.isOpera||Browser.operaVersion>=15)}catch(e){}return!1}(),r=function(){try{return"geolocation"in navigator&&"function"==typeof navigator.geolocation.getCurrentPosition&&"function"==typeof navigator.geolocation.watchPosition}catch(e){}return!1}(),n=function(){try{return"MutationObserver"in window&&"function"==typeof window.MutationObserver}catch(e){}return!1}(),a=function(){try{return"performance"in window&&"function"==typeof window.performance.now}catch(e){}return!1}(),i=function(){try{return"ontouchstart"in window||!!window.DocumentTouch&&document instanceof window.DocumentTouch||!!navigator.maxTouchPoints||!!navigator.msMaxTouchPoints}catch(e){}return!1}(),o=function(){try{for(var e=new Map([["transition","transitionend"],["MSTransition","msTransitionEnd"],["WebkitTransition","webkitTransitionEnd"],["MozTransition","transitionend"]]),t=[].concat(_toConsumableArray(e.keys())),r=document.createElement("div"),n=0;n<t.length;++n)if(r.style[t[n]]!==undefined)return e.get(t[n])}catch(e){}return!1}();return Object.freeze({audio:e,fileAPI:t,geolocation:r,mutationObserver:n,performance:a,touch:i,transitionEndEvent:o})}(),Visibility=function(){function e(){return a}function t(){return a&&document[a.stateProperty]||"visible"}function r(){return Boolean(a)}function n(){return Boolean(a&&document[a.hiddenProperty])}var a=function(){try{return Object.freeze([{hiddenProperty:"hidden",stateProperty:"visibilityState",changeEvent:"visibilitychange"},{hiddenProperty:"webkitHidden",stateProperty:"webkitVisibilityState",changeEvent:"webkitvisibilitychange"},{hiddenProperty:"mozHidden",stateProperty:"mozVisibilityState",changeEvent:"mozvisibilitychange"},{hiddenProperty:"msHidden",stateProperty:"msVisibilityState",changeEvent:"msvisibilitychange"}].find(function(e){return e.hiddenProperty in document}))}catch(e){}return undefined}();return Object.freeze(Object.defineProperties({},{vendor:{get:e},state:{get:t},isEnabled:{value:r},isHidden:{value:n},hiddenProperty:{value:a&&a.hiddenProperty},stateProperty:{value:a&&a.stateProperty},changeEvent:{value:a&&a.changeEvent}}))}(),Fullscreen=function(){function e(e){var t=e||document.documentElement;return t===document.documentElement&&("msRequestFullscreen"===f.requestFn||Browser.isOpera&&Browser.operaVersion<15)&&(t=document.body),t}function t(){return f}function r(){return(f||null)&&document[f.element]}function n(){return Boolean(f&&document[f.isEnabled])}function a(){return Boolean(f&&document[f.element])}function i(t,r){var n=this;if(!f)return Promise.reject(new Error("fullscreen not supported"));var i=e(r);if("function"!=typeof i[f.requestFn])return Promise.reject(new Error("fullscreen not supported"));if(a())return Promise.resolve();if(p())return i[f.requestFn](t);var o=".Fullscreen_requestFullscreen";return new Promise(function(e,r){jQuery(i).off(o).one(""+f.errorEvent+o+" "+f.changeEvent+o,function(t){jQuery(n).off(o),t.type===f.errorEvent?r(new Error("unknown fullscreen request error")):e()}),i[f.requestFn](t)})}function o(){var e=this;if(!f||"function"!=typeof document[f.exitFn])return Promise.reject(new TypeError("fullscreen not supported"));if(!a())return Promise.reject(new TypeError("fullscreen mode not active"));if(p())return document[f.exitFn]();var t=".Fullscreen_exitFullscreen";return new Promise(function(r,n){jQuery(document).off(t).one(""+f.errorEvent+t+" "+f.changeEvent+t,function(a){jQuery(e).off(t),a.type===f.errorEvent?n(new Error("unknown fullscreen exit error")):r()}),document[f.exitFn]()})}function s(e,t){return a()?o():i(e,t)}function u(t,r){if(f){var n=e(r);$(n).on(f.changeEvent,t)}}function l(t,r){if(f){var n=e(r);t?$(n).off(f.changeEvent,t):$(n).off(f.changeEvent)}}function c(t,r){if(f){var n=e(r);$(n).on(f.errorEvent,t)}}function d(t,r){if(f){var n=e(r);t?$(n).off(f.errorEvent,t):$(n).off(f.errorEvent)}}var f=function(){try{return Object.freeze([{isEnabled:"fullscreenEnabled",element:"fullscreenElement",requestFn:"requestFullscreen",exitFn:"exitFullscreen",changeEvent:"fullscreenchange",errorEvent:"fullscreenerror"},{isEnabled:"webkitFullscreenEnabled",element:"webkitFullscreenElement",requestFn:"webkitRequestFullscreen",exitFn:"webkitExitFullscreen",changeEvent:"webkitfullscreenchange",errorEvent:"webkitfullscreenerror"},{isEnabled:"mozFullScreenEnabled",element:"mozFullScreenElement",requestFn:"mozRequestFullScreen",exitFn:"mozCancelFullScreen",changeEvent:"mozfullscreenchange",errorEvent:"mozfullscreenerror"},{isEnabled:"msFullscreenEnabled",element:"msFullscreenElement",requestFn:"msRequestFullscreen",exitFn:"msExitFullscreen",changeEvent:"MSFullscreenChange",errorEvent:"MSFullscreenError"}].find(function(e){return e.isEnabled in document}))}catch(e){}return undefined}(),p=function(){function e(){if(null!==t)return t;if(t=!1,f)try{var e=document.exitFullscreen();e.catch(function(){}),t=e instanceof Promise}catch(e){}return t}var t=null;return e}();return Object.freeze(Object.defineProperties({},{vendor:{get:t},element:{get:r},isEnabled:{value:n},isFullscreen:{value:a},request:{value:i},exit:{value:o},toggle:{value:s},onChange:{value:u},offChange:{value:l},onError:{value:c},offError:{value:d}}))}(),_ref3=function(){function e(e){for(var t=e.cloneNode(!0),r=document.createDocumentFragment(),n=void 0;null!==(n=t.firstChild);){if(n.nodeType===Node.ELEMENT_NODE)switch(n.nodeName.toUpperCase()){case"BR":case"DIV":case"P":r.appendChild(document.createTextNode(" "))}r.appendChild(n)}return r.textContent}function t(e){if("object"!==(void 0===e?"undefined":_typeof(e))||null===e)return e;if(e instanceof String)return String(e);if(e instanceof Number)return Number(e);if(e instanceof Boolean)return Boolean(e)
