@@ -628,7 +628,7 @@ The crowd cheers. Reporters crowd around you, asking how you did it.
 
 The examination board will provide you with everything you will ever need.
 
-[[You will never need to love again.|Start]]
+[[You will never need to love again.|Start][state.restart()]]
 &lt;&lt;/linkappend&gt;&gt;\
 &lt;&lt;/linkappend&gt;&gt;\
 &lt;&lt;/linkappend&gt;&gt;\
@@ -668,7 +668,7 @@ Your Lee Kuan Yew was not perfect after all.
 
 You have failed. 
 
-[[You will never need to love again.|Start]]
+[[You will never need to love again.|Start][state.restart()]]
 &lt;&lt;/linkappend&gt;&gt;\
 &lt;&lt;/linkappend&gt;&gt;\
 &lt;&lt;/linkappend&gt;&gt;\
@@ -688,7 +688,7 @@ It is a kaleidoscope of colour, pulsing as he delivers every phrase. Rainbows an
 
 The judges seem impressed.
 
-You are eligible for the next test.
+[[You are eligible for the next test.|Test 3]]
 &lt;&lt;/linkappend&gt;&gt;\
 &lt;&lt;else&gt;&gt;
 It is time for the second test.
@@ -707,7 +707,7 @@ Your Lee Kuan Yew was not perfect after all.
 
 You have failed. 
 
-[[You will never need to love again.|Start]]
+[[You will never need to love again.|Start][state.restart()]]
 &lt;&lt;/linkappend&gt;&gt;\
 &lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="32" name="Test 1" tags="" position="400,1100" size="100,100">&lt;&lt;if $grip &gt; 3&gt;&gt;
 You wake your Lee Kuan Yew up, feeding $objective_pronoun a green concentrate to help it concentrate.
@@ -730,7 +730,7 @@ At the corner of your eye, you spot your Lee Kuan Yew’s ID, among other Lee Ku
 
 $subjective_pronoun_cap had full marks for every paper.
 
-You are eligible for the next test.
+[[You are eligible for the next test.|Test 2]]
 &lt;&lt;/linkappend&gt;&gt;\
 &lt;&lt;else&gt;&gt;
 It is time for the first test.
@@ -751,7 +751,8 @@ Your Lee Kuan Yew was not perfect after all.
 
 You have failed. 
 
-[[You will never need to love again.|Start]]&lt;&lt;/linkappend&gt;&gt;\
+[[You will never need to love again.|Start][state.restart()]]
+&lt;&lt;/linkappend&gt;&gt;\
 &lt;&lt;/if&gt;&gt;
 </tw-passagedata><tw-passagedata pid="33" name="Night 1" tags="" position="525,475" size="100,100">&lt;&lt;set $actions to 3&gt;&gt;\
 Your Lee Kuan Yew is feeling restless. He looks out at the red lights of the New Singapore skyline. This year, the PSLE coincides with the &lt;&lt;linkappend &quot;Lunar Full Moon Spring-Autumn Festival.&quot; t8n&gt;&gt;
@@ -784,7 +785,7 @@ Your Lee Kuan Yew is restless again.
 
 Your time with $objective_pronoun is coming to an end.
 
-[[&quot;Tell &quot; + $objective_pronoun + &quot; a story .&quot;|$myth_progress]]
+[[&quot;Tell &quot; + $objective_pronoun + &quot; a story.&quot;|$myth_progress]]
 [[&quot;Leave &quot; + $objective_pronoun + &quot; alone.&quot;|Day 5]]
 &lt;&lt;else&gt;&gt;
 Your Lee Kuan Yew is sleeping soundly.
@@ -796,7 +797,7 @@ Your Lee Kuan Yew is restless yet again.
 
 This is the last night.
 
-[[&quot;Tell &quot; + $objective_pronoun + &quot; a story .&quot;|$myth_progress]]
+[[&quot;Tell &quot; + $objective_pronoun + &quot; a story.&quot;|$myth_progress]]
 [[&quot;Leave &quot; + $objective_pronoun + &quot; alone.&quot;|Test 1]]
 &lt;&lt;else&gt;&gt;
 Your Lee Kuan Yew is sleeping soundly.
