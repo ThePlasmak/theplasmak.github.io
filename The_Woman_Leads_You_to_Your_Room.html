@@ -197,27 +197,27 @@ button:hover {
     text-shadow: 0 0 12px #88d7f0;
 }
 
-.passage [data-tags~="blur"] {
+.passage[data-tags~="blur"] {
     color: transparent;
     text-shadow: 0 0 12px #fff);
 }
 
-.passage [data-tags~="white"] {
+.passage[data-tags~="white"] {
   	color: #000
 }
 
-body [data-tags~="white"] {
+body[data-tags~="white"] {
 	background-color: #fff;
 }
 
-.passage [data-tags~="slow-fade"] {
+.passage[data-tags~="slow-fade"] {
     transition-duration: 2s;
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">UIBar.destroy();
 
 postdisplay['fadeIn-text'] = function (taskName) {
 	$('.fadeIn').hide().fadeIn(2000);
     // change 10000 to whatever time you want, in milliseconds
-};</script><tw-tag name="blur" color="purple"></tw-tag><tw-passagedata pid="1" name="0" tags="" position="225,25" size="100,100">&lt;&lt;if visited(&quot;Daughter&quot;) is 0&gt;&gt;[[The woman|Daughter]]&lt;&lt;else&gt;&gt;Your daughter&lt;&lt;/if&gt;&gt; &lt;&lt;if visited(&quot;Daughter&quot;) &gt;= 1 and visited(&quot;Bedroom&quot;) &gt;= 1 and visited(&quot;History Teacher&quot;) &gt;= 1&gt;&gt;[[leads-&gt;1]]&lt;&lt;else&gt;&gt;leads&lt;&lt;/if&gt;&gt; &lt;&lt;if visited(&quot;History Teacher&quot;) is 0&gt;&gt;[[you-&gt;History Teacher]]&lt;&lt;else&gt;&gt;you&lt;&lt;/if&gt;&gt; to your &lt;&lt;if visited(&quot;Bedroom&quot;) is 0&gt;&gt;[[room|Bedroom]]&lt;&lt;else&gt;&gt;bedroom&lt;&lt;/if&gt;&gt;.
+};</script><tw-tag name="blur" color="purple"></tw-tag>,<tw-tag name="slow-fade" color="yellow"></tw-tag><tw-passagedata pid="1" name="0" tags="" position="225,25" size="100,100">&lt;&lt;if visited(&quot;Daughter&quot;) is 0&gt;&gt;[[The woman|Daughter]]&lt;&lt;else&gt;&gt;Your daughter&lt;&lt;/if&gt;&gt; &lt;&lt;if visited(&quot;Daughter&quot;) &gt;= 1 and visited(&quot;Bedroom&quot;) &gt;= 1 and visited(&quot;History Teacher&quot;) &gt;= 1&gt;&gt;[[leads-&gt;1]]&lt;&lt;else&gt;&gt;leads&lt;&lt;/if&gt;&gt; &lt;&lt;if visited(&quot;History Teacher&quot;) is 0&gt;&gt;[[you-&gt;History Teacher]]&lt;&lt;else&gt;&gt;you&lt;&lt;/if&gt;&gt; to your &lt;&lt;if visited(&quot;Bedroom&quot;) is 0&gt;&gt;[[room|Bedroom]]&lt;&lt;else&gt;&gt;bedroom&lt;&lt;/if&gt;&gt;.
 
 </tw-passagedata><tw-passagedata pid="2" name="StoryInit" tags="" position="100,500" size="100,100"></tw-passagedata><tw-passagedata pid="3" name="Blur" tags="blur slow-fade" position="2100,25" size="100,100">The woman leads you to your room.
 
