@@ -1550,7 +1550,7 @@ It would be a cool display piece in your living room, though. It could  even be 
 
 [[For now]], you are cleaning up a literal mess—the cellar to her castle has mountains of &lt;&lt;include &quot;Cycling_1&quot;&gt;&gt;.
 
-You read Marie Kondo&#39;s //The Life‑Changing Magic of Tidying Up// to prepare for this, so you just need to decide whether they @@.glow;[[spark joy-&gt;Start 3.1]]@@...</tw-passagedata><tw-passagedata pid="22" name="Start 3.1" tags="" position="100,350" size="100,100">From one of the piles, the admin imp picks out these items: a &lt;&lt;if visited(&quot;soulfire heartstone greatsword&quot;) is 0&gt;&gt;[[soulfire heartstone greatsword-&gt;soulfire heartstone greatsword]]&lt;&lt;else&gt;&gt;soulfire bloodstone greatsword&lt;&lt;/if&gt;&gt;, a [[direwolfskin glove]], a [[ring of sumptuous surreptitious superstition-&gt;ring of sumptuous surreptitious superstition]], a [[bottle of half-forgotten, decanted dreams]], a [[geode chunk]], a [[Thaz&#39;lath, Unholy Shield of the Unmaker]], and finally, an [[indescribable thing-&gt;indescribable thing]].
+You read Marie Kondo&#39;s //The Life‑Changing Magic of Tidying Up// to prepare for this, so you just need to decide whether they @@.glow;[[spark joy-&gt;Start 3.1]]@@...</tw-passagedata><tw-passagedata pid="22" name="Start 3.1" tags="" position="100,350" size="100,100">From one of the piles, the admin imp picks out these items: a &lt;&lt;if visited(&quot;soulfire heartstone greatsword&quot;) is 0&gt;&gt;[[soulfire heartstone greatsword-&gt;soulfire heartstone greatsword]]&lt;&lt;else&gt;&gt;soulfire bloodstone greatsword&lt;&lt;/if&gt;&gt;, a &lt;&lt;if visited(&quot;direwolfskin glove&quot;) is 0&gt;&gt;[[direwolfskin glove]]&lt;&lt;else&gt;&gt;direwolfskin glove&lt;&lt;/if&gt;&gt;, a &lt;&lt;if visited(&quot;ring of sumptuous surreptitious superstition&quot;) is 0&gt;&gt;[[ring of sumptuous surreptitious superstition]]&lt;&lt;else&gt;&gt;ring of sumptuous surreptitious superstition&lt;&lt;/if&gt;&gt;, a &lt;&lt;if visited(&quot;bottle of half-forgotten, decanted dreams&quot;) is 0&gt;&gt;[[bottle of half-forgotten, decanted dreams]]&lt;&lt;else&gt;&gt;bottle of half-forgotten, decanted dreams&lt;&lt;/if&gt;&gt;, a &lt;&lt;if visited(&quot;geode chunk&quot;) is 0&gt;&gt;[[geode chunk]]&lt;&lt;else&gt;&gt;geode chunk&lt;&lt;/if&gt;&gt;, a &lt;&lt;if visited(&quot;Thaz&#39;lath, Unholy Shield of the Unmaker&quot;) is 0&gt;&gt;[[Thaz&#39;lath, Unholy Shield of the Unmaker]]&lt;&lt;else&gt;&gt;Thaz&#39;lath, Unholy Shield of the Unmaker&lt;&lt;/if&gt;&gt;, and finally, an &lt;&lt;if visited(&quot;indescribable thing&quot;) is 0&gt;&gt;[[indescribable thing-&gt;indescribable thing]]&lt;&lt;else&gt;&gt;indescribable thing&lt;&lt;/if&gt;&gt;.
 
 &lt;&lt;if $current_sj_items.length is 1&gt;&gt;\
 The $current_sj_items[0] in now in your &lt;span class=&#39;glow&#39;&gt;&quot;spark joy&quot;&lt;/span&gt; pile. You will attempt to find a use for it after you bring it home.
@@ -1571,7 +1571,7 @@ You feel a little productive.
 &lt;&lt;elseif $current_progress.length is 5&gt;&gt;\
 With the pile of items behind you, you cheer yourself up. You are productive.
 &lt;&lt;elseif $current_progress.length is 7&gt;&gt;\
-Now you feel a sense of accomplishment. You are done. [[Against all odds, you sorted through this pile.-&gt;Completed]]
+Now you feel a sense of accomplishment. [[Against all odds, you sorted through this pile.-&gt;Completed]]
 &lt;&lt;/if&gt;&gt;\
 &lt;&lt;if $current_progress.length is not 7&gt;&gt;\
 
@@ -1621,6 +1621,7 @@ The admin imp just shrugs.
    &lt;&lt;set $indescribable_sj to false&gt;&gt;
    &lt;&lt;goto &quot;Start 3.1&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="27" name="direwolfskin glove" tags="" position="525,400" size="100,100">&lt;&lt;run $current_progress.push(&#39;direwolfskin glove&#39;)&gt;&gt;\
+&lt;img src=&quot;https://user-images.githubusercontent.com/59949361/187041321-5f938ffa-3c15-45a5-8534-4640f27c3f9d.png&quot; style=&quot;max-height: 500px; max-width: 500px; margin-left: auto; margin-right: auto; display: block;&quot; /&gt;
 
 You gingerly pick up the glove, or at least, whatever is left of it. Bits of direwolfskin flake off the glove, falling like brown snow. 
 
@@ -1639,6 +1640,7 @@ You drop the glove.
    &lt;&lt;set $direwolfskin_sj to false&gt;&gt;
    &lt;&lt;goto &quot;Start 3.1&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="geode chunk" tags="" position="650,400" size="100,100">&lt;&lt;run $current_progress.push(&#39;geode chunk&#39;)&gt;&gt;\
+&lt;img src=&quot;https://user-images.githubusercontent.com/59949361/187511698-42ddd0a9-1ef4-4ad3-9310-1f160f1002b7.png&quot; style=&quot;max-height: 500px; max-width: 500px; margin-left: auto; margin-right: auto; display: block;&quot; /&gt;
 
 The geode sparkles as turn it in your hand, giving you a sense of calm. You could stare at it all day, watching shards of light dance across the surface. 
 
@@ -1655,6 +1657,7 @@ Or maybe you can sell it. Maybe your mother mined it, as is an ore that can be m
    &lt;&lt;set $geode_sj to false&gt;&gt;
    &lt;&lt;goto &quot;Start 3.1&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="29" name="Thaz&#39;lath, Unholy Shield of the Unmaker" tags="" position="525,525" size="100,100">&lt;&lt;run $current_progress.push(&#39;Thaz\&#39;lath, Unholy Shield of the Unmaker&#39;)&gt;&gt;\
+&lt;img src=&quot;https://user-images.githubusercontent.com/59949361/187511702-651ea898-a749-41ca-8188-a174150fc1f1.png&quot; style=&quot;max-height: 500px; max-width: 500px; margin-left: auto; margin-right: auto; display: block;&quot; /&gt;
 
 When you heave up this shield, you feel as confident as a raid boss. You feel as if you could strike down a dozen determined adventurers who want to collect all your loot until the dimension dies. Maybe you could carry it whenever you need to give a presentation.
 
@@ -1671,6 +1674,7 @@ The hole in the middle of the shield glows ice white, and you sense that somethi
    &lt;&lt;set $thazlath_sj to false&gt;&gt;
    &lt;&lt;goto &quot;Start 3.1&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="30" name="bottle of half-forgotten, decanted dreams" tags="" position="400,525" size="100,100">&lt;&lt;run $current_progress.push(&#39;bottle of half-forgotten, decanted dreams&#39;)&gt;&gt;\
+&lt;img src=&quot;https://user-images.githubusercontent.com/59949361/187511690-ae9b2531-5bea-4402-9261-5a9dff42a398.png&quot; style=&quot;max-height: 500px; max-width: 500px; margin-left: auto; margin-right: auto; display: block;&quot; /&gt;
 
 What seems like nebulas and galaxies swirl throughout the bottle. Sometimes, they form faces of the people that exist in the edges of your memory. It is mesmerising, though you feel a little uncomfortable.
 
@@ -1689,6 +1693,7 @@ You didn&#39;t know that it was edible, but you don&#39;t think the dreams look 
    &lt;&lt;set $bottle_sj to false&gt;&gt;
    &lt;&lt;goto &quot;Start 3.1&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;&quot;</tw-passagedata><tw-passagedata pid="31" name="ring of sumptuous surreptitious superstition" tags="" position="650,525" size="100,100">&lt;&lt;run $current_progress.push(&#39;ring of sumptuous surreptitious superstition&#39;)&gt;&gt;\
+&lt;img src=&quot;https://user-images.githubusercontent.com/59949361/187041327-21292d08-fd56-4e85-b114-eaa75d818986.png&quot; style=&quot;max-height: 500px; max-width: 500px; margin-left: auto; margin-right: auto; display: block;&quot; /&gt;
 
 You squeeze the ring onto your finger, but you feel nothing. Well, you feel the ring squish your skin, but you don&#39;t feel any emotional or magical effect. 
 
