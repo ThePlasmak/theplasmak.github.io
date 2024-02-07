@@ -2,7 +2,6 @@ from bs4 import BeautifulSoup
 import pyperclip
 import re
 from docx import Document
-from docx.shared import Pt
 
 
 def clean_html_tags(raw_html):
