@@ -1,12 +1,16 @@
 from bs4 import BeautifulSoup
 import pyperclip
 import re
+from docx import Document
+from docx.shared import Pt
 
 
 def clean_html_tags(raw_html):
     cleantext = re.sub(re.compile("<.*?>"), "", raw_html)
     return cleantext
 
+
+doc = Document()
 
 # Load HTML from the Proof file
 with open(
@@ -28,16 +32,19 @@ word_count = 0
 
 # Extract and accumulate the name and contents of each passage
 for passage in passages:
-    name = passage.get("name")
+    title = passage.get("name")
     content = passage.text.strip()
 
     res = len(re.findall(r"\w+", content))
     word_count += int(res)
 
     text_to_copy += (
-        name + "\n" + content + "\n"
+        title + "\n" + content + "\n"
     )  # Add passage name and content to the accumulated text
     word_count_content += content
+
+    doc.add_heading(title, level=1)
+    doc.add_paragraph(content)
 
 # Copy all the accumulated text to the clipboard
 pyperclip.copy(text_to_copy)
@@ -65,5 +72,7 @@ word_count_content = re.sub(r">", "", word_count_content)
 word_count_content = re.sub(r"\\", "", word_count_content)
 
 word_count = len(word_count_content.strip().split())
+
+doc.save("C:\\Users\\Sarah\\Downloads\\output.docx")
 
 print(f"Word Count: {word_count} words")
