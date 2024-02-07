@@ -6,8 +6,8 @@ from docx.shared import Pt
 
 
 def clean_html_tags(raw_html):
-    cleantext = re.sub(re.compile("<.*?>"), "", raw_html)
-    return cleantext
+    clean_text = BeautifulSoup(raw_html, "html.parser").text
+    return clean_text
 
 
 doc = Document()
@@ -51,25 +51,30 @@ pyperclip.copy(text_to_copy)
 
 to_remove = [
     "Advanced Creative Writing Sample",
-    '<<back "←">',
+    '<<back "←">>',
     '<<linkreplace "',
     '" t8n>>',
     "<</linkreplace>>",
 ]
 
 for t in to_remove:
-    content = content.replace(
-        t, ""
-    )  # Replace with empty string to ensure complete removal
+    content = content.replace(t, " ")
 
-word_count_content = re.sub(r"\\\[", " [", word_count_content)
-word_count_content = re.sub(r"\\\]", "] ", word_count_content)
+word_count_content = re.sub(r"\"[a-z_]*\">><</link>>", " ", word_count_content)
+
+word_count_content = re.sub(r"\[", " ", word_count_content)
+word_count_content = re.sub(r"\]", " ", word_count_content)
 
 word_count_content = clean_html_tags(word_count_content)
 
 word_count_content = re.sub(r"[ ]+", " ", word_count_content)
 word_count_content = re.sub(r">", "", word_count_content)
-word_count_content = re.sub(r"\\", "", word_count_content)
+word_count_content = re.sub(r"<", "", word_count_content)
+word_count_content = re.sub(r"\\", " ", word_count_content)
+
+# For testing
+# print(word_count_content)
+# pyperclip.copy(word_count_content)
 
 word_count = len(word_count_content.strip().split())
 
