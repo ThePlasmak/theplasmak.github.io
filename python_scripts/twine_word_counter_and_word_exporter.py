@@ -26,13 +26,17 @@ soup = BeautifulSoup(html_content, "html.parser")
 passages = soup.find_all("tw-passagedata")
 
 text_to_copy = ""
-word_count_content = ""
+content_for_word_count = ""
 word_count = 0
 
 # Extract and accumulate the name and contents of each passage
 for passage in passages:
-    title = passage.get("name")
     content = passage.text.strip()
+
+    if content is None or content == "":
+        continue
+
+    title = passage.get("name")
 
     res = len(re.findall(r"\w+", content))
     word_count += int(res)
@@ -40,7 +44,7 @@ for passage in passages:
     text_to_copy += (
         title + "\n" + content + "\n"
     )  # Add passage name and content to the accumulated text
-    word_count_content += content
+    content_for_word_count += content
 
     doc.add_heading(title, level=1)
     doc.add_paragraph(content)
@@ -59,23 +63,23 @@ to_remove = [
 for t in to_remove:
     content = content.replace(t, " ")
 
-word_count_content = re.sub(r"\"[a-z_]*\">><</link>>", " ", word_count_content)
+content_for_word_count = re.sub(r"\"[a-z_]*\">><</link>>", " ", content_for_word_count)
 
-word_count_content = re.sub(r"\[", " ", word_count_content)
-word_count_content = re.sub(r"\]", " ", word_count_content)
+content_for_word_count = re.sub(r"\[", " ", content_for_word_count)
+content_for_word_count = re.sub(r"\]", " ", content_for_word_count)
 
-word_count_content = clean_html_tags(word_count_content)
+content_for_word_count = clean_html_tags(content_for_word_count)
 
-word_count_content = re.sub(r"[ ]+", " ", word_count_content)
-word_count_content = re.sub(r">", "", word_count_content)
-word_count_content = re.sub(r"<", "", word_count_content)
-word_count_content = re.sub(r"\\", " ", word_count_content)
+content_for_word_count = re.sub(r"[ ]+", " ", content_for_word_count)
+content_for_word_count = re.sub(r">", "", content_for_word_count)
+content_for_word_count = re.sub(r"<", "", content_for_word_count)
+content_for_word_count = re.sub(r"\\", " ", content_for_word_count)
 
 # For testing
 # print(word_count_content)
 # pyperclip.copy(word_count_content)
 
-word_count = len(word_count_content.strip().split())
+word_count = len(content_for_word_count.strip().split())
 
 doc.save("C:\\Users\\Sarah\\Downloads\\output.docx")
 
