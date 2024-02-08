@@ -11,7 +11,7 @@ def clean_html_tags(raw_html):
 
 doc = Document()
 
-# Load HTML from the Proof file
+# Load HTML from the Proof file exported from Twine
 with open(
     "C:\\Users\\Sarah\\Downloads\\Advanced Creative Writing Sample.html",
     "r",
