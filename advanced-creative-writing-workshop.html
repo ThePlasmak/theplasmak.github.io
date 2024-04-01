@@ -559,7 +559,7 @@ You are welcome to bring an additional guest to share in the evening&#39;s festi
 
 Upon your arrival, be prepared to present this [[invitation-&gt;intro_1]] to the Obsidian Guard.//</tw-passagedata><tw-passagedata pid="4" name="intro_1" tags="" position="400,50" size="100,100">The envelope simply states:
 
-&lt;span class=&quot;bea_handwriting&quot;&gt;From &lt;&lt;linkreplace &quot;▒▒▒&quot; t8n&gt;&gt;[[Bea-&gt;intro_2]]&lt;&lt;/linkreplace&gt;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="5" name="intro_2" tags="" position="525,50" size="100,100">[[You don&#39;t know why she sent you an invitation.-&gt;intro_3]]</tw-passagedata><tw-passagedata pid="6" name="intro_3" tags="" position="650,50" size="100,100">But you know that you have five days left to prepare &lt;&lt;linkreplace &quot;to meet her&quot; t8n&gt;&gt;for [[this ball-&gt;home_1]]&lt;&lt;/linkreplace&gt;&gt;.</tw-passagedata><tw-passagedata pid="7" name="home_1" tags="evening" position="150,200" size="100,100">&lt;b&gt;Evening, Day 1. Your Flat.&lt;/b&gt;
+&lt;span class=&quot;bea_handwriting&quot;&gt;From &lt;&lt;linkreplace &quot;▒▒▒&quot; t8n&gt;&gt;[[Bea-&gt;intro_2]]&lt;&lt;/linkreplace&gt;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="5" name="intro_2" tags="" position="525,50" size="100,100">You don&#39;t know why &lt;&lt;linkreplace &quot;your ex&quot; t8n&gt;&gt;she&lt;&lt;/linkreplace&gt;&gt; sent you an [[invitation-&gt;intro_3]].</tw-passagedata><tw-passagedata pid="6" name="intro_3" tags="" position="650,50" size="100,100">But you know that you have five days to prepare &lt;&lt;linkreplace &quot;to meet her&quot; t8n&gt;&gt;for [[this ball-&gt;home_1]]&lt;&lt;/linkreplace&gt;&gt;.</tw-passagedata><tw-passagedata pid="7" name="home_1" tags="evening" position="150,200" size="100,100">&lt;b&gt;Evening, Day 1. Your Flat.&lt;/b&gt;
 
 Your flat is a mess, as always. You don&#39;t spend a lot of time here anyway.
 
@@ -569,7 +569,7 @@ Your old adventuring companion, Princess Philomena the Third, gifted you this ma
 
 Nevertheless, this magic mirror may still be useful to you.
 * &lt;&lt;link &quot;&lt;q&gt;Mirror mirror on the wall, explain, in detail, what a skincare routine is.&lt;/q&gt;&quot; &quot;mirror_no_rhyme&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-* &lt;&lt;link &quot;&lt;q&gt;Mirror mirror on the wall, how do I prepare for the Blood Moon Ball?&lt;/q&gt;&quot; &quot;mirror_rhyme&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="9" name="bed" tags="evening" position="275,200" size="100,100">&lt;&lt;if visited(&quot;magic_mirror&quot;) &gt; 0 and $seen_bed_text is false &gt;&gt;When Princess Philomena gifted you the magic mirror via a teleportation spell, she rounded the coordinates you gave her to the nearest twenty-five decimal places, instead of the nearest twenty-seven decimal places, so the magic mirror teleported onto your bed instead of a more sensible location.
+* &lt;&lt;link &quot;&lt;q&gt;Mirror mirror on the wall, how do I prepare for the Blood Moon Ball?&lt;/q&gt;&quot; &quot;mirror_rhyme&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="9" name="bed" tags="evening" position="275,200" size="100,100">&lt;&lt;if visited(&quot;magic_mirror&quot;) &gt; 0 and $seen_bed_text is false &gt;&gt;When Princess Philomena wanted to transport the mirror to you with a teleportation spell, she rounded the coordinates you gave her to the nearest twenty-five decimal places, instead of the nearest twenty-seven decimal places, so the magic mirror teleported onto your bed instead of a more sensible location.
 
 Thankfully, you leaped just in time to catch the mirror, so your half-broken bed isn&#39;t a fully-broken bed.
 &lt;&lt;set $seen_bed_text = true &gt;&gt;\
@@ -577,11 +577,30 @@ Thankfully, you leaped just in time to catch the mirror, so your half-broken bed
 * [[(You don&#39;t think you should sleep, because you need to talk to the magic mirror.)-&gt;home_1]]
 &lt;&lt;else&gt;&gt;\
 * [[(You don&#39;t think you should sleep, because you need to talk to the magic mirror.)-&gt;home_1]]\
-&lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="10" name="mirror_no_rhyme" tags="" position="150,450" size="100,100">Suddenly, green vapour whirls within the mirror&#39;s depths, and the face of a white woman swirls into view. She glares at you.
+&lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="10" name="mirror_no_rhyme" tags="evening" position="150,450" size="100,100">Suddenly, a fog of green vapour whirls within the mirror&#39;s depths, and the face of a white woman swirls into view. She glares at you.
 
-Perhaps the mirror is dissatisfied with your rhyming abilities, or perhaps simply with you as a person.</tw-passagedata><tw-passagedata pid="11" name="mirror_rhyme" tags="" position="275,450" size="100,100">Suddenly, green vapour whirls within the mirror&#39;s depths, and the face of a white woman with blond hair swirls into view. She glares at you.
+Perhaps the mirror is dissatisfied with your rhyming abilities, or perhaps simply with you as a person.
 
-Even though you constructed a successful rhyme, the mirror is still dissatisfied with you. Perhaps it simply dislikes you as a person.</tw-passagedata><tw-passagedata pid="12" name="dump" tags="" position="925,0" size="100,100">Getting angry with it would be like getting with a toaster, or one of your pistols.</tw-passagedata><tw-passagedata pid="13" name="StoryBanner" tags="" position="1225,250" size="100,100"></tw-passagedata><tw-passagedata pid="14" name="StorySubtitle" tags="" position="1350,250" size="100,100"></tw-passagedata><tw-passagedata pid="15" name="StoryAuthor" tags="" position="1100,375" size="100,100">by Sarah Mak</tw-passagedata><tw-passagedata pid="16" name="StoryCaption" tags="" position="1350,0" size="100,100"></tw-passagedata><tw-passagedata pid="17" name="StoryMenu" tags="" position="1100,625" size="100,100"></tw-passagedata><tw-passagedata pid="18" name="PassageFooter" tags="" position="1225,0" size="100,100">/* &lt;br&gt;&lt;&lt;if not tags().includes(&quot;no_header&quot;)&gt;&gt;&lt;&lt;back &quot;←&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; */</tw-passagedata><tw-passagedata pid="19" name="PassageHeader" tags="" position="1225,125" size="100,100"></tw-passagedata><tw-passagedata pid="20" name="Styling" tags="twine" position="1100,500" size="100,100">&lt;h1&gt;Heading 1&lt;/h1&gt;\
+The face answers in a grating musical voice:
+
+&quot;I could tell you how to perfect your skin,
+or how your true beauty lies deep within.
+But your nose is too small, and your chin is too weak,
+please don&#39;t go to the ball, with your lacking physique.&quot;
+
+You consider punching the mirror, but getting angry with it would be like getting angry with a scroll printer.</tw-passagedata><tw-passagedata pid="11" name="mirror_rhyme" tags="evening" position="275,450" size="100,100">Suddenly, a fog of green vapour whirls within the mirror&#39;s depths, and the face of a white woman with blond hair swirls into view. She glares at you.
+
+Even though you constructed a successful rhyme, the mirror is still dissatisfied with you. Perhaps it simply dislikes you as a person.
+
+The face answers in a grating musical voice: /* Improve this later */
+
+&quot;I could tell you how to perfect your skin,
+or how your true beauty lies deep within.
+Since your nose is too small, and your chin is too weak,
+please don&#39;t go to the ball, with your lacking physique.&quot;
+
+You consider punching the mirror, but getting angry with it would be like getting angry with a scroll printer.</tw-passagedata><tw-passagedata pid="12" name="dump" tags="" position="925,0" size="100,100">&quot;I&#39;ve never seen a plight so dire,
+I&#39;ve never seen an uglier vampire.&quot;</tw-passagedata><tw-passagedata pid="13" name="StoryBanner" tags="" position="1225,250" size="100,100"></tw-passagedata><tw-passagedata pid="14" name="StorySubtitle" tags="" position="1350,250" size="100,100"></tw-passagedata><tw-passagedata pid="15" name="StoryAuthor" tags="" position="1100,375" size="100,100">by Sarah Mak</tw-passagedata><tw-passagedata pid="16" name="StoryCaption" tags="" position="1350,0" size="100,100"></tw-passagedata><tw-passagedata pid="17" name="StoryMenu" tags="" position="1100,625" size="100,100"></tw-passagedata><tw-passagedata pid="18" name="PassageFooter" tags="" position="1225,0" size="100,100">/* &lt;br&gt;&lt;&lt;if not tags().includes(&quot;no_header&quot;)&gt;&gt;&lt;&lt;back &quot;←&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; */</tw-passagedata><tw-passagedata pid="19" name="PassageHeader" tags="" position="1225,125" size="100,100"></tw-passagedata><tw-passagedata pid="20" name="Styling" tags="twine" position="1100,500" size="100,100">&lt;h1&gt;Heading 1&lt;/h1&gt;\
 &lt;h2&gt;Heading 2&lt;/h2&gt;\
 &lt;h3&gt;Heading 3&lt;/h3&gt;\
 &lt;h4&gt;Heading 4&lt;/h4&gt;\
