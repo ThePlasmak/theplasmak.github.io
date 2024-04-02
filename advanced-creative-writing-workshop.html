@@ -560,22 +560,20 @@ function updateUndoButton() {
 $(document).on(":passagerender", function () {
   updateUndoButton();
 });
-</script><tw-passagedata pid="1" name="StoryInit" tags="" position="1100,0" size="100,100">&lt;&lt;set $enable_undo to true &gt;&gt;
+</script><tw-passagedata pid="1" name="StoryInit" tags="" position="1100,0" size="100,100">&lt;&lt;set $enable_undo to false &gt;&gt;
 
 &lt;&lt;set $seen_bed_text to false &gt;&gt;
 &lt;&lt;set $routine_count to 0 &gt;&gt;
 &lt;&lt;set $canape_count to 0 &gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="Start" tags="no-undo" position="150,50" size="100,100">&lt;div class=&quot;title&quot;&gt;Skincare for Vampires&lt;/div&gt;\
-&lt;div class=&quot;subtitle handwriting&quot;&gt;(Workshop Edition)&lt;/div&gt;\
+&lt;div class=&quot;subtitle&quot;&gt;(Workshop Edition)&lt;/div&gt;\
+&lt;div style=&quot;font-size:30%;&quot; class=&quot;subtitle&quot;&gt;(this is very short, sorry)&lt;/div&gt;\
 &lt;div id=&quot;menu&quot;&gt;[[Start-&gt;intro_letter]]  &lt;span style=&quot;font-size: 100%;&quot;&gt;·&lt;/span&gt; [[Options-&gt;options]]&lt;/div&gt;\</tw-passagedata><tw-passagedata pid="3" name="options" tags="no-undo" position="350,100" size="100,100">&lt;span class=&quot;subtitle&quot;&gt;&#39;&#39;Options&#39;&#39;&lt;/span&gt; &lt;span class=&quot;close&quot;&gt;[[✖-&gt;Start]]&lt;/span&gt;
 
-&lt;&lt;widget &quot;undoToggle&quot;&gt;&gt;\
 &lt;&lt;if $enable_undo&gt;&gt;\
     &#39;&#39;Enable Undo&#39;&#39; is currently &lt;&lt;link &quot;ON&quot;&gt;&gt;&lt;&lt;run $enable_undo = false&gt;&gt;&lt;&lt;goto `passage()`&gt;&gt;&lt;&lt;/link&gt;&gt;.
 &lt;&lt;else&gt;&gt;\
     &#39;&#39;Enable Undo&#39;&#39; is currently &lt;&lt;link &quot;OFF&quot;&gt;&gt;&lt;&lt;run $enable_undo = true&gt;&gt;&lt;&lt;goto `passage()`&gt;&gt;&lt;&lt;/link&gt;&gt;.
 &lt;&lt;/if&gt;&gt;\
-&lt;&lt;/widget&gt;&gt;\
-&lt;&lt;undoToggle&gt;&gt;\
 
 When this option is &#39;&#39;ON&#39;&#39;, an undo button will appear above the game window.</tw-passagedata><tw-passagedata pid="4" name="intro_letter" tags="letter no-undo" position="275,50" size="100,100">//Dear Mal,
 
@@ -636,13 +634,13 @@ It&#39;s better to extract some sort of knowledge from this senile magical devic
 
 * &lt;&lt;link &quot;&lt;q&gt;Explain to me clearly, in simple language, &lt;i&gt;without rhyming&lt;/i&gt;, what I need to do prepare for this ball.&lt;/q&gt;&quot; &quot;mirror_skincare&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
 * &lt;&lt;link &quot;&lt;q&gt;What you just said was not useful at all. Simply explain how to prepare for this ball!&lt;/q&gt;&quot; &quot;mirror_skincare_rhyme&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-* &lt;&lt;link &quot;&lt;q&gt;Can you just show me what I look like?&lt;/q&gt;&quot; &quot;mirror_reflection_attempt&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="mirror_skincare_rhyme" tags="" position="150,750" size="100,100">&lt;&lt;if visited(&quot;magic_mirror&quot;) == 1 &gt;&gt;\
+* &lt;&lt;link &quot;&lt;q&gt;Can you just show me what I look like?&lt;/q&gt;&quot; &quot;mirror_reflection_attempt&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="mirror_skincare_rhyme" tags="" position="150,700" size="100,100">&lt;&lt;if visited(&quot;magic_mirror&quot;) == 1 &gt;&gt;\
 Maybe the device would give a more coherent response if you continued rhyming.
 &lt;&lt;else&gt;&gt;\
 Maybe the device responds better to rhymes, though you find it grating.
 &lt;&lt;/if&gt;&gt;\
 
-&lt;&lt;include mirror_skincare &gt;&gt;</tw-passagedata><tw-passagedata pid="15" name="mirror_skincare" tags="" position="150,875" size="100,100">The mirror recites in a grating musical voice:
+&lt;&lt;include mirror_skincare &gt;&gt;</tw-passagedata><tw-passagedata pid="15" name="mirror_skincare" tags="" position="150,825" size="100,100">The mirror recites in a grating musical voice:
 
 &lt;q&gt;First, buy a cleanser to purge your loathsome oils,
 then a toner to soothe before your next toils.
@@ -657,7 +655,7 @@ It seems that the magic mirror forgot that you are a vampire, who cannot go out 
 
 You also wonder if the magic mirror company was sponsored by a skincare company, because skincare shouldn&#39;t be this complicated.
 
-[[Right?-&gt;temp_hub]]</tw-passagedata><tw-passagedata pid="16" name="mirror_reflection_attempt" tags="" position="275,650" size="100,100">The face disappears from view, and the wisps of green vapours writhe like snakes. You watch the mirror expectantly for half a minute, but nothing interesting happens. Suddenly, grey and rainbow lines streak across the mirror, and it makes a horrible screeching sound. The mirror is glitching out.
+[[Right?-&gt;temp_hub]]</tw-passagedata><tw-passagedata pid="16" name="mirror_reflection_attempt" tags="" position="275,575" size="100,100">The face disappears from view, and the wisps of green vapours writhe like snakes. You watch the mirror expectantly for half a minute, but nothing interesting happens. Suddenly, grey and rainbow lines streak across the mirror, and it makes a horrible screeching sound. The mirror is glitching out.
 
 As you consider finding a way to switch this mirror off and on again, the mirror screen turns completely black.
 
@@ -666,10 +664,10 @@ Then, a small carrot pops onto the screen. The carrot follows your movements, al
 The face appears again, just covering the carrot.&lt;q&gt;The magic of your curse is just too strong./I tried casting your reflection, but it came out wrong,&lt;/q&gt; it intones smugly.
 
 * &lt;&lt;link &quot;&lt;q&gt;Okay, since I can&#39;t even see what I look like, explain how I can prepare for this ball.&lt;/q&gt;&quot; &quot;mirror_skincare&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-* &lt;&lt;link &quot;&lt;q&gt;This was not useful at all. Explain how I&#39;m supposed to prepare for this ball!&lt;/q&gt;&quot; &quot;mirror_skincare_rhyme&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="17" name="temp_hub" tags="" position="700,875" size="100,100">(So sorry this is so short! I only have a few other very short scenes:)
+* &lt;&lt;link &quot;&lt;q&gt;This was not useful at all. Explain how I&#39;m supposed to prepare for this ball!&lt;/q&gt;&quot; &quot;mirror_skincare_rhyme&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="17" name="temp_hub" tags="" position="700,825" size="100,100">(So sorry this is so short! I only have a few other very short scenes:)
 
 * [[Time travel to the gala, and eat some snacks.-&gt;gala_snacks]]
-* &lt;&lt;link &quot;Time travel to do a &lt;q&gt;morning&lt;/q&gt; routine!&quot; &quot;morning_routine&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="18" name="gala_snacks" tags="" position="625,1000" size="100,100">&lt;&lt;if $canape_count &lt; 1&gt;&gt;\
+* &lt;&lt;link &quot;Time travel to do a &lt;q&gt;morning&lt;/q&gt; routine!&quot; &quot;morning_routine&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="18" name="gala_snacks" tags="" position="625,950" size="100,100">&lt;&lt;if $canape_count &lt; 1&gt;&gt;\
 &lt;q&gt;Since you haven&#39;t had your dinner...&lt;/q&gt; you tell Ian, &lt;q&gt;maybe you could eat some of the canapes?&lt;/q&gt;
 
 You lower your voice. &lt;q&gt;Just eat as much as you want. The Company is rich, anyway.&lt;/q&gt;
@@ -698,28 +696,28 @@ The canapes include:
 &lt;&lt;else&gt;&gt;\
 * [[You are too embarrassed to eat more canapes. Time to time travel back to the hub.-&gt;temp_hub]]
 &lt;&lt;/if&gt;&gt;\
-* [[Time travel back to the hub.-&gt;temp_hub]]</tw-passagedata><tw-passagedata pid="19" name="blood_biscuit" tags="" position="500,1125" size="100,100">&lt;&lt;set $canape_count += 1&gt;&gt;
+* [[Time travel back to the hub.-&gt;temp_hub]]</tw-passagedata><tw-passagedata pid="19" name="blood_biscuit" tags="" position="500,1075" size="100,100">&lt;&lt;set $canape_count += 1&gt;&gt;
 As you chew the blood biscuit, you taste... blood, as you expected. The pigeon milk cream just tastes like a really rich cream, and the roe bursts one by one in your mouth, releasing yolks of earthy, umami flavour with subtle strawberry undertones.
 \
 &lt;&lt;if $canape_count &gt; 2&gt;&gt;
 &lt;&lt;include waiter_judge&gt;&gt;
 &lt;&lt;/if&gt;&gt;\
 
-* [[You could eat another canape...-&gt;gala_snacks]]</tw-passagedata><tw-passagedata pid="20" name="birds_nest" tags="" position="625,1125" size="100,100">&lt;&lt;set $canape_count += 1&gt;&gt;
+* [[You could eat another canape...-&gt;gala_snacks]]</tw-passagedata><tw-passagedata pid="20" name="birds_nest" tags="" position="625,1075" size="100,100">&lt;&lt;set $canape_count += 1&gt;&gt;
 Contrary to popular belief, blood bird’s nest does not contain any blood, although it is still made of saliva that poor parent swiftlets have coughed up. Blood bird’s nest is red as it has absorbed minerals in cave walls. Nevertheless, this hors d&#39;oeuvre contains blood, as it has been cooked with (Western) dragon blood.
 \
 &lt;&lt;if $canape_count &gt; 2&gt;&gt;
 &lt;&lt;include waiter_judge&gt;&gt;
 &lt;&lt;/if&gt;&gt;\
 
-* [[You could eat another canape...-&gt;gala_snacks]]</tw-passagedata><tw-passagedata pid="21" name="custard_tarts" tags="" position="750,1125" size="100,100">&lt;&lt;set $canape_count += 1&gt;&gt;
+* [[You could eat another canape...-&gt;gala_snacks]]</tw-passagedata><tw-passagedata pid="21" name="custard_tarts" tags="" position="750,1075" size="100,100">&lt;&lt;set $canape_count += 1&gt;&gt;
 Given that it&#39;s made of blood, it&#39;s definitely not authentically-made, but you are still filled with a sense of nostalgia and longing.
 \
 &lt;&lt;if $canape_count &gt; 2&gt;&gt;
 &lt;&lt;include waiter_judge&gt;&gt;
 &lt;&lt;/if&gt;&gt;\
 
-* [[You could eat another canape...-&gt;gala_snacks]]</tw-passagedata><tw-passagedata pid="22" name="waiter_judge" tags="" position="225,350" size="100,100">One of the waiters is side-eyeing you judgmentally.</tw-passagedata><tw-passagedata pid="23" name="morning_routine" tags="" position="825,875" size="100,100">&lt;&lt;linkreplace &quot;Wash your face with the cleanser.&quot; t8n&gt;&gt;Your face feels clean.&lt;&lt;set $routine_count = $routine_count + 1&gt;&gt;&lt;&lt;if $routine_count is 3&gt;&gt;\
+* [[You could eat another canape...-&gt;gala_snacks]]</tw-passagedata><tw-passagedata pid="22" name="waiter_judge" tags="" position="225,350" size="100,100">One of the waiters is side-eyeing you judgmentally.</tw-passagedata><tw-passagedata pid="23" name="morning_routine" tags="" position="825,825" size="100,100">&lt;&lt;linkreplace &quot;Wash your face with the cleanser.&quot; t8n&gt;&gt;Your face feels clean.&lt;&lt;set $routine_count = $routine_count + 1&gt;&gt;&lt;&lt;if $routine_count is 3&gt;&gt;\
 &lt;&lt;timed 3s t8n&gt;&gt;&lt;&lt;goto &quot;temp_hub&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;\
 &lt;&lt;/if&gt;&gt;\&lt;&lt;/linkreplace&gt;&gt;
 
@@ -730,7 +728,7 @@ Given that it&#39;s made of blood, it&#39;s definitely not authentically-made, b
 &lt;&lt;linkreplace &quot;Apply a layer of sunscreen.&quot; t8n&gt;&gt;Better be safe. Although you only go out in the evening, there is still some sunlight that can damage your skin.&lt;&lt;set $routine_count = $routine_count + 1&gt;&gt;&lt;&lt;if $routine_count is 3&gt;&gt;\
 &lt;&lt;timed 3s t8n&gt;&gt;&lt;&lt;goto &quot;temp_hub&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;\
 &lt;&lt;/if&gt;&gt;\&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="dump" tags="" position="925,0" size="100,100">&lt;q&gt;I&#39;ve never seen a plight so dire,
-I&#39;ve never seen an uglier vampire.&lt;/q&gt;</tw-passagedata><tw-passagedata pid="25" name="StoryBanner" tags="" position="1225,250" size="100,100"></tw-passagedata><tw-passagedata pid="26" name="StorySubtitle" tags="" position="1350,250" size="100,100"></tw-passagedata><tw-passagedata pid="27" name="StoryAuthor" tags="" position="1100,375" size="100,100">by Sarah Mak</tw-passagedata><tw-passagedata pid="28" name="StoryCaption" tags="" position="1350,0" size="100,100"></tw-passagedata><tw-passagedata pid="29" name="StoryMenu" tags="" position="1100,625" size="100,100"></tw-passagedata><tw-passagedata pid="30" name="PassageFooter" tags="" position="1225,0" size="100,100">/* &lt;br&gt;&lt;&lt;if not tags().includes(&quot;no_header&quot;)&gt;&gt;&lt;&lt;back &quot;←&quot;&gt;&gt;&lt;&lt;/if&gt;&gt; */</tw-passagedata><tw-passagedata pid="31" name="PassageHeader" tags="" position="1225,125" size="100,100"></tw-passagedata><tw-passagedata pid="32" name="Styling" tags="twine" position="1100,500" size="100,100">&lt;h1&gt;Heading 1&lt;/h1&gt;\
+I&#39;ve never seen an uglier vampire.&lt;/q&gt;</tw-passagedata><tw-passagedata pid="25" name="StoryBanner" tags="" position="1225,250" size="100,100"></tw-passagedata><tw-passagedata pid="26" name="StorySubtitle" tags="" position="1350,250" size="100,100"></tw-passagedata><tw-passagedata pid="27" name="StoryAuthor" tags="" position="1100,375" size="100,100">by Sarah Mak</tw-passagedata><tw-passagedata pid="28" name="StoryCaption" tags="" position="1350,0" size="100,100"></tw-passagedata><tw-passagedata pid="29" name="StoryMenu" tags="" position="1100,625" size="100,100"></tw-passagedata><tw-passagedata pid="30" name="PassageFooter" tags="" position="1225,0" size="100,100"></tw-passagedata><tw-passagedata pid="31" name="PassageHeader" tags="" position="1225,125" size="100,100"></tw-passagedata><tw-passagedata pid="32" name="Styling" tags="twine" position="1100,500" size="100,100">&lt;h1&gt;Heading 1&lt;/h1&gt;\
 &lt;h2&gt;Heading 2&lt;/h2&gt;\
 &lt;h3&gt;Heading 3&lt;/h3&gt;\
 &lt;h4&gt;Heading 4&lt;/h4&gt;\
