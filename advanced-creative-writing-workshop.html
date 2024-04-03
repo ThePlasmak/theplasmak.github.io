@@ -611,14 +611,14 @@ function updateUndoButton() {
   }
 }
 
-// Initialize the undo button based on the current state
+// Initialize the undo button on passage render
 $(document).on(":passagerender", updateUndoButton);
 
 // AUTOSAVE
 $(document).on(":passagerender", function () {
   // Check if the current passage is neither "Start" nor "options"
   if (State.passage !== "Start" && State.passage !== "options") {
-    Save.slots.save(1); // Automatically save to slot 1
+    Save.slots.save(1); // Automatically save to slot 1 whenever you enter a new passage
   }
 });
 
@@ -770,18 +770,18 @@ The face appears again, just covering the carrot.&lt;q&gt;The magic of your curs
 * &lt;&lt;link &quot;&lt;q&gt;This was not useful at all. Explain how I&#39;m supposed to prepare for this ball!&lt;/q&gt;&quot; &quot;mirror_skincare_rhyme&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="19" name="temp_hub" tags="" position="700,825" size="100,100">(So sorry this is so short! I only have a few other very short scenes:)
 * [[Time travel to the gala, and eat some snacks.-&gt;gala_snacks]]
 * [[Talk to a store associate!-&gt;clerk_test]]
-* &lt;&lt;link &quot;Time travel to do a &lt;q&gt;morning&lt;/q&gt; routine!&quot; &quot;morning_routine&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="clerk_test" tags="" position="1225,225" size="100,100">&lt;q&gt;Are you sure being a store associate for a cosmetics store is the best way to get back into heaven?&lt;/q&gt; You ask.
+* &lt;&lt;link &quot;Time travel to do a &lt;q&gt;morning&lt;/q&gt; routine!&quot; &quot;morning_routine&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="clerk_test" tags="" position="750,675" size="100,100">&lt;q&gt;Are you sure being a store associate for a cosmetics store is the best way to get back into heaven?&lt;/q&gt; You ask.
 
 &lt;q&gt;Well, I&#39;m helping people right? So I&#39;m getting //some// good karma, or something, or... whatever points system they&#39;re using nowadays.&lt;/q&gt;
 
 She rolls her eyes. &lt;q&gt;I&#39;m sure when I get back, my colleagues will still be drinking tea. Their tea breaks take //forever//.&lt;/q&gt;
 * &lt;&lt;link &quot;&lt;q&gt;They take years to drink tea?&lt;/q&gt;&quot; &quot;clerk_test_tea&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-* &lt;&lt;link &quot;&lt;q&gt;Why don&#39;t you go on a quest? That&#39;s how a couple of immortals earned the right to re-enter heaven.&lt;/q&gt;&quot; &quot;clerk_test_quest&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="21" name="clerk_test_tea" tags="" position="100,350" size="100,100">&lt;q&gt;No, dummy. Time passes more slowly in heaven, compared to this dimension. //Everyone// knows that.&lt;/q&gt;
+* &lt;&lt;link &quot;&lt;q&gt;Why don&#39;t you go on a quest? That&#39;s how a couple of immortals earned the right to re-enter heaven.&lt;/q&gt;&quot; &quot;clerk_test_quest&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="21" name="clerk_test_tea" tags="" position="675,550" size="100,100">&lt;q&gt;No, dummy. Time passes more slowly in heaven, compared to this dimension. //Everyone// knows that.&lt;/q&gt;
 
 You are starting to think that she was banished for reasons other than cracking a vase.
 
 * &lt;&lt;link &quot;&lt;q&gt;Why don&#39;t you go on a quest? That&#39;s how a couple of immortals reentered heaven.&lt;/q&gt;&quot; &quot;clerk_test_quest&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-* &lt;&lt;link &quot;Go back to the hub!&quot; &quot;temp_hub&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="clerk_test_quest" tags="" position="225,350" size="100,100">She sighs. &lt;q&gt;Ugh, no way. I&#39;m mortal now. I don&#39;t want to actually die.&lt;/q&gt;
+* &lt;&lt;link &quot;Go back to the hub!&quot; &quot;temp_hub&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="clerk_test_quest" tags="" position="800,550" size="100,100">She sighs. &lt;q&gt;Ugh, no way. I&#39;m mortal now. I don&#39;t want to actually die.&lt;/q&gt;
 
 * &lt;&lt;link &quot;Go back to the hub!&quot; &quot;temp_hub&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="23" name="gala_snacks" tags="" position="625,950" size="100,100">&lt;&lt;if $canape_count &lt; 1&gt;&gt;\
 &lt;q&gt;Since you haven&#39;t had your dinner...&lt;/q&gt; you tell Ian, &lt;q&gt;maybe you could eat some of the canapes?&lt;/q&gt;
