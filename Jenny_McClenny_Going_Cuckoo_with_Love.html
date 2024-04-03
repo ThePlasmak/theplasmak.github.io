@@ -660,18 +660,16 @@ $(document).on(":start", function () {
 });
 
 setup.enableUndo = {
-  // Retrieves the current undo state from localStorage, correctly handling "true" and "false" strings
+  // Retrieves the current undo state from localStorage, defaulting to true
   get: function () {
-    var value = localStorage.getItem("enableUndo");
-    return value === "true"; // Correctly returns false if value is "false"
+    // This directly returns true if not set or set to "true", and false otherwise
+    return localStorage.getItem("enableUndo") !== "false";
   },
 
   // Toggles the undo state and saves the new state to localStorage
   toggle: function () {
     var currentState = this.get();
     localStorage.setItem("enableUndo", !currentState);
-
-    // Ensure the state variable is also updated
     State.variables.enableUndo = !currentState;
 
     // Optionally, refresh the current passage to reflect the change immediately
@@ -697,7 +695,20 @@ function updateUndoButton() {
 
 // Initialize the undo button on passage render
 $(document).on(":passagerender", updateUndoButton);
-</script><tw-passagedata pid="1" name="Start" tags="no-undo" position="200,100" size="100,100">&lt;div class=&quot;title&quot;&gt;Jenny McClenny: Going Cuckoo with Love!&lt;/div&gt;&lt;div class=&quot;subtitle&quot;&gt;Book 1 of the Jenny McClenny Series&lt;/div&gt;&lt;div id=&quot;menu&quot;&gt;&lt;div class=&quot;center&quot;&gt;[[Start Reading!-&gt;1]] · [[About-&gt;about]]&lt;/div&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="2" name="about" tags="" position="350,100" size="100,100">The //Jenny McClenny// series of children&#39;s books has been loved by children around the world for over five decades. Now, these books have been lovingly converted to an accessible digital hypertext format, and adapted to a modern Singaporean audience.
+
+$(document).on(":start", function () {
+  // Check if 'enableUndo' is stored in localStorage, set it to 'true' if not.
+  if (localStorage.getItem("enableUndo") === null) {
+    localStorage.setItem("enableUndo", "true"); // Set default to true if not present
+  }
+
+  // Then, load the enableUndo state from localStorage
+  State.variables.enableUndo = localStorage.getItem("enableUndo") === "true";
+
+  // Make sure to update the undo button based on the current state.
+  updateUndoButton();
+});
+</script><tw-passagedata pid="1" name="Start" tags="no-undo" position="200,100" size="100,100">&lt;div class=&quot;title&quot;&gt;Jenny McClenny: Going Cuckoo with Love!&lt;/div&gt;&lt;div class=&quot;subtitle&quot;&gt;Book 1 of the Jenny McClenny Series&lt;/div&gt;&lt;div id=&quot;menu&quot;&gt;&lt;div class=&quot;center&quot;&gt;[[Start Reading!-&gt;1]] · [[About-&gt;about]]&lt;/div&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="2" name="about" tags="" position="350,100" size="100,100">The //Jenny McClenny// series of children&#39;s books has been loved by children around the world for over five decades. Now, these books have been lovingly converted to an accessible digital hypertext format, and adapted for a modern Singaporean audience.
 
 &lt;span class=&quot;did-you-know&quot;&gt;About the Authors&lt;/span&gt;
 &#39;&#39;Alexandra Alistair&#39;&#39; is a children&#39;s book author known for her best-selling //Jenny McClenny// series of books. Her books have been translated into 18 languages, including Croatian. She has three grown children and five grandchildren. Alexandra lives with her two dogs and thirteen parakeets.
@@ -715,7 +726,7 @@ But one day, Jenny&#39;s life was no longer perfectly normal. That morning, Jenn
 &quot;FUCK ME FUCK ME FUCK ME!&quot; he screamed again. The voice was very loud, and very hoarse. It was so loud, the entire block must have woken up by now. The sound seemed to come from [[right outside Jenny&#39;s window-&gt;3]].</tw-passagedata><tw-passagedata pid="5" name="3" tags="" position="200,475" size="100,100">&lt;h4 class=&quot;page-title&quot;&gt;Page 3&lt;/h4&gt;
 Although she was quite tired, Jenny was piqued with curiosity. She got out of bed, and looked out of her window. Where could the sound have come from?
 
-&quot;FUCK ME!&quot; The sound seemed to come from the tree outside. &quot;FUCK ME! FUCK ME NOW!&quot; Jenny spotted a little black bird. It looked bery desperate.
+&quot;FUCK ME!&quot; The sound seemed to come from the tree outside. &quot;FUCK ME! FUCK ME NOW!&quot; Jenny spotted a little black bird. It looked very desperate.
 
 How odd! [[Why could this bird speak English-&gt;4]]?</tw-passagedata><tw-passagedata pid="6" name="4" tags="" position="200,600" size="100,100">&lt;h4 class=&quot;page-title&quot;&gt;Page 4&lt;/h4&gt;
 Although Jenny was annoyed that this bird woke her up, she was excited to meet it. She considered waking up her parents to tell them about this bird, but the last time she woke them up on a weekend morning, they were very mad at her.
@@ -747,7 +758,7 @@ Just as Jenny entered the park, she heard another animal.
 &quot;Uh, no,&quot; said the female sunbird. &quot;Koels are kinda gross.&quot;
 
 &quot;Don&#39;t mess up my groove!&quot; said the male sunbird. So Jenny left them, and [[went on her way-&gt;9]].</tw-passagedata><tw-passagedata pid="11" name="9" tags="" position="200,1225" size="100,100">&lt;h4 class=&quot;page-title&quot;&gt;Page 9&lt;/h4&gt;
-As she walked deeper into the park, Jenny spotted another pair of birds. One of the birds had four very long tails, and was flying up and down. The way the tails swished through the air was very impressive. The other bird was sitting on a branch. It was plain brown bird which didn&#39;t have any tails, and it looked very unimpressed.
+As she walked deeper into the park, Jenny spotted another pair of birds. One of the birds had four very long tails, and was flying up and down. The way the tails swished through the air was very impressive. The other bird was sitting on a branch. It was a plain brown bird which didn&#39;t have any tails, and it looked very unimpressed.
 
 Jenny recognised that they were [[pin-tailed whydahs-&gt;pin_tailed_whydah]]!
 
@@ -772,7 +783,11 @@ Unfortunately, all Jenny could do was to tell the koel the news. &quot;No one ha
 A pause.
 
 &quot;FUCK YOU!&quot; said the koel. &quot;I WAITED HERE [[FOR NOTHING-&gt;12]]!&quot;</tw-passagedata><tw-passagedata pid="14" name="12" tags="" position="200,1600" size="100,100">&lt;h4 class=&quot;page-title&quot;&gt;Page 12&lt;/h4&gt;
-Suddenly, Jenny spotted &quot;Uh, I heard that there was a male here,&quot; she said. &quot;And a human who can talk to animals.&quot;
+Suddenly, in the distance, Jenny spotted a small brown bird! It landed on the branch next to the koel.
+
+Jenny wasn&#39;t sure what bird it was.
+
+&quot;Uh, I heard that there was a male koel here,&quot; the bird said. &quot;And a human who can talk to animals, who is looking for a female koel.&quot; Jenny widened her eyes. She finally found a female koel!
 
 &quot;I AM THE MALE,&quot; said the male koel. &quot;DO YOU WANT TO MAKE BABIES WITH ME.&quot;
 
@@ -811,8 +826,8 @@ Just like koels, pin-tailed whydahs lay their eggs in nests of other birds, but 
 &lt;span class=&quot;did-you-know&quot;&gt;A Dozen Eggs&lt;/span&gt;
 🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚🥚
 
-&lt;span class=&quot;did-you-know&quot;&gt;A Dozen Dodos&lt;/span&gt;
-🦤🦤🦤🦤🦤🦤🦤🦤🦤🦤🦤🦤
+&lt;span class=&quot;did-you-know&quot;&gt;A Dozen Canes&lt;/span&gt;
+🦯🦯🦯🦯🦯🦯🦯🦯🦯🦯🦯🦯
 
 &lt;span class=&quot;did-you-know&quot;&gt;A Dozen Parakeets&lt;/span&gt;
 🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜🦜
@@ -825,7 +840,7 @@ Just like koels, pin-tailed whydahs lay their eggs in nests of other birds, but 
 &#39;&#39;Book 4:&#39;&#39; Jenny McClenny: A Parakeet Predicament!
 &#39;&#39;Book 5:&#39;&#39; Jenny McClenny: A Swan Song Symphony!
 
-[[Return to the title screen!-&gt;Start]]</tw-passagedata><tw-passagedata pid="21" name="dump" tags="" position="850,0" size="100,100">At the park, Jenny could hear all kinds of animals. She could hear Javan mynas calling for their friends, crows giving each other directions, and otters singing war chants as they fought each other to the death.
+[[Return to the title screen!-&gt;Start]]</tw-passagedata><tw-passagedata pid="21" name="dump" tags="" position="625,100" size="100,100">At the park, Jenny could hear all kinds of animals. She could hear Javan mynas calling for their friends, crows giving each other directions, and otters singing war chants as they fought each other to the death.
 
 
 Jenny McClenny was a perfectly normal 10-year-old girl. She had perfectly normal parents, and lived in a perfectly normal flat. Jenny went to a perfectly normal primary school, had perfectly normal friends, and scored perfectly average grades.
