@@ -200,7 +200,14 @@ div.subtitle {
 }
 
 .passage.location {
+  line-height: 1.5;
+}
+
+.location-title {
+  font-size: 120%;
   line-height: 2.2;
+  top: -4px;
+  position: relative;
 }
 
 body.morning {
@@ -557,6 +564,10 @@ body.card #undobar a {
     margin-right: 0.8em;
     margin-left: 0.8em;
   }
+
+  #undobar {
+    margin-left: -0.7em;
+  }
 }
 
 @media screen and (max-width: 920px) {
@@ -652,70 +663,31 @@ body.card #undobar a {
 UIBar.destroy();
 
 // UNDO BUTTON
-$(document).on(":start", function () {
-  // Correctly set State variable based on localStorage, with a fallback to true if not set
-  State.variables.enableUndo =
-    localStorage.getItem("enableUndo") !== null
-      ? localStorage.getItem("enableUndo") === "true"
-      : true;
-});
+function addUndoButton() {
+  // First, remove any existing undo button to prevent duplicates
+  $("#undobar").remove();
 
-setup.enableUndo = {
-  // Retrieves the current undo state from localStorage, defaulting to true
-  get: function () {
-    // This directly returns true if not set or set to "true", and false otherwise
-    return localStorage.getItem("enableUndo") !== "false";
-  },
+  // Then, add the undo button to the body of the page
+  $("body").prepend(
+    "<div id='undobar'><a href='#' id='undoButton'>←</a></div>"
+  );
 
-  // Toggles the undo state and saves the new state to localStorage
-  toggle: function () {
-    var currentState = this.get();
-    localStorage.setItem("enableUndo", !currentState);
-    State.variables.enableUndo = !currentState;
-
-    // Optionally, refresh the current passage to reflect the change immediately
-    Engine.play(passage());
-  },
-};
-
-function updateUndoButton() {
-  $("#undobar").remove(); // Remove existing Undo button, if any.
-
-  if (setup.enableUndo.get()) {
-    // Use the setup object's method for consistency.
-    $("body").prepend(
-      "<div id='undobar'><a href='#' id='undoButton'>←</a></div>"
-    );
-
-    $("#undoButton").on("click", function (e) {
-      e.preventDefault();
-      Engine.backward();
-    });
-  }
+  // Finally, attach the click event to the undo button to perform the undo action
+  $("#undoButton").on("click", function (e) {
+    e.preventDefault();
+    Engine.backward();
+  });
 }
 
-// Initialize the undo button on passage render
-$(document).on(":passagerender", updateUndoButton);
-
-$(document).on(":start", function () {
-  // Check if 'enableUndo' is stored in localStorage, set it to 'true' if not.
-  if (localStorage.getItem("enableUndo") === null) {
-    localStorage.setItem("enableUndo", "true"); // Set default to true if not present
-  }
-
-  // Then, load the enableUndo state from localStorage
-  State.variables.enableUndo = localStorage.getItem("enableUndo") === "true";
-
-  // Make sure to update the undo button based on the current state.
-  updateUndoButton();
-});
+// Add the undo button when the story starts and after each passage render
+$(document).on(":start :passagerender", addUndoButton);
 </script><tw-passagedata pid="1" name="Start" tags="no-undo" position="200,100" size="100,100">&lt;div class=&quot;title&quot;&gt;&lt;&lt;include &quot;cycling_1&quot;&gt;&gt; &lt;&lt;include &quot;cycling_2&quot;&gt;&gt;&lt;/div&gt;&lt;div class=&quot;subtitle&quot;&gt;by Sarah Mak&lt;/div&gt;
 &lt;span style=&quot;font-size:120%;line-height:3&quot;&gt;&#39;&#39;Select Location&#39;&#39;&lt;/span&gt;
 [[Coffee Shop-&gt;coffee_shop]]
 [[School-&gt;school]]
 
-More locations &lt;&lt;linkappend &quot;are&quot; t8n&gt;&gt; not&lt;&lt;/linkappend&gt;&gt; coming soon!</tw-passagedata><tw-passagedata pid="2" name="coffee_shop" tags="location" position="225,100" size="100,100">&lt;span style=&quot;font-size:120%;&quot;&gt;&#39;&#39;Coffee Shop&#39;&#39;&lt;/span&gt;
-&lt;&lt;linkreplace &quot;Hi&quot; t8n&gt;&gt;&lt;&lt;linkreplace &quot;Uncle&quot; t8n&gt;&gt;Unker&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;, &lt;&lt;linkreplace &quot;can I order&quot; t8n&gt;&gt;&lt;&lt;/linkreplace&gt;&gt; &lt;&lt;linkreplace &quot;a cup of&quot; t8n&gt;&gt;&lt;&lt;linkreplace &quot;a&quot; t8n&gt;&gt;one&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/linkreplace&gt;&gt; &lt;&lt;linkreplace &quot;coffee&quot; t8n&gt;&gt;kopi&lt;&lt;/linkreplace&gt;&gt; &lt;&lt;linkreplace &quot;with evaporated milk&quot; t8n&gt;&gt;C&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;linkreplace &quot;?&quot; t8n&gt;&gt;\!&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="3" name="school" tags="location" position="350,100" size="100,100">&lt;span style=&quot;font-size:120%;&quot;&gt;&#39;&#39;School&#39;&#39;&lt;/span&gt;
+More locations &lt;&lt;linkappend &quot;are&quot; t8n&gt;&gt; not&lt;&lt;/linkappend&gt;&gt; coming soon!</tw-passagedata><tw-passagedata pid="2" name="coffee_shop" tags="location" position="225,100" size="100,100">&lt;span class=&quot;location-title&quot;&gt;&#39;&#39;Coffee Shop&#39;&#39;&lt;/span&gt;
+&lt;&lt;linkreplace &quot;Hi&quot; t8n&gt;&gt;&lt;&lt;linkreplace &quot;Uncle&quot; t8n&gt;&gt;Unker&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;, &lt;&lt;linkreplace &quot;can I order&quot; t8n&gt;&gt;&lt;&lt;/linkreplace&gt;&gt; &lt;&lt;linkreplace &quot;a cup of&quot; t8n&gt;&gt;&lt;&lt;linkreplace &quot;a&quot; t8n&gt;&gt;one&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/linkreplace&gt;&gt; &lt;&lt;linkreplace &quot;coffee&quot; t8n&gt;&gt;kopi&lt;&lt;/linkreplace&gt;&gt; &lt;&lt;linkreplace &quot;with evaporated milk&quot; t8n&gt;&gt;C&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;linkreplace &quot;?&quot; t8n&gt;&gt;\!&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="3" name="school" tags="location" position="350,100" size="100,100">&lt;span class=&quot;location-title&quot;&gt;&#39;&#39;School&#39;&#39;&lt;/span&gt;
 &lt;&lt;linkreplace &quot;Mrs Lim&quot; t8n&gt;&gt;&lt;&lt;linkreplace &quot;Teacher&quot; t8n&gt;&gt;Cher&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;, can &lt;&lt;linkreplace &quot;you&quot; t8n&gt;&gt;&lt;&lt;/linkreplace&gt;&gt; &lt;&lt;linkreplace &quot;award me&quot; t8n&gt;&gt;&lt;&lt;linkreplace &quot;give me&quot; t8n&gt;&gt;gimme&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/linkreplace&gt;&gt; one more mark &lt;&lt;linkreplace &quot;for&quot; t8n&gt;&gt;&lt;&lt;/linkreplace&gt;&gt; &lt;&lt;linkreplace &quot;this&quot; t8n&gt;&gt;&lt;&lt;/linkreplace&gt;&gt; &lt;&lt;linkreplace &quot;question&quot; t8n&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;linkreplace &quot;, please&quot; t8n&gt;&gt; or not&lt;&lt;/linkreplace&gt;&gt;?</tw-passagedata><tw-passagedata pid="4" name="cycling_1" tags="" position="475,100" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;if not $choices_1&gt;&gt;
   &lt;&lt;set $choicesCount_1 to -1&gt;&gt;
