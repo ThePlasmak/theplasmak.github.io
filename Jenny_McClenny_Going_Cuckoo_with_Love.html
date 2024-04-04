@@ -651,63 +651,24 @@ body.card #undobar a {
 UIBar.destroy();
 
 // UNDO BUTTON
-$(document).on(":start", function () {
-  // Correctly set State variable based on localStorage, with a fallback to true if not set
-  State.variables.enableUndo =
-    localStorage.getItem("enableUndo") !== null
-      ? localStorage.getItem("enableUndo") === "true"
-      : true;
-});
+function addUndoButton() {
+  // First, remove any existing undo button to prevent duplicates
+  $("#undobar").remove();
 
-setup.enableUndo = {
-  // Retrieves the current undo state from localStorage, defaulting to true
-  get: function () {
-    // This directly returns true if not set or set to "true", and false otherwise
-    return localStorage.getItem("enableUndo") !== "false";
-  },
+  // Then, add the undo button to the body of the page
+  $("body").prepend(
+    "<div id='undobar'><a href='#' id='undoButton'>←</a></div>"
+  );
 
-  // Toggles the undo state and saves the new state to localStorage
-  toggle: function () {
-    var currentState = this.get();
-    localStorage.setItem("enableUndo", !currentState);
-    State.variables.enableUndo = !currentState;
-
-    // Optionally, refresh the current passage to reflect the change immediately
-    Engine.play(passage());
-  },
-};
-
-function updateUndoButton() {
-  $("#undobar").remove(); // Remove existing Undo button, if any.
-
-  if (setup.enableUndo.get()) {
-    // Use the setup object's method for consistency.
-    $("body").prepend(
-      "<div id='undobar'><a href='#' id='undoButton'>←</a></div>"
-    );
-
-    $("#undoButton").on("click", function (e) {
-      e.preventDefault();
-      Engine.backward();
-    });
-  }
+  // Finally, attach the click event to the undo button to perform the undo action
+  $("#undoButton").on("click", function (e) {
+    e.preventDefault();
+    Engine.backward();
+  });
 }
 
-// Initialize the undo button on passage render
-$(document).on(":passagerender", updateUndoButton);
-
-$(document).on(":start", function () {
-  // Check if 'enableUndo' is stored in localStorage, set it to 'true' if not.
-  if (localStorage.getItem("enableUndo") === null) {
-    localStorage.setItem("enableUndo", "true"); // Set default to true if not present
-  }
-
-  // Then, load the enableUndo state from localStorage
-  State.variables.enableUndo = localStorage.getItem("enableUndo") === "true";
-
-  // Make sure to update the undo button based on the current state.
-  updateUndoButton();
-});
+// Add the undo button when the story starts and after each passage render
+$(document).on(":start :passagerender", addUndoButton);
 </script><tw-passagedata pid="1" name="Start" tags="no-undo" position="200,100" size="100,100">&lt;div class=&quot;title&quot;&gt;Jenny McClenny: Going Cuckoo with Love!&lt;/div&gt;&lt;div class=&quot;subtitle&quot;&gt;Book 1 of the Jenny McClenny Series&lt;/div&gt;&lt;div id=&quot;menu&quot;&gt;&lt;div class=&quot;center&quot;&gt;[[Start Reading!-&gt;1]] · [[About-&gt;about]]&lt;/div&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="2" name="about" tags="" position="350,100" size="100,100">The //Jenny McClenny// series of children&#39;s books has been loved by children around the world for over five decades. Now, these books have been lovingly converted to an accessible digital hypertext format, and adapted for a modern Singaporean audience.
 
 &lt;span class=&quot;did-you-know&quot;&gt;About the Authors&lt;/span&gt;
