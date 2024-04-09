@@ -677,8 +677,8 @@ When this option is &#39;&#39;ON&#39;&#39;, an undo button will appear at the to
 
 /* TRACK VISITS */
 &lt;&lt;set $mirror_visited to false&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="StoryInit" tags="" position="75,225" size="100,100">&lt;&lt;include variable_setup&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="pre_intro_letter" tags="pre-letter no-undo" position="325,400" size="100,100">&lt;&lt;nobr&gt;&gt;
-&lt;&lt;timed 1s&gt;&gt;&lt;&lt;goto &quot;intro_letter&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
 &lt;&lt;include variable_setup&gt;&gt;
+&lt;&lt;timed 1s&gt;&gt;&lt;&lt;goto &quot;intro_letter&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="7" name="intro_letter" tags="letter no-undo" position="450,400" size="100,100">//Dear Ms Mal,
 
 You are officially notified of this most cordial invitation to the 148th East Shenzhou Company&#39;s Grand Blood Moon Ball at the Company Headquarters on the 17th of Aueril.
@@ -694,20 +694,20 @@ You consider talking to the &lt;&lt;if $mirror_visited is false&gt;&gt;[[magic m
 The mirror is covered in dust, and there are black spots scattered along its bottom edge.
 
 Your old adventuring companion, Princess Philomena the Third, gifted you this magic mirror a few decades ago. Maybe she forgot that vampires can&#39;t see themselves in mirrors, but at least there is a magical intelligence inside this.
-* &lt;&lt;link &quot;&lt;q&gt;Mirror mirror on the wall, explain, in detail, how I should prepare for a formal event.&lt;/q&gt;&quot; &quot;magic_mirror_no_rhyme&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-* &lt;&lt;link &quot;&lt;q&gt;Mirror mirror on the wall, how do I prepare for the Blood Moon Ball?&lt;/q&gt;&quot; &quot;magic_mirror_rhyme&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="18" name="magic_mirror_rhyme" tags="" position="350,825" size="100,100">Suddenly, a vortex of green vapour whirls within the mirror&#39;s depths. At the centre of the vortex, the face of a middle-aged woman swirls into view.
+* &lt;&lt;link &quot;“Mirror mirror on the wall, explain, in detail, how I should prepare for a formal event.”&quot; &quot;magic_mirror_no_rhyme&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
+* &lt;&lt;link &quot;“Mirror mirror on the wall, how do I prepare for the Blood Moon Ball?”&quot; &quot;magic_mirror_rhyme&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="18" name="magic_mirror_rhyme" tags="" position="350,825" size="100,100">Suddenly, a vortex of green vapour whirls within the mirror&#39;s depths. At the centre of the vortex, the face of a middle-aged woman swirls into view.
 
 Then, she forces an uncomfortably wide grin.
 
-&lt;q&gt;I do not know what you mean by a Blood Moon Ball,
+“I do not know what you mean by a Blood Moon Ball,
 but similar events may involve human sacrifices or alcohol.
 Before making any dangerous decision,
-please consult a haemomancer, or a physician.&lt;/q&gt;
-* &lt;&lt;link &quot;&lt;q&gt;That was useless!&lt;/q&gt;&quot; &quot;magic_mirror_useless&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-* &lt;&lt;link &quot;&lt;q&gt;The Blood Moon Ball is just some formal event! So how do I prepare for it?&lt;/q&gt;&quot; &quot;magic_mirror_prepare&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="19" name="magic_mirror_useless" tags="" position="1100,225" size="100,100">&lt;q&gt;I&#39;m sorry to hear that this did not answer your question.
-But could you rephrase your query with a little less aggression?&lt;/q&gt;
+please consult a haemomancer, or a physician.”
+* &lt;&lt;link &quot;“That was useless!”&quot; &quot;magic_mirror_useless&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
+* &lt;&lt;link &quot;“The Blood Moon Ball is just some formal event! So how do I prepare for it?”&quot; &quot;magic_mirror_prepare&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="19" name="magic_mirror_useless" tags="" position="1100,225" size="100,100">“I&#39;m sorry to hear that this did not answer your question.
+But could you rephrase your query with a little less aggression?”
 
-You groan, and consider slapping the mirror, but getting angry with it would be like getting angry with a printer. &lt;q&gt;So how do I prepare for the Blood Moon Ball, which is a //formal event//?&lt;/q&gt;
+You groan, and consider slapping the mirror, but getting angry with it would be like getting angry with a printer. “So how do I prepare for the Blood Moon Ball, which is a //formal event//?”
 
 The magic mirror answers in a musical voice.
 
@@ -724,22 +724,28 @@ Next, an eye cream, a mask, then a moisturising cream,
 and don&#39;t forget to acquire a strong &lt;&lt;link &quot;sunscreen&quot;&gt;&gt;&lt;&lt;replace &quot;#1&quot; t8n&gt;&gt;The mirror simply smiles at you.
 
 It seems that the magic mirror forgot that you are a vampire, who cannot go out in the sun without burning to a vampire-flavoured crisp. Also, you think that the number of skincare products that exist is ridiculous.
-* &lt;&lt;link &quot;&lt;q&gt;This is ridiculous.&lt;/q&gt;&quot; &quot;magic_mirror_ridiculous&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-* &lt;&lt;link &quot;&lt;q&gt;Which skincare products do I &lt;i&gt;really&lt;/i&gt; need?&lt;/q&gt;&quot; &quot;magic_mirror_need&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
+* &lt;&lt;link &quot;“This is ridiculous.”&quot; &quot;magic_mirror_ridiculous&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
+* &lt;&lt;link &quot;“Which skincare products do I &lt;i&gt;really&lt;/i&gt; need?”&quot; &quot;magic_mirror_need&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
 &lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;!”
 &lt;&lt;/linkappend&gt;&gt;&lt;&lt;/linkappend&gt;&gt;&lt;&lt;/linkappend&gt;&gt;
 &lt;span id=&quot;1&quot;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="23" name="magic_mirror_ridiculous" tags="" position="350,350" size="100,100">She chimes, “there are no ugly women, only lazy ones.
-Why don&#39;t you care about this as much your guns?” You didn&#39;t know this mirror was awake when you were working on your pistols. /* May want to improve this */
+Why don&#39;t you care about this as much your guns?”
 
-“Okay, I care now! Just tell me what I need to do!”
+You didn&#39;t know this mirror was awake when you were working on your pistols. /* May want to improve this */
+
+“Okay, I care now! Just tell me what I need to do!” You shout.
 
 The mirror answers in a musical tone:
-&lt;&lt;include magic_mirror_need&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="magic_mirror_need" tags="" position="475,350" size="100,100">&lt;q&gt;Cleansers, moisturisers, and sunscreens are the vital three,
-So you should purchase them on your next shopping spree.
-And unless you consider your trench coat formal attire,
-a dressier outfit is another item you must acquire.&lt;/q&gt;
+&lt;&lt;include magic_mirror_need&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="magic_mirror_need" tags="" position="475,350" size="100,100">“Cleansers, moisturisers, and sunscreens are the vital three,
+So you should purchase them on your next shopping spree,” it says.
 
-[[Finally, you know what you need now.-&gt;tutorial_1]]</tw-passagedata><tw-passagedata pid="25" name="tutorial_1" tags="" position="600,350" size="100,100">[[You need to go out, and shop for these things.-&gt;tutorial_2]]</tw-passagedata><tw-passagedata pid="26" name="tutorial_2" tags="" position="725,350" size="100,100">[[Time to prepare for this upcoming battle.-&gt;day_1_explore]]</tw-passagedata><tw-passagedata pid="27" name="bed" tags="" position="200,700" size="100,100">&lt;&lt;if $mirror_visited == true and $bed_text_seen == false &gt;&gt;\
+The mirror&#39;s eyes narrow, and it adds,
+“And unless you consider your trench coat formal attire,
+a dressier outfit is another item you must acquire.”
+
+You think your trench coat looks very dapper, and you stubbornly insist on wearing it even in Xingang&#39;s subtropical weather, but the mirror is right. You can&#39;t go to the ball wearing this.
+
+[[So, you know what you need now.-&gt;tutorial_1]]</tw-passagedata><tw-passagedata pid="25" name="tutorial_1" tags="" position="600,350" size="100,100">[[You need to go out, and shop for some supplies.-&gt;tutorial_2]]</tw-passagedata><tw-passagedata pid="26" name="tutorial_2" tags="" position="725,350" size="100,100">[[It is time to prepare for this upcoming battle.-&gt;day_1_explore]]</tw-passagedata><tw-passagedata pid="27" name="bed" tags="" position="200,700" size="100,100">&lt;&lt;if $mirror_visited == true and $bed_text_seen == false &gt;&gt;\
 &lt;&lt;set $bed_text_seen to true&gt;&gt;\
 When Princess Philomena wanted to transport the mirror to you, she rounded the coordinates you gave her to the nearest twenty-five decimal places, instead of the nearest twenty-seven decimal places, so the magic mirror teleported onto your bed instead of a more sensible location.
 
@@ -748,7 +754,7 @@ Thankfully, you leaped just in time to catch the mirror, so your half-broken bed
 Your bed is still half-broken. There is a gaping horizontal split along its underside, but it has not completely broken into two. You can still [[sleep]] on it comfortably, somewhat.
 &lt;&lt;/if&gt;&gt;\
 * [[Look back.-&gt;day_1_start]]</tw-passagedata><tw-passagedata pid="28" name="sleep" tags="" position="200,825" size="100,100">/* WIP */
-You don&#39;t need to sleep, but you try to sleep every day, as it does make you feel more rested. &lt;&lt;if $mirror_visited == true&gt;&gt;Plus, you read in a magazine that sleeping is good for your skin.&lt;&lt;/if&gt;&gt;
+You don&#39;t need to sleep, but you try to sleep every day, as it does make you feel more rested. It&#39;s probably more psychological than physical. &lt;&lt;if $mirror_visited == true&gt;&gt;Plus, you read in a magazine that sleeping is good for your skin.&lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if $shop_done == true&gt;&gt;\
 /* WIP: this will have lots of nested ifs for each day */
