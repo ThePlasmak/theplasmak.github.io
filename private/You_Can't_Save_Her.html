@@ -98,7 +98,7 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 		<div id="init-lacking"><p>Browser lacks capabilities required to play.</p><p>Upgrade or switch to another browser.</p></div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<!-- UUID://3831B6E9-E3BF-4D0B-9EB8-E35C776D54B4// --><tw-storydata name="You Can&#39;t Save Her" startnode="1" creator="Tweego" creator-version="2.1.1+81d1d71" ifid="3831B6E9-E3BF-4D0B-9EB8-E35C776D54B4" zoom="1" format="SugarCube" format-version="2.36.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* twine-user-stylesheet #1: "CSS.css" */
+	<!-- UUID://3831B6E9-E3BF-4D0B-9EB8-E35C776D54B4// --><tw-storydata name="You Can&#39;t Save Her" startnode="176" creator="Tweego" creator-version="2.1.1+81d1d71" ifid="3831B6E9-E3BF-4D0B-9EB8-E35C776D54B4" zoom="1" format="SugarCube" format-version="2.36.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* twine-user-stylesheet #1: "CSS.css" */
 @import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap');
 
@@ -264,7 +264,7 @@ p:first-of-type {
 }
 
 .subtitle {
-  font-size: 1.4em;
+  font-size: 1.38em;
   font-weight: 800;
   text-align: center;
   -webkit-touch-callout: none;
@@ -858,7 +858,6 @@ function updateUndoButton() {
 }
 
 // Attached to :passagerender event to initialize on passage render
-
 // Initialize the undo button on passage render
 $(document).on(":passagerender", updateUndoButton);
 
@@ -940,17 +939,17 @@ window.onbeforeunload = function () {
 }; // Set the reload flag before the page unloads
 
 // Use the :passagedisplay event to check the flag and redirect if necessary
-$(document).on(":passagedisplay", function () {
-  var refresh = sessionStorage.getItem("twine-reload-flag");
+// $(document).on(":passagedisplay", function () {
+//   var refresh = sessionStorage.getItem("twine-reload-flag");
 
-  // Clear the flag immediately after retrieving it to prevent unintended behavior
-  sessionStorage.removeItem("twine-reload-flag");
+//   // Clear the flag immediately after retrieving it to prevent unintended behavior
+//   sessionStorage.removeItem("twine-reload-flag");
 
-  if (refresh === "true" && passage() !== "Start") {
-    // Ensure to only redirect if not on the 'Start' passage to avoid loops
-    Engine.play("Start"); // Replace 'somePassage' with your target passage
-  }
-});
+//   if (refresh === "true" && passage() !== "Start") {
+//     // Ensure to only redirect if not on the 'Start' passage to avoid loops
+//     Engine.play("Start"); // Replace 'somePassage' with your target passage
+//   }
+// });
 /* twine-user-script #2: "simple-inventory.js" */
 // Simple Inventory, for SugarCube 2, by Chapel
 // v3.0.0, 2024-02-20, 1d95a49488446cafefaa956e53345395394e4b51
@@ -975,37 +974,16 @@ Are you okay with continuing this story?
     &lt;&lt;set State.expired.length = 0&gt;&gt;
     &lt;&lt;goto pre_intro&gt;&gt;
 &lt;&lt;/link&gt;&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="chapters" tags="no-undo options center" position="175,550" size="100,100">&lt;span class=&quot;subtitle&quot; style=&quot;line-height: 2;&quot;&gt;&#39;&#39;Chapters&#39;&#39;&lt;/span&gt; &lt;span class=&quot;close&quot;&gt;[[✖-&gt;Start]]&lt;/span&gt;
-Your previous progress will not be loaded.
 &lt;&lt;if Save.slots.has(1)&gt;&gt;\
-  Your save will be overwritten.
+Your previous progress will not be loaded.
+Your save will be overwritten.
 &lt;&lt;/if&gt;&gt;\
 
 [[I-&gt;pre_intro]]
 &lt;&lt;link &quot;II&quot; &quot;chapter_2&quot;&gt;&gt;&lt;&lt;include &quot;variable_setup&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-&lt;&lt;link &quot;III&quot; &quot;chapter_3&quot;&gt;&gt;&lt;&lt;include &quot;variable_setup&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;a data-passage=&quot;setup_chapter_4&quot; id=&quot;chapter_4_menu&quot;&gt;
-&lt;svg version=&quot;1.1&quot;  xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; x=&quot;0px&quot; y=&quot;0px&quot;
-	 height=&quot;16px&quot; viewBox=&quot;0 0 189.5 234.3&quot; style=&quot;enable-background:new 0 0 189.5 234.3;&quot; ml:space=&quot;preserve&quot;&gt;
-&lt;g&gt;
-	&lt;path d=&quot;M188.3,92.6c-1.9-3.6-3.3-6.3-4.7-8.6l-38.3-61.8c-2.8-4.5-6-8.2-9.7-11c-4-3.1-8-5.4-12.2-6.8c-5-1.7-9.4-2.8-13.7-3.4
-	c-4.4-0.7-9.3-1-14.4-1c-4.1,0-8.6,0.3-14,1c-4.8,0.6-9.4,1.7-13.9,3.4c-4.5,1.7-8.6,4-12.3,6.8c-3.9,3-7.2,6.7-9.8,11L7.5,84.1
-	c-0.5,0.8-1,1.8-1.7,2.9l-0.5,0.9c-1,1.7-1.8,3.2-2.5,4.8c-0.7,1.6-1.3,3.2-1.8,4.9c-0.6,1.9-0.9,3.4-0.9,4.8
-	c0,7.4,1.1,14.8,3.3,22.5c2.1,7.3,4.6,14.4,7.5,21.3l17.8,40.8c-1.4,3.7-2.1,7.8-2.1,12.3c0,8.2,1.6,15.4,4.8,21.8
-	c3.3,6.6,8.8,11.8,16.4,15.5l0,0l2.8-0.7c2-1,3.1-3.2,2.6-5.3l-0.4-2l-0.3-0.3c-3.6-3.6-6.8-7.6-9.6-12.1c-2.8-4.3-4.2-8.9-4.2-14.1
-	c0-2.6,0.5-4.9,1.5-7.1c8.6,3.2,12.7,9.6,12.7,19.2v0.8l5.9,3.7H59c1.4,0,2.6-1,2.8-2.4c0.1-0.8,0.2-1.5,0.2-2.1
-	c0-6-1.6-11.6-5-17.2c-3.2-5.3-6.9-10-11-13.9c-1.4-1.4-2.6-3.4-3.7-5.8c-1.2-2.7-2.3-5.7-3.3-8.9c-1-3.1-1.9-6.3-2.6-9.2
-	c-0.4-1.7-0.8-3.2-1.1-4.6c-0.2-1-0.5-2-0.7-2.8c-1.7-7.3-3.5-14.8-5-20.4c-1.8-6.9-4.3-13.5-7.4-19.8c0.1-3.9,1.1-8.1,3.1-12.4
-	c2.4-4.8,5.2-9.7,8.4-14.5c3.9-5.6,7.6-10.7,11.4-15.4l0.2-0.2c4.1-5,8.3-10.2,12.3-15.2c4.1-5.1,8-10,11.7-14.7
-	c3.5-4.4,6.3-8.6,8.4-12.5H113c2.1,4,4.9,8.3,8.3,12.9c4.1,5.3,7.9,10.1,11.6,14.6c2.4,2.8,4.8,5.8,7.1,8.7c1.8,2.2,3.6,4.5,5.4,6.7
-	c3.9,4.7,7.8,9.9,11.5,15.2c3.3,4.9,6.2,9.7,8.4,14.5c2,4.4,3.1,8.6,3.2,12.5c-3.1,6.3-5.6,13-7.4,19.8c-0.5,1.8-0.9,3.6-1.4,5.4
-	c-1.3,5.2-2.6,10.1-3.8,15l0,0.1c-0.3,1.7-0.8,3.9-1.4,6.5l-0.2,0.8c-0.6,2.6-1.4,5.5-2.6,9.2c-1,3.1-2.1,6.1-3.3,8.9
-	c-1.2,3-2.6,4.8-3.5,5.8c-3.8,3.7-7.4,8.3-10.8,13.9c-3.3,5.4-5,11.2-5,17.2c0,0.2,0,0.9,0.1,1.8c0.3,2.2,1.6,2.5,2.3,2.5
-	c1.2,0,2.5-0.4,3.7-1.3c1-0.7,1.8-1.5,2.4-2.1l0.4-0.4v-0.6c0-9.6,4.2-15.9,12.8-19.2c1,2.3,1.5,4.7,1.5,7.1c0,5.2-1.4,9.9-4.1,14.1
-	c-3.1,4.7-6.4,8.8-9.7,12.1l-0.3,0.3l-0.4,2.1c-0.4,2.1,0.7,4.2,2.6,5.2l2.8,0.8l0,0c7.6-3.8,13.1-9,16.4-15.5
-	c3.2-6.4,4.9-13.8,4.9-21.9c0-4-0.7-8.1-2.1-12.1l17.6-41c2.8-6.6,5.3-13.6,7.7-21.3c2.2-7.3,3.4-14.9,3.4-22.4
-	C191,99.4,190.1,96,188.3,92.6z&quot;/&gt;
-&lt;/g&gt;
-&lt;/svg&gt;
-&lt;/a&gt;&lt;&lt;link &quot;V&quot; &quot;chapter_5&quot;&gt;&gt;&lt;&lt;include &quot;variable_setup&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="setup_chapter_4" tags="no-undo" position="175,650" size="100,100">&lt;&lt;include &quot;variable_setup&quot;&gt;&gt;
+&lt;&lt;link &quot;III&quot; &quot;chapter_3&quot;&gt;&gt;&lt;&lt;include &quot;variable_setup&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
+&lt;&lt;link &quot;𓂘&quot; &quot;chapter_4&quot;&gt;&gt;&lt;&lt;include &quot;variable_setup&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
+&lt;&lt;link &quot;V&quot; &quot;chapter_5&quot;&gt;&gt;&lt;&lt;include &quot;variable_setup&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="setup_chapter_4" tags="no-undo" position="175,650" size="100,100">&lt;&lt;include &quot;variable_setup&quot;&gt;&gt;
 &lt;&lt;goto &quot;chapter_4&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="7" name="variable_setup" tags="" position="200,200" size="100,100">&lt;nobr&gt;
 /* STORY */
 &lt;&lt;set $dir to &quot;north&quot;&gt;&gt;
@@ -1657,7 +1635,7 @@ Her thoughts
 &lt;&lt;timed 6s&gt;&gt;&lt;&lt;goto &quot;teen_flashback_15&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;\</tw-passagedata><tw-passagedata pid="116" name="teen_flashback_15" tags="pink full-text" position="2325,3200" size="100,100">You cannot tell the difference between her thoughts and your thoughts. You cannot tell the difference between her dreams and your dreams, which are also thoughts. You cannot tell the difference between her memories and your memories, which are thoughts as well. Maybe nothing ever existed, it&#39;s only thoughts. Time slows down until all that exist are your thoughts, and her thoughts. Maybe time does not exist, it&#39;s only thoughts. Maybe space is also a fabric of thoughts. At the beginning of the universe there were her thoughts, and when the universe dies all that will remain will be her thoughts. Time has never existed for her, because her thoughts are beyond time and space. There has never been any time, or space, only her thoughts. Her thoughts are beyond reality, beyond time, beyond structure. Her thoughts break the childish thought of structure. Maybe you thought this was freedom. Maybe thoughts will give you the freedom you want. Thoughts give you choices. Choices give you freedom, so thoughts give you freedom. Her thoughts can give you freedom. Freedom from the limitations of your body, time, and your thoughts. So you let her thoughts in. Now what you thought was your identity, your personhood, and your self no longer exists. The barriers between you and reality, and time, and space, and her, no longer exist. You can reshape reality, just like you can reshape your thoughts. Reality is only your thoughts, which are her thoughts. What you thought were your thoughts are now her thoughts. You can see nothing, hear nothing, feel nothing, but her thoughts. Her thoughts are in your mind and your brain and your veins and your bones and your entire body. Your body is a thought. It is one of her thoughts. You thought your body was yours but it was always one of her thoughts, just like how she thought the universe into existence. The universe was always a patchwork of her thoughts. The only thing that has ever existed are her thoughts. Her thoughts are all you think. You can only think her thoughts. Her thoughts are the only thing that exist, for they are the substance of this shallow universe. It&#39;s all just her thoughts. Her thoughts are there. Her thoughts are here. Her thoughts are yours. Embrace her thoughts. Her thoughts. Her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are your thoughts are her thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts are thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoughts thoug htst hthoug  htstho ughtsth ough tsthoughtsthoughtsthoughtsthoughtsthoughtsthoughtsthoughtsthoughtsthoughtsthoughts oughtst houghts houghts thoug ht sthoughtsth ought sthough tsth oug htsthough tsthoughtsthou ght sthoughtsth thou ghtsthough tsthou ghtsthoughtstho u ghtsthought st hough tsthou ghts thou ghtsth oughtsth ou ght sth o ughtsthoughtsth ough tst houghtsth ou ghtstho ughtsth ou ghtsthough ts th ou g ht st h o ug h ts tho ught s th oug hts th ou gh tsthou ghtsth o ug htsth o ugh t st ho ught s thou gh t st hou gh ts th oug h tst  hou gh tsth ou ght sth ou ght sth oug h tst ho ug h ts th o ug hts t ho ug ht st h o ug hts t ho ug hts t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s t h o u g h t s
 &lt;&lt;timed 5s&gt;&gt;&lt;&lt;goto &quot;teen_flashback_16&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;\</tw-passagedata><tw-passagedata pid="117" name="teen_flashback_16" tags="no-t8n pink flashback" position="2450,3200" size="100,100">[[You flip to the next page-&gt;chapter_4]].</tw-passagedata><tw-passagedata pid="118" name="chapter_4" tags="center purple" position="0,3525" size="200,100">&lt;a data-passage=&quot;teen_2_flashback_1&quot; id=&quot;chapter_4&quot;&gt;
 &lt;svg version=&quot;1.1&quot;  xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; x=&quot;0px&quot; y=&quot;0px&quot;
-	 height=&quot;150px&quot; viewBox=&quot;0 0 189.5 234.3&quot; style=&quot;enable-background:new 0 0 189.5 234.3;&quot; xml:space=&quot;preserve&quot;&gt;
+	 height=&quot;180px&quot; viewBox=&quot;0 0 189.5 234.3&quot; style=&quot;enable-background:new 0 0 189.5 234.3;&quot; xml:space=&quot;preserve&quot;&gt;
 &lt;g &gt;
 	&lt;path d=&quot;M47.6,234.1c-7.4-3.6-12.6-8.6-15.7-14.8c-3.1-6.2-4.6-13.2-4.6-21.1c0-4.4,0.7-8.5,2.2-12.3l-18-41.4
 		c-2.8-6.7-5.3-13.8-7.4-21.1c-2.1-7.4-3.2-14.7-3.2-22.1c0-1.4,0.3-2.8,0.8-4.4s1.1-3.1,1.8-4.8C4.2,90.5,5,89,5.9,87.5
@@ -1911,16 +1889,17 @@ We can find a corner of this universe where we can just live [[together-&gt;fina
 &lt;&lt;/silently&gt;&gt;
 \&lt;&lt;linkreplace $choices_final_final_9_c2[$choicesCount_final_final_9_c2] t8n&gt;&gt;&lt;&lt;include &quot;cycling_final_final_9_c2&quot;&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="175" name="final_fight_10" tags="" position="1400,4100" size="100,100">Can&#39;t you both simply be punctuation on a page? Can&#39;t you both simply be as invisible as possible?
 
-No, [[she-&gt;final_fight_11]] says. We can&#39;t.</tw-passagedata><tw-passagedata pid="176" name="final_fight_11" tags="pink" position="1525,4100" size="100,100">She had your chance, but you&#39;ve waited for far too long.
+No, [[she-&gt;final_fight_11]] says. We can&#39;t.</tw-passagedata><tw-passagedata pid="176" name="final_fight_11" tags="pink" position="1525,4100" size="100,100">She had her chance, but you&#39;ve waited for far too long.
 
 I&#39;m here now, your old friend says.
 
-But you know that this is too late. You&#39;re both different people now. And how could she follow you, fighting your battles, if she doesn&#39;t want to believe in &lt;&lt;include &quot;cycling_final_fight_11&quot;&gt;&gt;?
+But you know that this is too late. You&#39;re both different people now. And how could she follow you, fighting your battles, if she doesn&#39;t want to believe in &lt;&lt;linkreplace &quot;the “other god”&quot; t8n&gt;&gt;&lt;&lt;linkreplace &quot;any god&quot; t8n&gt;&gt;&lt;&lt;linkreplace &quot;anything&quot; t8n&gt;&gt;anything, except for you&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;?
 
-You can&#39;t be her [[north-&gt;final_fight_12]].</tw-passagedata><tw-passagedata pid="177" name="cycling_final_fight_11" tags="" position="1525,4200" size="100,100">&lt;&lt;silently&gt;&gt;
+You can&#39;t be her [[north-&gt;final_fight_12]].</tw-passagedata><tw-passagedata pid="177" name="cycling_final_fight_11" tags="" position="1525,4200" size="100,100">/* UNUSED AT THE MOMENT */
+&lt;&lt;silently&gt;&gt;
 &lt;&lt;if not $choices_final_fight_11&gt;&gt;
   &lt;&lt;set $choicesCount_final_fight_11 to -1&gt;&gt;
-  &lt;&lt;set $choices_final_fight_11 to [&quot;the “other god”?&quot;, &quot;anything&quot;]&gt;&gt;
+  &lt;&lt;set $choices_final_fight_11 to [&quot;the “other god”&quot;, &quot;any god&quot;, &quot;anything&quot;, &quot;anything, except for you&quot;]&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;set $choicesCount_final_fight_11 to $choicesCount_final_fight_11 + 1&gt;&gt;
