@@ -276,8 +276,11 @@ p:first-of-type {
 }
 
 .credit-title {
-  font-size: 120%;
+  font-size: 1.5em;
   font-weight: 700;
+  font-family: "Inknut Antiqua", serif;
+  transform: scaleX(0.94);
+  transform-origin: left center;
 }
 
 .title-image {
@@ -962,7 +965,7 @@ $(document).on(":passagedisplay", function () {
     &#39;&#39;Enable Undo&#39;&#39; is currently &lt;&lt;link &quot;OFF&quot;&gt;&gt;&lt;&lt;run setup.enableUndo.toggle()&gt;&gt;&lt;&lt;run Engine.play(passage())&gt;&gt;&lt;&lt;/link&gt;&gt;.
 &lt;&lt;/if&gt;&gt;\
 
-When this option is &#39;&#39;ON&#39;&#39;, an undo button will appear at the top of the game window.</tw-passagedata><tw-passagedata pid="3" name="content_warning" tags="no-undo center options" position="350,400" size="100,100">&lt;span class=&quot;subtitle&quot;&gt;&#39;&#39;Content Warning&#39;&#39;&lt;/span&gt;
+When this option is &#39;&#39;ON&#39;&#39;, an undo button will appear at the top of the window.</tw-passagedata><tw-passagedata pid="3" name="content_warning" tags="no-undo center options" position="350,400" size="100,100">&lt;span class=&quot;subtitle&quot;&gt;&#39;&#39;Content Warning&#39;&#39;&lt;/span&gt;
 This story contains depictions of violence, horror, and mild gore.
 Are you okay with continuing this story?
 
@@ -971,7 +974,7 @@ Are you okay with continuing this story?
     &lt;&lt;for _key, _val range State.variables&gt;&gt;&lt;&lt;run delete State.variables[_key]&gt;&gt;&lt;&lt;/for&gt;&gt;
     &lt;&lt;set State.expired.length = 0&gt;&gt;
     &lt;&lt;goto pre_intro&gt;&gt;
-&lt;&lt;/link&gt;&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="chapters" tags="no-undo options center" position="600,100" size="100,100">&lt;span class=&quot;subtitle&quot; style=&quot;line-height: 2;&quot;&gt;&#39;&#39;Chapters&#39;&#39;&lt;/span&gt; &lt;span class=&quot;close&quot;&gt;[[✖-&gt;Start]]&lt;/span&gt;
+&lt;&lt;/link&gt;&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="chapters" tags="no-undo options center" position="175,550" size="100,100">&lt;span class=&quot;subtitle&quot; style=&quot;line-height: 2;&quot;&gt;&#39;&#39;Chapters&#39;&#39;&lt;/span&gt; &lt;span class=&quot;close&quot;&gt;[[✖-&gt;Start]]&lt;/span&gt;
 Your previous progress will not be loaded.
 &lt;&lt;if Save.slots.has(1)&gt;&gt;\
   Your save will be overwritten.
@@ -1002,7 +1005,7 @@ Your previous progress will not be loaded.
 	C191,99.4,190.1,96,188.3,92.6z&quot;/&gt;
 &lt;/g&gt;
 &lt;/svg&gt;
-&lt;/a&gt;&lt;&lt;link &quot;V&quot; &quot;chapter_5&quot;&gt;&gt;&lt;&lt;include &quot;variable_setup&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="setup_chapter_4" tags="no-undo" position="725,100" size="100,100">&lt;&lt;include &quot;variable_setup&quot;&gt;&gt;
+&lt;/a&gt;&lt;&lt;link &quot;V&quot; &quot;chapter_5&quot;&gt;&gt;&lt;&lt;include &quot;variable_setup&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="setup_chapter_4" tags="no-undo" position="175,650" size="100,100">&lt;&lt;include &quot;variable_setup&quot;&gt;&gt;
 &lt;&lt;goto &quot;chapter_4&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="7" name="variable_setup" tags="" position="200,200" size="100,100">&lt;nobr&gt;
 /* STORY */
 &lt;&lt;set $dir to &quot;north&quot;&gt;&gt;
@@ -1770,7 +1773,7 @@ When you read the book, you &lt;&lt;linkappend &quot;realised&quot; t8n&gt;&gt; 
 
 &lt;&lt;set $cyclingResult_teen_2_flashback_17c2 to $choices_teen_2_flashback_17c2[$choicesCount_teen_2_flashback_17c2]&gt;&gt;
 &lt;&lt;/silently&gt;&gt;
-\&lt;&lt;linkreplace $choices_teen_2_flashback_17c2[$choicesCount_teen_2_flashback_17c2] t8n&gt;&gt;&lt;&lt;include &quot;cycling_teen_2_flashback_17c2&quot;&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="141" name="cycling_teen_2_flashback_17c3" tags="" position="100,1850" size="100,100">&lt;&lt;silently&gt;&gt;
+\&lt;&lt;linkreplace $choices_teen_2_flashback_17c2[$choicesCount_teen_2_flashback_17c2] t8n&gt;&gt;&lt;&lt;include &quot;cycling_teen_2_flashback_17c2&quot;&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="141" name="cycling_teen_2_flashback_17c3" tags="" position="2325,3350" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;if not $choices_teen_2_flashback_17c3&gt;&gt;
   &lt;&lt;set $choicesCount_teen_2_flashback_17c3 to -1&gt;&gt;
   &lt;&lt;set $choices_teen_2_flashback_17c3 to [&quot;with her&quot;, &quot;this life&quot;]&gt;&gt;
@@ -1954,7 +1957,7 @@ Nothing leaves the [[fortress of your mouth-&gt;final_fight_15]].
 &lt;&lt;/silently&gt;&gt;
 \&lt;&lt;linkreplace $choices_final_fight_14[$choicesCount_final_fight_14] t8n&gt;&gt;&lt;&lt;include &quot;cycling_final_fight_14&quot;&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="182" name="final_fight_15" tags="" position="2025,4100" size="100,100">So you can only &lt;&lt;include &quot;cycling_final_fight_15&quot;&gt;&gt;.
 
-You know that this is the [[last time-&gt;final_fight_16]] you will ever see her.</tw-passagedata><tw-passagedata pid="183" name="cycling_final_fight_15" tags="" position="2025,4200" size="100,100">&lt;&lt;silently&gt;&gt;
+You know that this is the [[last time you will ever see her-&gt;final_fight_16]].</tw-passagedata><tw-passagedata pid="183" name="cycling_final_fight_15" tags="" position="2025,4200" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;if not $choices_final_fight_15&gt;&gt;
   &lt;&lt;set $choicesCount_final_fight_15 to -1&gt;&gt;
   &lt;&lt;set $choices_final_fight_15 to [&quot;hug her&quot;, &quot;stand still&quot;]&gt;&gt;
@@ -2022,11 +2025,13 @@ She thinks that her only option is to fight. Even if she could undo her decision
 She thinks that her only option is to fight, yet again.
 
 She can&#39;t undo what she did. She can&#39;t undo her &lt;&lt;return &quot;mistakes&quot;&gt;&gt;.
-&lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="193" name="credits" tags="no-undo" position="2675,4625" size="100,100">&lt;&lt;timed 2.5s t8n&gt;&gt;\
-&lt;div class=&quot;credit-title&quot;&gt;You Can&#39;t Save Her&lt;/div&gt;\
+&lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="193" name="credits" tags="no-undo" position="2875,400" size="100,100">&lt;div class=&quot;credit-title&quot;&gt;You Can&#39;t Save Her&lt;/div&gt;\
 Written by Sarah Mak
 
 [[Return to the title screen-&gt;Start]]
+
+&lt;&lt;timed 2.5s t8n&gt;&gt;\
+
 &lt;&lt;/timed&gt;&gt;\</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
