@@ -876,22 +876,22 @@ $(document).on(":passagerender", function (ev) {
 });
 
 // GO TO START ON REFRESH
-// window.onbeforeunload = function () {
-//   window.sessionStorage.setItem("twine-reload-flag", "true");
-// }; // Set the reload flag before the page unloads
+window.onbeforeunload = function () {
+  window.sessionStorage.setItem("twine-reload-flag", "true");
+}; // Set the reload flag before the page unloads
 
-// // Use the :passagedisplay event to check the flag and redirect if necessary
-// $(document).on(":passagedisplay", function () {
-//   var refresh = sessionStorage.getItem("twine-reload-flag");
+// Use the :passagedisplay event to check the flag and redirect if necessary
+$(document).on(":passagedisplay", function () {
+  var refresh = sessionStorage.getItem("twine-reload-flag");
 
-//   // Clear the flag immediately after retrieving it to prevent unintended behavior
-//   sessionStorage.removeItem("twine-reload-flag");
+  // Clear the flag immediately after retrieving it to prevent unintended behavior
+  sessionStorage.removeItem("twine-reload-flag");
 
-//   if (refresh === "true" && passage() !== "Start") {
-//     // Ensure to only redirect if not on the 'Start' passage to avoid loops
-//     Engine.play("Start"); // Replace 'somePassage' with your target passage
-//   }
-// });
+  if (refresh === "true" && passage() !== "Start") {
+    // Ensure to only redirect if not on the 'Start' passage to avoid loops
+    Engine.play("Start"); // Replace 'somePassage' with your target passage
+  }
+});
 /* twine-user-script #2: "simple-inventory.js" */
 // Simple Inventory, for SugarCube 2, by Chapel
 // v3.0.0, 2024-02-20, 1d95a49488446cafefaa956e53345395394e4b51
@@ -1676,7 +1676,7 @@ Better? She says. I guess you&#39;re right. Now, I finally have a good reason to
 
 It&#39;s barely an army now. And I have a way.
 
-If you want to join me, meet me at the gates [[tomorrow evening-&gt;teen_2_flashback_16]].</tw-passagedata><tw-passagedata pid="138" name="teen_2_flashback_16" tags="flashback" position="2200,3650" size="100,100">&lt;&lt;linkreplace &quot;You wait.&quot; t8n&gt;&gt;You wait, but you make what you think is the best choice, which is still a poor [[choice-&gt;teen_2_flashback_17]].&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="139" name="teen_2_flashback_17" tags="flashback" position="2325,3650" size="100,100">You choose to stay, instead of leaving &lt;&lt;include &quot;cycling_teen_2_flashback_17c3&quot;&gt;&gt;.
+If you want to join me, meet me at the gates [[this evening-&gt;teen_2_flashback_16]].</tw-passagedata><tw-passagedata pid="138" name="teen_2_flashback_16" tags="flashback" position="2200,3650" size="100,100">&lt;&lt;linkreplace &quot;You wait.&quot; t8n&gt;&gt;You wait, but you make what you think is the best choice, which is still a poor [[choice-&gt;teen_2_flashback_17]].&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="139" name="teen_2_flashback_17" tags="flashback" position="2325,3650" size="100,100">You choose to stay, instead of leaving &lt;&lt;include &quot;cycling_teen_2_flashback_17c3&quot;&gt;&gt;.
 
 You don&#39;t want to eke out a life outside the monastery, outside &lt;&lt;include &quot;cycling_teen_2_flashback_17&quot;&gt;&gt; structure.
 
@@ -1782,7 +1782,7 @@ You wonder if you will be the main character of their cautionary tales, the mons
 
 [[One second-&gt;teen_2_flashback_34]].</tw-passagedata><tw-passagedata pid="161" name="teen_2_flashback_34" tags="flashback pink" position="2325,3775" size="100,100">You walk away from the monastery.
 
-[[One second-&gt;teen_2_flashback_35]].</tw-passagedata><tw-passagedata pid="162" name="teen_2_flashback_35" tags="flashback pink" position="2450,3775" size="100,100">[[You wipe away tears-&gt;chapter_5]].</tw-passagedata><tw-passagedata pid="163" name="chapter_5" tags="center purple" position="0,4100" size="200,100">&lt;span class=&quot;number-heading&quot;&gt;[[V-&gt;final_fight_1]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="164" name="final_fight_1" tags="" position="275,4100" size="100,100">[[You can save her-&gt;final_fight_2]].</tw-passagedata><tw-passagedata pid="165" name="final_fight_2" tags="" position="400,4100" size="100,100">[[This is not what they told you-&gt;final_fight_3]].</tw-passagedata><tw-passagedata pid="166" name="final_fight_3" tags="" position="525,4100" size="100,100">[[But this is what you tell yourself-&gt;final_fight_4]].</tw-passagedata><tw-passagedata pid="167" name="final_fight_4" tags="" position="650,4100" size="100,100">You have already pictured this fight with her, replaying each of your blows &lt;&lt;linkappend &quot;again,&quot; t8n&gt;&gt; and [[again-&gt;final_fight_5]].&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="168" name="final_fight_5" tags="" position="775,4100" size="100,100">The nuns directed you to consult the sacred algorithms, but you do not want to add to the [[statistics of violence-&gt;final_fight_6]].</tw-passagedata><tw-passagedata pid="169" name="final_fight_6" tags="" position="900,4100" size="100,100">So when you walk into the cathedral, you ready yourself to talk.
+[[One second-&gt;teen_2_flashback_35]].</tw-passagedata><tw-passagedata pid="162" name="teen_2_flashback_35" tags="flashback pink" position="2450,3775" size="100,100">[[You wipe away tears-&gt;chapter_5]].</tw-passagedata><tw-passagedata pid="163" name="chapter_5" tags="center purple" position="0,4100" size="200,100">&lt;span class=&quot;number-heading&quot;&gt;[[V-&gt;final_fight_1]]&lt;/span&gt;</tw-passagedata><tw-passagedata pid="164" name="final_fight_1" tags="" position="275,4100" size="100,100">[[You can save her-&gt;final_fight_2]].</tw-passagedata><tw-passagedata pid="165" name="final_fight_2" tags="" position="400,4100" size="100,100">[[This is not what they told you-&gt;final_fight_3]].</tw-passagedata><tw-passagedata pid="166" name="final_fight_3" tags="" position="525,4100" size="100,100">[[But this is what you tell yourself-&gt;final_fight_4]].</tw-passagedata><tw-passagedata pid="167" name="final_fight_4" tags="" position="650,4100" size="100,100">You have already pictured this fight with her, replaying each of your blows &lt;&lt;linkappend &quot;again,&quot; t8n&gt;&gt; and [[again-&gt;final_fight_5]].&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="168" name="final_fight_5" tags="" position="775,4100" size="100,100">The nuns directed you to consult the sacred algorithms, but you do not want to add to the [[statistics of violence-&gt;final_fight_6]].</tw-passagedata><tw-passagedata pid="169" name="final_fight_6" tags="" position="900,4100" size="100,100">So when you step into the cathedral, you ready yourself to talk to her.
 
 &lt;&lt;include &quot;cycling_final_fight_6&quot;&gt;&gt;.
 
@@ -1800,7 +1800,7 @@ You wonder if you will be the main character of their cautionary tales, the mons
 
 &lt;&lt;set $cyclingResult_final_fight_6 to $choices_final_fight_6[$choicesCount_final_fight_6]&gt;&gt;
 &lt;&lt;/silently&gt;&gt;
-\&lt;&lt;linkreplace $choices_final_fight_6[$choicesCount_final_fight_6] t8n&gt;&gt;&lt;&lt;include &quot;cycling_final_fight_6&quot;&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="171" name="final_fight_7" tags="" position="1025,4100" size="100,100">[[Two seconds-&gt;final_fight_8]].</tw-passagedata><tw-passagedata pid="172" name="final_fight_8" tags="" position="1150,4100" size="100,100">[[Three seconds-&gt;final_fight_9]].</tw-passagedata><tw-passagedata pid="173" name="final_fight_9" tags="" position="1275,4100" size="100,100">She turns around. You notice how the marks on her skin are still glowing pink, and you notice how years of fighting have cratered her body.
+\&lt;&lt;linkreplace $choices_final_fight_6[$choicesCount_final_fight_6] t8n&gt;&gt;&lt;&lt;include &quot;cycling_final_fight_6&quot;&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="171" name="final_fight_7" tags="" position="1025,4100" size="100,100">[[Two seconds-&gt;final_fight_8]].</tw-passagedata><tw-passagedata pid="172" name="final_fight_8" tags="" position="1150,4100" size="100,100">[[Three seconds-&gt;final_fight_9]].</tw-passagedata><tw-passagedata pid="173" name="final_fight_9" tags="" position="1275,4100" size="100,100">She turns around. You notice how the marks on her skin are still glowing pink, and you notice how the years of fighting have cratered her body.
 
 &lt;&lt;if $cyclingResult_final_fight_6 is &quot;The nuns told me to kill you, but I don&#39;t want to&quot;&gt;&gt;.\
 Her irises flicker like fire. She says, you can just go away. You didn&#39;t have to find me.
@@ -1874,11 +1874,13 @@ You can&#39;t be her [[north-&gt;final_fight_12]].</tw-passagedata><tw-passageda
 &lt;&lt;else&gt;&gt;\
 [[I can&#39;t leave with you, you say-&gt;final_fight_13]].
 &lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="180" name="final_fight_13" tags="pink" position="1775,4100" size="100,100">[[I don&#39;t think we can save each other-&gt;final_fight_14]].</tw-passagedata><tw-passagedata pid="181" name="final_fight_14" tags="" position="1900,4100" size="100,100">&lt;&lt;include &quot;cycling_final_fight_14&quot;&gt;&gt;.
+&lt;&lt;timed 4s t8n&gt;&gt;\
 
-&lt;&lt;timed 5s t8n&gt;&gt;\
 The words rise up your throat like fish up a waterfall, then fall down again. /*TODO: may want to remove this */
+&lt;&lt;timed 5s t8n&gt;&gt;\
 
 Nothing leaves the [[fortress of your mouth-&gt;final_fight_15]].
+&lt;&lt;/timed&gt;&gt;\
 &lt;&lt;/timed&gt;&gt;\</tw-passagedata><tw-passagedata pid="182" name="cycling_final_fight_14" tags="" position="1900,4200" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;if not $choices_final_fight_14&gt;&gt;
   &lt;&lt;set $choicesCount_final_fight_14 to -1&gt;&gt;
