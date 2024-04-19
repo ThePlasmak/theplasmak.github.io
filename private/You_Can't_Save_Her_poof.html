@@ -1020,17 +1020,19 @@ The wind is howling a language that you do not understand.
 
 She is to the [[north-&gt;mc_travel_3]].</tw-passagedata><tw-passagedata pid="29" name="mc_travel_3" tags="moon" position="550,1275" size="100,100">A building rises in the distance. This is the cathedral where she is waiting.
 
-Blackened piles of rock dot the landscape. These are the remains of the golems that protected this once-holy space.
+Blackened piles of rock dot the landscape. These must be the remains of the golems that protected this once-holy space.
 
 She is to the [[north-&gt;mc_travel_4]].</tw-passagedata><tw-passagedata pid="30" name="mc_travel_4" tags="moon" position="675,1275" size="100,100">The cathedral pierces the sky like a stalagmite.
 
-You hear slashing sounds emanating from the inside.
+Slashing sounds echo from the inside.
 
 She is to the [[north-&gt;mc_travel_5]].</tw-passagedata><tw-passagedata pid="31" name="mc_travel_5" tags="moon" position="800,1275" size="100,100">The sculptures on the cathedral&#39;s facades have weathered away.
 
 The faces are blank, and the folds of clothing are fading dunes of stone.
 
-She is to the [[north-&gt;mc_travel_6]].</tw-passagedata><tw-passagedata pid="32" name="mc_travel_6" tags="" position="925,1275" size="100,100">She is still waiting in the north of the cathedral, in front of the altar. The arches and walls are scarred with gashes, and the altar is stained red.
+She is to the [[north-&gt;mc_travel_6]].</tw-passagedata><tw-passagedata pid="32" name="mc_travel_6" tags="" position="925,1275" size="100,100">She is still waiting in the north of the cathedral, in front of the altar.
+
+The arches and walls are scarred with gashes, and the altar is stained red.
 
 You look up. She is a silhouette cloaked in [[moonlight-&gt;mc_travel_7]].</tw-passagedata><tw-passagedata pid="33" name="mc_travel_7" tags="" position="1050,1275" size="100,100">Moonlight is shining through the stained glass window, painting a rose of rainbows on the floor.
 
@@ -1304,7 +1306,7 @@ You try not to laugh. What an idiot.
 &lt;&lt;timed 2s t8n&gt;&gt;&lt;&lt;link &quot;&lt;span class=&#39;ina-bullet&#39;&gt;*&lt;/span&gt; Duck and roll forward.&quot; &quot;friend_fight_18&quot;&gt;&gt;&lt;&lt;set $friend_dodge_2 to &quot;duck and roll forward&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/timed&gt;&gt;
 &lt;&lt;timed 2.5s t8n&gt;&gt;&lt;&lt;link &quot;&lt;span class=&#39;ina-bullet&#39;&gt;*&lt;/span&gt; Duck and roll backward.&quot; &quot;friend_fight_18&quot;&gt;&gt;&lt;&lt;set $friend_dodge_2 to &quot;duck and roll backward&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/timed&gt;&gt;
 &lt;&lt;timed 3s t8n&gt;&gt;&lt;&lt;link &quot;&lt;span class=&#39;ina-bullet&#39;&gt;*&lt;/span&gt; Stay still.&quot; &quot;friend_fight_18&quot;&gt;&gt;&lt;&lt;set $friend_dodge_2 to &quot;stay still&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="73" name="friend_fight_18" tags="pink" position="2500,2200" size="100,100">&lt;&lt;if $friend_dodge_2 is &quot;sidestep to the right&quot;&gt;&gt;\
-  Just like in the vision, you dodge her attack, watching the &lt;&lt;if $shot_friend_2 is true&gt;&gt;bullets fly by&lt;&lt;else&gt;&gt;blade whoosh by&lt;&lt;/if&gt;&gt;.
+  Just like in the vision,&lt;&lt;if $friend_dodge_1 is &quot;step into a fold in space and reappear behind her&quot;&gt;&gt; again,&lt;&lt;/if&gt;&gt; you dodge her attack, watching the &lt;&lt;if $shot_friend_2 is true&gt;&gt;bullets fly by&lt;&lt;else&gt;&gt;blade whoosh by&lt;&lt;/if&gt;&gt;.
 &lt;&lt;else&gt;&gt;\
   &lt;&lt;if $goddess_freedom_seen is false&gt;&gt;\
     The goddess gave you the freedom to make your own mistakes. You defy her vision, just to prove to yourself that you do not need it.
@@ -1336,7 +1338,9 @@ You know what to expect, and you [[wait-&gt;friend_fight_19]] for her next move.
 &lt;&lt;if $shot_friend_3 is true&gt;&gt;\
 It is as if time has slowed down to a quarter of a second. You slice the bolt of fire midair, and it tears into two.
 &lt;&lt;else&gt;&gt;\
-You tighten your grip on the $weapon, and parry her attack. To your surprise, she lets the weapon go. It flies off to the other side of the room, and clatters on the floor. Your hear a ghastly echo.
+You tighten your grip on the $weapon, and parry her attack. To your surprise, she lets the weapon go. It flies off to the other side of the room, and clatters on the floor.
+
+You hear a ghastly echo.
 &lt;&lt;/if&gt;&gt;\
 
 You laugh again. This is the first time you have seen your friend [[in years-&gt;tween_flashback_1]], and her first reaction is to try to kill you?</tw-passagedata><tw-passagedata pid="75" name="tween_flashback_1" tags="flashback long-t8n pink" position="150,2400" size="100,100">&lt;&lt;timed 2.5s t8n&gt;&gt;\
@@ -1614,7 +1618,7 @@ You just need to focus on the [[task that they have assigned you-&gt;teen_2_flas
 
 [[One second-&gt;teen_2_flashback_6]].</tw-passagedata><tw-passagedata pid="127" name="teen_2_flashback_6" tags="flashback" position="825,3650" size="100,100">The door begins to open. The room is dark, and it is only lit by flickering candlelight.
 
-[[Two seconds-&gt;teen_2_flashback_7]].</tw-passagedata><tw-passagedata pid="128" name="teen_2_flashback_7" tags="flashback" position="950,3650" size="100,100">You see the corner of her wooden desk.
+[[Two seconds-&gt;teen_2_flashback_7]].</tw-passagedata><tw-passagedata pid="128" name="teen_2_flashback_7" tags="flashback" position="950,3650" size="100,100">You see the corner of her desk.
 
 [[Three seconds-&gt;teen_2_flashback_8]].</tw-passagedata><tw-passagedata pid="129" name="teen_2_flashback_8" tags="flashback" position="1075,3650" size="100,100">The door is fully open. You see her &lt;&lt;linkappend &quot;sitting at her desk,&quot; t8n&gt;&gt; reading &lt;&lt;linkreplace &quot;the book&quot; t8n&gt;&gt;&lt;&lt;linkappend &quot;the book you should have warned her about,&quot; t8n&gt;&gt; skin is covered in &lt;span class=&quot;pink&quot;&gt;[[glowing pink marks-&gt;teen_2_flashback_9]]&lt;/span&gt;.
 &lt;&lt;/linkappend&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="130" name="teen_2_flashback_9" tags="flashback" position="1200,3650" size="100,100">[[You close the door-&gt;teen_2_flashback_10]].</tw-passagedata><tw-passagedata pid="131" name="teen_2_flashback_10" tags="flashback" position="1325,3650" size="100,100">&lt;&lt;timed 2s t8n&gt;&gt;It&#39;s your fault, isn&#39;t it? You should have warned her about the book, but you didn&#39;t.
@@ -1912,7 +1916,7 @@ You know that this is the [[last time you will ever see her-&gt;final_fight_16]]
 &lt;&lt;set $cyclingResult_final_fight_15 to $choices_final_fight_15[$choicesCount_final_fight_15]&gt;&gt;
 &lt;&lt;/silently&gt;&gt;
 \&lt;&lt;linkreplace $choices_final_fight_15[$choicesCount_final_fight_15] t8n&gt;&gt;&lt;&lt;include &quot;cycling_final_fight_15&quot;&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="187" name="final_fight_16" tags="" position="2150,4100" size="100,100">&lt;&lt;if $cyclingResult_final_fight_15 is &quot;hug her&quot;&gt;&gt;\
-You hug her. You feel her stiffen for a moment, but after a heartbeat, she pulls you closer.
+So, you hug her. You feel her stiffen for a moment, but after a heartbeat, she pulls you closer.
 
 You remember hugging her harder than the world was hurting &lt;&lt;include &quot;cycling_final_fight_16c2&quot;&gt;&gt;.
 
@@ -1951,9 +1955,13 @@ She [[turns around-&gt;final_fight_17]].
 &lt;&lt;/silently&gt;&gt;
 \&lt;&lt;linkreplace $choices_final_fight_16c2[$choicesCount_final_fight_16c2] t8n&gt;&gt;&lt;&lt;include &quot;cycling_final_fight_16c2&quot;&gt;&gt;&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="190" name="final_fight_17" tags="" position="2275,4100" size="100,100">She raises her $weapon and slices a tear into space. The edges of the tear crackle with pink energy.
 
-The tear opens up, revealing the shattered landscape of a planet that you do not recognise. Far in the distance, you can see another cathedral.
+The tear opens up, revealing the shattered landscape of a planet that you do not recognise.
 
-Don&#39;t find me again, she says. [[It&#39;s better for the both of us-&gt;final_fight_18]].</tw-passagedata><tw-passagedata pid="191" name="final_fight_18" tags="" position="2400,4100" size="100,100">Then, she steps into the tear, and it [[closes like a wound-&gt;final_fight_19]].</tw-passagedata><tw-passagedata pid="192" name="final_fight_19" tags="" position="2525,4100" size="100,100">You stand in the cathedral for a while, watching the space where she stood, then, you run your finger through one of the gashes in the walls.
+Far off in the distance, you can see another cathedral.
+
+Don&#39;t find me again, she says. [[It&#39;s better for the both of us-&gt;final_fight_18]].</tw-passagedata><tw-passagedata pid="191" name="final_fight_18" tags="" position="2400,4100" size="100,100">Then, she steps into the tear, and it [[closes like a wound-&gt;final_fight_19]].</tw-passagedata><tw-passagedata pid="192" name="final_fight_19" tags="" position="2525,4100" size="100,100">You stand in the cathedral for a while, watching the space where she stood.
+
+Then, you walk over to a wall, and you run your finger through one of its gashes.
 
 [[This isn&#39;t your battle to fight, now-&gt;final_fight_20]].</tw-passagedata><tw-passagedata pid="193" name="final_fight_20" tags="" position="2650,4100" size="100,100">&lt;&lt;linkappend &quot;You walk away from the cathedral,&quot; t8n&gt;&gt; [[and you do not return to the monastery-&gt;credits]].&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="194" name="options_comment" tags="" position="625,1475" size="100,100">&lt;&lt;if setup.enableUndo.get()&gt;&gt;\
 Even if you could undo your decisions, you would have made the same &lt;&lt;return &quot;mistakes&quot;&gt;&gt;.
