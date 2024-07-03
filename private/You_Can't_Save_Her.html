@@ -98,14 +98,13 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 		<div id="init-lacking"><p>Browser lacks capabilities required to play.</p><p>Upgrade or switch to another browser.</p></div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<!-- UUID://3831B6E9-E3BF-4D0B-9EB8-E35C776D54B4// --><tw-storydata name="You Can&#39;t Save Her" startnode="1" creator="Tweego" creator-version="2.1.1+81d1d71" ifid="3831B6E9-E3BF-4D0B-9EB8-E35C776D54B4" zoom="1" format="SugarCube" format-version="2.36.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap');
+	<!-- UUID://3831B6E9-E3BF-4D0B-9EB8-E35C776D54B4// --><tw-storydata name="You Can&#39;t Save Her" startnode="1" creator="Tweego" creator-version="2.1.1+81d1d71" ifid="3831B6E9-E3BF-4D0B-9EB8-E35C776D54B4" zoom="1" format="SugarCube" format-version="2.36.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* @import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap'); */
 
 html {
   visibility: hidden;
   opacity: 0;
 }
 
-/*
 @font-face {
   font-family: 'Averia Serif Libre';
   font-style: italic;
@@ -221,7 +220,7 @@ html {
   font-display: swap;
   src: url(fonts/Inknut_Antiqua/InknutAntiqua-Black.ttf) format('truetype');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-} */
+}
 
 :root {
   /* Shadows */
@@ -742,13 +741,15 @@ body.moon {
 }
 
 body.long-t8n {
-  transition-duration: 1s ease-in-out;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
 }
 
 body.flashback {
   background-color: var(--background-fb);
   background-image: none;
-  transition-duration: 1s ease-in-out;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
 }
 
 body[data-tags~="flashback"] #passages {
@@ -1295,22 +1296,29 @@ window.isPlaying = function (trackID) {
 };
 
 // GO TO START ON REFRESH
-// window.onbeforeunload = function () {
-//   window.sessionStorage.setItem("twine-reload-flag", "true");
-// }; // Set the reload flag before the page unloads
+// Set a flag in sessionStorage on page unload
+window.onbeforeunload = function () {
+  window.sessionStorage.setItem("twine-reload-flag", "true");
+};
 
-// // Use the :passagedisplay event to check the flag and redirect if necessary
-// $(document).on(":passagedisplay", function () {
-//   var refresh = sessionStorage.getItem("twine-reload-flag");
+// Use the :passagedisplay event to handle the reload logic
+$(document).on(":passagedisplay", function () {
+  var reloadFlag = sessionStorage.getItem("twine-reload-flag");
+  var navigationType = performance.getEntriesByType("navigation")[0].type;
 
-//   // Clear the flag immediately after retrieving it to prevent unintended behavior
-//   sessionStorage.removeItem("twine-reload-flag");
+  // Clear the flag immediately to avoid unintended behavior
+  sessionStorage.removeItem("twine-reload-flag");
 
-//   if (refresh === "true" && passage() !== "Start") {
-//     // Ensure to only redirect if not on the 'Start' passage to avoid loops
-//     Engine.play("Start"); // Replace 'somePassage' with your target passage
-//   }
-// });
+  // Check if the navigation type is 'reload' and the reload flag is set
+  if (
+    navigationType === "reload" &&
+    reloadFlag === "true" &&
+    passage() !== "Start"
+  ) {
+    // Redirect to the Start passage
+    Engine.play("Start"); // Replace 'Start' with your target passage if necessary
+  }
+});
 </script><tw-tag name="pink" color="purple"></tw-tag><tw-tag name="pink-fb" color="red"></tw-tag><tw-tag name="blue-fb" color="blue"></tw-tag><tw-tag name="no-undo" color="green"></tw-tag><tw-passagedata pid="1" name="Start" tags="no-undo" position="200,400" size="100,100">&lt;div class=&quot;title-svg&quot;&gt;\
 &lt;svg id=&quot;title&quot; data-name=&quot;title&quot; width=&quot;400px&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; xmlns:i=&quot;http://ns.adobe.com/AdobeIllustrator/10.0/&quot; viewBox=&quot;0 0 1435 305&quot;&gt; &lt;g&gt;
     &lt;path class=&quot;cls-1&quot; d=&quot;M78.15,112.9l14.33,4.12-4.13,8.93h-44.94v-7.69l12.14-10.17v-18.27L20.82,31.99l-9.43-5.08,2.58-8.93h44.04v7.69l-9.69,7.97,23.12,38.33,23.12-35.58-18.85-9.62,4.13-8.93h41.71v7.69l-12.78,9.89-30.6,47.67v29.81Z&quot;/&gt;
