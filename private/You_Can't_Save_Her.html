@@ -4,6 +4,10 @@
 <meta charset="UTF-8" />
 <title>You Can&#39;t Save Her</title>
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="An interactive fiction game about fighting your former friend." />
+<meta property="og:title" content="You Can&#39;t Save Her" />
+<meta property="og:description" content="An interactive fiction game about fighting your former friend." />
+<meta property="twitter:description" content="An interactive fiction game about fighting your former friend." />
 <!--
 
 SugarCube (v2.36.1): A free (gratis and libre) story format.
@@ -1288,6 +1292,11 @@ $(document).on(":passagerender", function () {
   }
 });
 
+// SCROLL TO TOP OF WINDOW ON PASSAGE RENDER
+$(document).on(":passagerender", function () {
+  window.scrollTo(0, 0);
+});
+
 // CHECK AUDIO
 // Check to see if trackID is the currently playing track
 window.isPlaying = function (trackID) {
@@ -1296,27 +1305,16 @@ window.isPlaying = function (trackID) {
 };
 
 // GO TO START ON REFRESH
-// Set a flag in sessionStorage on page unload
 window.onbeforeunload = function () {
-  window.sessionStorage.setItem("twine-reload-flag", "true");
+  localStorage.setItem("twine-reload-flag", "true");
 };
 
-// Use the :passagedisplay event to handle the reload logic
 $(document).on(":passagedisplay", function () {
-  var reloadFlag = sessionStorage.getItem("twine-reload-flag");
-  var navigationType = performance.getEntriesByType("navigation")[0].type;
+  var refresh = localStorage.getItem("twine-reload-flag");
+  localStorage.removeItem("twine-reload-flag");
 
-  // Clear the flag immediately to avoid unintended behavior
-  sessionStorage.removeItem("twine-reload-flag");
-
-  // Check if the navigation type is 'reload' and the reload flag is set
-  if (
-    navigationType === "reload" &&
-    reloadFlag === "true" &&
-    passage() !== "Start"
-  ) {
-    // Redirect to the Start passage
-    Engine.play("Start"); // Replace 'Start' with your target passage if necessary
+  if (refresh === "true" && passage() !== "Start") {
+    Engine.play("Start");
   }
 });
 </script><tw-tag name="pink" color="purple"></tw-tag><tw-tag name="pink-fb" color="red"></tw-tag><tw-tag name="blue-fb" color="blue"></tw-tag><tw-tag name="no-undo" color="green"></tw-tag><tw-passagedata pid="1" name="Start" tags="no-undo" position="200,400" size="100,100">&lt;div class=&quot;title-svg&quot;&gt;\
