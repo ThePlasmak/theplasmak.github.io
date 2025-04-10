@@ -541,6 +541,51 @@ body.card #undobar a {
     opacity: 0.5;
 }
 
+/* Start passage styling */
+.start-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    text-align: center;
+    padding: 2em;
+}
+
+.main-question {
+    font-size: 1.5em;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: -3em;
+}
+
+.input-container {
+    margin: 0em 0;
+}
+
+.input-container input[type="text"] {
+    font-size: 1.2em;
+    text-align: center;
+    width: 10em;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+    padding: 0.3em 0 0.3em 0;
+}
+
+.input-container input[type="text"]:focus {
+    border-color: #4562BA;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(69, 98, 186, 0.2);
+}
+
+.continue-link {
+    margin-top: 0em;
+    font-size: 1.1em;
+}
+
+
 @media screen and (max-width:920px) {
     body {
         font-size: 13pt;
@@ -599,6 +644,10 @@ body.card #undobar a {
         padding: 2em 1em;
     }
 
+    .start-container {
+        padding: 0em;
+    }
+
     #footer {
         height: 2em;
     }
@@ -630,9 +679,7 @@ body.card #undobar a {
     #menu {
         font-size: 12pt;
     }
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript">//--Not necessary if you use the base UI, but you can put Javascript here if you want
-//--If you want to have settings, this is where you will put the code
-UIBar.destroy();
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">UIBar.destroy();
 
 // UNDO BUTTON
 function addUndoButton() {
@@ -653,11 +700,23 @@ function addUndoButton() {
 
 // Add the undo button when the story starts and after each passage render
 $(document).on(":start :passagerender", addUndoButton);
-</script><tw-passagedata pid="1" name="StoryInit" tags="" position="100,100" size="100,100">&lt;&lt;set $where to &quot;Singapore&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="Start" tags="no-undo" position="0,125" size="100,100">Where are you from?
+</script><tw-passagedata pid="1" name="StoryInit" tags="" position="100,100" size="100,100">&lt;&lt;set $where to &quot;Singapore&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="Start" tags="no-undo" position="0,125" size="100,100">&lt;div class=&quot;start-container&quot;&gt;\
+    &lt;h1 class=&quot;main-question&quot;&gt;Where are you from?&lt;/h1&gt;
 
-&lt;&lt;textbox &quot;$where&quot; &quot;&quot; autofocus&gt;&gt;
-
-[[This is where you are from|1]].</tw-passagedata><tw-passagedata pid="3" name="1" tags="" position="350,100" size="100,100">&lt;div class=&quot;title&quot;&gt;$where&lt;/div&gt;&lt;div class=&quot;subtitle&quot;&gt;by Sarah Mak and You&lt;/div&gt;
+    &lt;div class=&quot;input-container&quot;&gt;
+        &lt;&lt;textbox &quot;$where&quot; &quot;&quot; autofocus&gt;&gt;
+    &lt;/div&gt;
+    
+    &lt;div class=&quot;continue-link&quot;&gt;\
+        &lt;&lt;link &quot;This is where you are from&quot;&gt;&gt;\
+            &lt;&lt;if $where.trim() !== &quot;&quot;&gt;&gt;\
+                &lt;&lt;goto &quot;1&quot;&gt;&gt;
+			&lt;&lt;else&gt;&gt;
+                &lt;&lt;goto &quot;Start&quot;&gt;&gt;
+            &lt;&lt;/if&gt;&gt;\
+        &lt;&lt;/link&gt;&gt;.\
+    &lt;/div&gt;\
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="1" tags="" position="350,100" size="100,100">&lt;div class=&quot;title&quot;&gt;$where&lt;/div&gt;&lt;div class=&quot;subtitle&quot;&gt;by Sarah Mak and You&lt;/div&gt;
 You remember $where. $where is where you had your first of many firsts. $where burns in your throat, and colours your voice. $where is the substance of your stories, dreams, and nightmares. $where whispers in your bones at 3 am. Perhaps you yearn for a $where which does not exist.
 
 Though sometimes, you want to forget $where, and be free of its sacred weight. But $where will always be a wound in your body, a memory open for viewing.</tw-passagedata></tw-storydata>
