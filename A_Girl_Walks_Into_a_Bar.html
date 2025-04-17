@@ -164,7 +164,7 @@ html {
 
 .passage {
   transition: opacity 0.5s ease-in-out;
-  line-height: 1.6; /* Increased line height for better readability */
+  line-height: 1.4;
 }
 
 #passages {
@@ -172,7 +172,7 @@ html {
   /* background-color: var(--passage-background); */
   color: var(--text);
   transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
-  padding: 1.5em; /* Increased padding */
+  padding: 1em 1em 1em 1em;
   border-radius: 0.25em;
   margin: 0;
   max-width: none;
@@ -188,7 +188,7 @@ body {
   position: relative;
   font-family: var(--body-font);
   font-optical-sizing: auto;
-  font-size: 18pt; /* Increased from 14pt to 18pt for better readability */
+  font-size: 18pt;
   max-width: 900px;
   min-width: 300px;
   height: 100%;
@@ -202,7 +202,7 @@ body {
 }
 
 p {
-  margin: 1.8em 0; /* Increased spacing between paragraphs */
+  margin: 1.8em 0;
   padding: 0;
 }
 
@@ -219,13 +219,12 @@ p:first-of-type {
 }
 
 div.title {
-  font-size: 2.4em; /* Increased from 1.8em */
+  font-size: 2.4em;
   font-weight: 700;
-  margin-bottom: 0.4em; /* Added spacing below title */
 }
 
 div.subtitle {
-  font-size: 1.4em; /* Increased from 1em */
+  font-size: 1.4em;
 }
 
 a {
@@ -275,7 +274,7 @@ div#preload {
 textarea {
   background-color: var(--background);
   color: var(--text);
-  font-size: 16pt; /* Increased font size for form elements */
+  font-size: 16pt; 
 }
 
 textarea:not(:disabled):focus,
@@ -289,7 +288,7 @@ select {
   border-radius: 0.25em;
   background-color: var(--background);
   color: var(--text);
-  font-size: 16pt; /* Increased font size for form elements */
+  font-size: 16pt; 
 }
 
 input:not(:disabled):focus,
@@ -335,7 +334,7 @@ button:not(:disabled):hover {
   left: 1em;
   height: 0;
   width: 0;
-  font-size: 38pt; /* Increased from 32pt */
+  font-size: 38pt;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -381,7 +380,7 @@ body.no-undo #undobar a {
 /* Big tablet */
 @media screen and (max-width: 1024px) {
   body {
-    font-size: 17pt; /* Increased from 13pt */
+    font-size: 17pt; 
     padding: 3.5em 1em;
   }
 
@@ -390,18 +389,18 @@ body.no-undo #undobar a {
   }
 
   #undobar {
-    font-size: 34pt !important; /* Increased from 30pt */
+    font-size: 34pt !important; 
   }
 
   #menu {
-    font-size: 20pt; /* Increased from 17pt */
+    font-size: 20pt; 
   }
 }
 
 /* Small tablet */
 @media screen and (max-width: 768px) {
   body {
-    font-size: 16pt; /* Increased from 12pt */
+    font-size: 16pt; 
   }
 
   #footer {
@@ -414,15 +413,15 @@ body.no-undo #undobar a {
   }
 
   #undobar {
-    font-size: 32pt !important; /* Increased from 28pt */
+    font-size: 32pt !important; 
   }
 
   #menu {
-    font-size: 18pt; /* Increased from 15pt */
+    font-size: 18pt;
   }
 
   #passages {
-    padding: 1.2em; /* Slightly increased padding */
+    padding: 1em 1em 1em 1em
   }
 
   body {
@@ -452,12 +451,16 @@ body.no-undo #undobar a {
     height: 2em;
   }
 
+  #passages {
+    padding: 0.6em
+  }
+
   #undobar {
-    font-size: 28pt !important; /* Increased from 24pt */
+    font-size: 28pt !important;
   }
 
   #menu {
-    font-size: 16pt; /* Increased from 14pt */
+    font-size: 16pt;
   }
 
   .title {
@@ -472,11 +475,15 @@ body.no-undo #undobar a {
 /* Small mobile */
 @media screen and (max-width: 320px) {
   body {
-    font-size: 14pt; /* Increased from 12pt */
+    font-size: 14pt;
   }
 
   #footer {
     height: 1.5em;
+  }
+
+  #passages {
+    padding: 0.4em
   }
 
   #story {
@@ -485,12 +492,11 @@ body.no-undo #undobar a {
   }
 
   #undobar {
-    font-size: 22pt !important; /* Increased from 18pt */
-    top: 0.45em;
+    font-size: 22pt !important;
   }
 
   #menu {
-    font-size: 14pt; /* Increased from 12pt */
+    font-size: 14pt; 
   }
 }
 
@@ -524,7 +530,7 @@ $(document).on(":start :passagerender", addUndoButton);
 
 You are wearing a flannel shirt on a white Uniqlo tee, because you have no idea what you&#39;re supposed to wear in a gay bar. And you hate most of your clothes, anyway.
 
-As he walks over to you, he says wow, you look like a [[homo-&gt;5]].</tw-passagedata><tw-passagedata pid="5" name="5" tags="" position="600,200" size="100,100">THE FIRST TIME YOU WEAR A FLANNEL SHIRT IN THIS FREAKIN&#39; COUNTRY SOMEONE CALLS YOU A HOMO
+As he walks over to you, he says wow, you look like a [[homo-&gt;5]].</tw-passagedata><tw-passagedata pid="5" name="5" tags="" position="600,200" size="100,100">THE FIRST TIME YOU WEAR A FLANNEL SHIRT IN THIS FREAKIN&#39; COUNTRY AND SOMEONE CALLS YOU A HOMO
 
 OKAY HE MEANT IT IN JEST BUT [[STILL-&gt;6]]</tw-passagedata><tw-passagedata pid="6" name="6" tags="" position="725,200" size="100,100">You smile and [[shrug-&gt;7]].</tw-passagedata><tw-passagedata pid="7" name="7" tags="" position="850,200" size="100,100">You&#39;re here because he wants to watch some Drag Race contestant&#39;s drag show. He is a Drag Race fan. [[You are not-&gt;drag_race]].
 
@@ -570,7 +576,7 @@ The [[absence-&gt;21]] in your chest that you cannot name continued to stay a ya
 
 You will think that you are cursed, that you will remain a disgusting fetal entity, and your country will be a prison of a womb.
 
-But still, you will live, and you will try to make your body a [[home-&gt;22]].</tw-passagedata><tw-passagedata pid="28" name="22" tags="" position="125,850" size="100,100">You will wear many ill-fitting men&#39;s clothes, with fabrics that spill over your tiny body. Then you will wear more Uniqlo Airism T-shirts, even though it is the uniform of straight Singaporean men. It will become [[your uniform-&gt;23]], too.</tw-passagedata><tw-passagedata pid="29" name="23" tags="" position="125,975" size="100,100">You will let your hair grow longer, then cut your hair short. And shorter. Until it&#39;s too short. Then you will endure the waves of regret as you watch your hair grow again, [[like grass-&gt;24]].</tw-passagedata><tw-passagedata pid="30" name="24" tags="" position="250,975" size="100,100">One day, you will appreciate your body&#39;s capacity to &lt;&lt;linkappend &quot;grow&quot; t8n&gt;&gt; and heal&lt;&lt;/linkappend&gt;&gt;, de:: 26 {&quot;position&quot;:&quot;500,350&quot;} [[what you do to it-&gt;25]].</tw-passagedata><tw-passagedata pid="31" name="25" tags="" position="375,975" size="100,100">One day, you will try to mould t:: 27 {&quot;position&quot;:&quot;625,350&quot;}dy you&#39;re born with, into the [[inner self-&gt;26]] you tried to suffoc:: 28 {&quot;position&quot;:&quot;750,350&quot;}</tw-passagedata><tw-passagedata pid="32" name="26" tags="" position="500,975" size="100,100">Like tuning an old instrument, or chiselling a [[broken-&gt;27]] rock.:: cycling_1 {&quot;position&quot;:&quot;725,50&quot;}ou will rediscover and change yourself, again and [[again-&gt;28]].</tw-passagedata><tw-passagedata pid="33" name="28" tags="" position="625,975" size="100,100">And that is the great and important work of being &lt;&lt;include &quot;cycling_1&quot;&gt;&gt;.</tw-passagedata><tw-passagedata pid="34" name="cycling_1" tags="" position="750,975" size="100,100">&lt;&lt;silently&gt;&gt;
+But still, you will live, and you will try to make your body a [[home-&gt;22]].</tw-passagedata><tw-passagedata pid="28" name="22" tags="" position="125,850" size="100,100">You will wear many ill-fitting men&#39;s clothes, with fabrics that spill over your tiny body. Then you will wear more Uniqlo Airism T-shirts, even though it is the uniform of straight Singaporean men. It will become [[your uniform-&gt;23]], too.</tw-passagedata><tw-passagedata pid="29" name="23" tags="" position="125,975" size="100,100">You will let your hair grow longer, then cut your hair short. And shorter. Until it&#39;s too short. Then you will endure the waves of regret as you watch your hair grow again, [[like grass-&gt;24]].</tw-passagedata><tw-passagedata pid="30" name="24" tags="" position="250,975" size="100,100">One day, you will appreciate your body&#39;s capacity to &lt;&lt;linkappend &quot;grow&quot; t8n&gt;&gt; and heal&lt;&lt;/linkappend&gt;&gt;, [[regardless-&gt;25]] of what you do to it.</tw-passagedata><tw-passagedata pid="31" name="25" tags="" position="375,975" size="100,100">One day, you will try to mould t:: 27 {&quot;position&quot;:&quot;625,350&quot;}dy you&#39;re born with, into the [[inner self-&gt;26]] you tried to suffoc:: 28 {&quot;position&quot;:&quot;750,350&quot;}</tw-passagedata><tw-passagedata pid="32" name="26" tags="" position="500,975" size="100,100">Like tuning an old instrument, or chiselling a [[broken-&gt;27]] rock.:: cycling_1 {&quot;position&quot;:&quot;725,50&quot;}ou will rediscover and change yourself, again and [[again-&gt;28]].</tw-passagedata><tw-passagedata pid="33" name="28" tags="" position="625,975" size="100,100">And that is the great and important work of being &lt;&lt;include &quot;cycling_1&quot;&gt;&gt;.</tw-passagedata><tw-passagedata pid="34" name="cycling_1" tags="" position="750,975" size="100,100">&lt;&lt;silently&gt;&gt;
 &lt;&lt;if not $choices_1&gt;&gt;
   &lt;&lt;set $choicesCount_1 to -1&gt;&gt;
   &lt;&lt;set $choices_1 to [&quot;alive&quot;, &quot;human&quot;]&gt;&gt;
