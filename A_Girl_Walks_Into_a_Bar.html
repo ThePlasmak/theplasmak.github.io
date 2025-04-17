@@ -164,7 +164,7 @@ html {
 
 .passage {
   transition: opacity 0.5s ease-in-out;
-  line-height: 1.4;
+  line-height: 1.6; /* Increased line height for better readability */
 }
 
 #passages {
@@ -172,7 +172,7 @@ html {
   /* background-color: var(--passage-background); */
   color: var(--text);
   transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
-  padding: 1em 1em 1em 1em;
+  padding: 1.5em; /* Increased padding */
   border-radius: 0.25em;
   margin: 0;
   max-width: none;
@@ -188,7 +188,7 @@ body {
   position: relative;
   font-family: var(--body-font);
   font-optical-sizing: auto;
-  font-size: 14pt;
+  font-size: 18pt; /* Increased from 14pt to 18pt for better readability */
   max-width: 900px;
   min-width: 300px;
   height: 100%;
@@ -202,12 +202,12 @@ body {
 }
 
 p {
-  margin: 1.5em 0;
+  margin: 1.8em 0; /* Increased spacing between paragraphs */
   padding: 0;
 }
 
 ul {
-  margin: 1.5em 0;
+  margin: 1.8em 0;
 }
 
 ul>ul {
@@ -219,12 +219,13 @@ p:first-of-type {
 }
 
 div.title {
-  font-size: 1.8em;
+  font-size: 2.4em; /* Increased from 1.8em */
   font-weight: 700;
+  margin-bottom: 0.4em; /* Added spacing below title */
 }
 
 div.subtitle {
-  font-size: 1em;
+  font-size: 1.4em; /* Increased from 1em */
 }
 
 a {
@@ -259,6 +260,7 @@ a:hover {
 
 h2 {
   margin-top: 0;
+  font-size: 1.8em; /* Added specific size for h2 */
 }
 
 ol {
@@ -273,6 +275,7 @@ div#preload {
 textarea {
   background-color: var(--background);
   color: var(--text);
+  font-size: 16pt; /* Increased font size for form elements */
 }
 
 textarea:not(:disabled):focus,
@@ -286,6 +289,7 @@ select {
   border-radius: 0.25em;
   background-color: var(--background);
   color: var(--text);
+  font-size: 16pt; /* Increased font size for form elements */
 }
 
 input:not(:disabled):focus,
@@ -299,6 +303,8 @@ button {
   border-radius: 0.25em;
   background-color: var(--background);
   color: var(--text);
+  font-size: 16pt; /* Increased font size for buttons */
+  padding: 0.4em 0.8em; /* Added padding for better button sizing */
 }
 
 button:not(:disabled):focus,
@@ -329,7 +335,7 @@ button:not(:disabled):hover {
   left: 1em;
   height: 0;
   width: 0;
-  font-size: 32pt;
+  font-size: 38pt; /* Increased from 32pt */
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -375,7 +381,7 @@ body.no-undo #undobar a {
 /* Big tablet */
 @media screen and (max-width: 1024px) {
   body {
-    font-size: 13pt;
+    font-size: 17pt; /* Increased from 13pt */
     padding: 3.5em 1em;
   }
 
@@ -384,18 +390,18 @@ body.no-undo #undobar a {
   }
 
   #undobar {
-    font-size: 30pt !important;
+    font-size: 34pt !important; /* Increased from 30pt */
   }
 
   #menu {
-    font-size: 17pt;
+    font-size: 20pt; /* Increased from 17pt */
   }
 }
 
 /* Small tablet */
 @media screen and (max-width: 768px) {
   body {
-    font-size: 12pt;
+    font-size: 16pt; /* Increased from 12pt */
   }
 
   #footer {
@@ -408,15 +414,15 @@ body.no-undo #undobar a {
   }
 
   #undobar {
-    font-size: 28pt !important;
+    font-size: 32pt !important; /* Increased from 28pt */
   }
 
   #menu {
-    font-size: 15pt;
+    font-size: 18pt; /* Increased from 15pt */
   }
 
   #passages {
-    padding: 1em 1em 1em 1em
+    padding: 1.2em; /* Slightly increased padding */
   }
 
   body {
@@ -439,7 +445,7 @@ body.no-undo #undobar a {
 /* Big mobile */
 @media screen and (max-width: 480px) {
   body {
-    font-size: 12pt;
+    font-size: 15pt; /* Increased from 12pt */
   }
 
   #footer {
@@ -447,11 +453,11 @@ body.no-undo #undobar a {
   }
 
   #undobar {
-    font-size: 24pt !important;
+    font-size: 28pt !important; /* Increased from 24pt */
   }
 
   #menu {
-    font-size: 14pt;
+    font-size: 16pt; /* Increased from 14pt */
   }
 
   .title {
@@ -466,7 +472,7 @@ body.no-undo #undobar a {
 /* Small mobile */
 @media screen and (max-width: 320px) {
   body {
-    font-size: 12pt;
+    font-size: 14pt; /* Increased from 12pt */
   }
 
   #footer {
@@ -479,12 +485,12 @@ body.no-undo #undobar a {
   }
 
   #undobar {
-    font-size: 18pt !important;
+    font-size: 22pt !important; /* Increased from 18pt */
     top: 0.45em;
   }
 
   #menu {
-    font-size: 12pt;
+    font-size: 14pt; /* Increased from 12pt */
   }
 }
 
