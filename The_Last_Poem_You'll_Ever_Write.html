@@ -974,29 +974,43 @@ $(document).on(":start :passagerender", addUndoButton);
 
   // Initialize audio context and request microphone permission
   async function initAudioAndPermission() {
-    if (!audioContext) {
-      audioContext = new (window.AudioContext || window.webkitAudioContext)();
-    }
-    
-    if (!permissionGranted && !mediaStream) {
-      try {
+    try {
+      console.log('initAudioAndPermission called - permissionGranted:', permissionGranted, 'mediaStream:', !!mediaStream);
+
+      // Create audio context if needed (Chrome requires this in a user gesture)
+      if (!audioContext) {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        console.log('Created new AudioContext');
+      }
+
+      // Resume audio context if it's suspended (Chrome autoplay policy)
+      if (audioContext.state === 'suspended') {
+        console.log('Resuming suspended AudioContext...');
+        await audioContext.resume();
+      }
+      console.log('AudioContext state:', audioContext.state);
+
+      if (!permissionGranted || !mediaStream) {
+        console.log('Requesting microphone permission...');
         // Request microphone permission once
         mediaStream = await navigator.mediaDevices.getUserMedia({ audio: true });
         permissionGranted = true;
-        
+
         // Create a global microphone source that we'll reuse
         microphone = audioContext.createMediaStreamSource(mediaStream);
-        
+
         // Don't stop the stream - keep it active for reuse
         console.log('Microphone permission granted and stream active');
         return true;
-      } catch (err) {
-        console.error('Error accessing microphone:', err);
-        alert('Could not access microphone. Please ensure microphone permissions are granted and refresh the page.');
-        return false;
       }
+
+      console.log('Permission already granted, reusing stream');
+      return true;
+    } catch (err) {
+      console.error('Error accessing microphone:', err);
+      alert('Could not access microphone. Please ensure microphone permissions are granted and try again.');
+      return false;
     }
-    return true;
   }
 
   // Calculate decibels from audio data
@@ -1049,16 +1063,38 @@ $(document).on(":start :passagerender", addUndoButton);
     
     document.getElementById('grantPermissionBtn').addEventListener('click', async function() {
       const btn = this;
+      console.log('Enable microphone button clicked');
       btn.textContent = 'Requesting permission...';
       btn.disabled = true;
-      
-      const success = await initAudioAndPermission();
-      
-      if (success) {
-        document.getElementById('permissionModal').style.display = 'none';
-        // Navigate to the story's configured start passage
-        Engine.play(Story.startPassage);
-      } else {
+
+      try {
+        const success = await initAudioAndPermission();
+        console.log('initAudioAndPermission returned:', success);
+        console.log('Final state - permissionGranted:', permissionGranted, 'mediaStream:', !!mediaStream);
+
+        if (success && permissionGranted && mediaStream) {
+          // Verify stream is actually live
+          const tracks = mediaStream.getTracks();
+          console.log('Stream tracks:', tracks.map(t => ({enabled: t.enabled, readyState: t.readyState})));
+
+          // Double-check that we actually have the stream before navigating
+          document.getElementById('permissionModal').style.display = 'none';
+
+          // Only navigate to Start if we're not already in the story
+          const currentPassage = passage();
+          if (!currentPassage || currentPassage === '') {
+            console.log('Navigating to Start passage');
+            Engine.play('Start');
+          } else {
+            console.log('Already in story, staying on current passage:', currentPassage);
+          }
+        } else {
+          console.error('Permission check failed - success:', success, 'permissionGranted:', permissionGranted, 'mediaStream:', !!mediaStream);
+          btn.textContent = 'Enable microphone';
+          btn.disabled = false;
+        }
+      } catch (error) {
+        console.error('Permission error:', error);
         btn.textContent = 'Enable microphone';
         btn.disabled = false;
       }
@@ -1078,12 +1114,15 @@ $(document).on(":start :passagerender", addUndoButton);
     canvas.height = window.innerHeight;
 
     let time = 0;
+    let frameCount = 0;
+    const warmupFrames = 10; // Skip first 10 frames (~160ms) to let audio stabilize
 
     function draw() {
       if (!recording) return;
 
       animationId = requestAnimationFrame(draw);
       analyser.getByteFrequencyData(dataArray);
+      frameCount++;
 
       // Clear with fade effect for trailing
       ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
@@ -1213,10 +1252,22 @@ $(document).on(":start :passagerender", addUndoButton);
         ctx.shadowBlur = 0;
       }
 
-      // Update decibel display
+      // Update decibel display (skip warmup frames to avoid -60 dB readings)
       const db = calculateDecibels(dataArray);
-      dbReadings.push(db);
-      const avgDb = dbReadings.reduce((a, b) => a + b) / dbReadings.length;
+
+      // Debug logging every 30 frames (~500ms)
+      if (frameCount % 30 === 0) {
+        console.log(`Frame ${frameCount}: dB=${db.toFixed(1)}, dataArray sum=${dataArray.reduce((a,b)=>a+b, 0)}`);
+      }
+
+      // Only collect dB readings after warmup period
+      if (frameCount > warmupFrames) {
+        dbReadings.push(db);
+      }
+
+      const avgDb = dbReadings.length > 0
+        ? dbReadings.reduce((a, b) => a + b) / dbReadings.length
+        : db;
       document.getElementById('dbDisplay').innerHTML = `${db.toFixed(1)} dB<br><span class="average">Average: ${avgDb.toFixed(1)} dB</span>`;
     }
 
@@ -1230,15 +1281,31 @@ $(document).on(":start :passagerender", addUndoButton);
       alert('Microphone permission not granted. Please refresh the page and grant permission.');
       return;
     }
-    
+
+    // Check if mediaStream is still active
+    const tracks = mediaStream.getTracks();
+    if (tracks.length === 0 || !tracks[0].enabled || tracks[0].readyState !== 'live') {
+      console.error('Media stream is not active!');
+      alert('Microphone stream is not active. Please refresh the page.');
+      return;
+    }
+
+    // Resume audio context if suspended
+    if (audioContext.state === 'suspended') {
+      console.log('Resuming suspended audio context...');
+      await audioContext.resume();
+    }
+    console.log('AudioContext state:', audioContext.state);
+    console.log('MediaStream tracks:', tracks.map(t => ({enabled: t.enabled, readyState: t.readyState})));
+
     createModal();
-    currentChoice = { 
-      id: choiceId, 
+    currentChoice = {
+      id: choiceId,
       passage: passageName,
       text: choiceText
     };
     dbReadings = [];
-    
+
     const modal = document.getElementById('audioModal');
     document.getElementById('choiceText').textContent = choiceText;
     document.getElementById('confirmButton').classList.remove('visible');
@@ -1256,13 +1323,36 @@ $(document).on(":start :passagerender", addUndoButton);
 
     modal.classList.add('active');
 
-    // Reuse existing microphone and stream
+    // Disconnect all previous connections from microphone
+    if (microphone) {
+      try {
+        microphone.disconnect();
+      } catch (e) {
+        console.log('Error disconnecting microphone:', e);
+      }
+    }
+
+    // Recreate the microphone source node each time for reliability
+    microphone = audioContext.createMediaStreamSource(mediaStream);
+    console.log('Created new microphone source node');
+
+    // Create a new analyser for this recording session
     analyser = audioContext.createAnalyser();
     analyser.fftSize = 512;
-    
-    // Connect microphone to analyser
+    analyser.smoothingTimeConstant = 0.8; // Smooth out audio data
+
+    // Connect microphone to the new analyser
     microphone.connect(analyser);
-    
+    console.log('Microphone connected to new analyser');
+
+    // Wait for the audio pipeline to stabilize (fixes -60 dB delay)
+    await new Promise(resolve => setTimeout(resolve, 150));
+
+    // Verify analyser is receiving data
+    const testData = new Uint8Array(analyser.frequencyBinCount);
+    analyser.getByteFrequencyData(testData);
+    console.log('Analyser test - first few values:', testData.slice(0, 10));
+
     // Countdown
     let countdown = 3;
     const countdownEl = document.getElementById('countdown');
@@ -1416,7 +1506,12 @@ $(document).on(":start :passagerender", addUndoButton);
 
     // Disconnect analyser but keep microphone stream active
     if (microphone && analyser) {
-      microphone.disconnect(analyser);
+      try {
+        microphone.disconnect(analyser);
+      } catch (e) {
+        // Ignore if already disconnected
+        console.log('Analyser already disconnected:', e);
+      }
     }
 
     const countdownEl = document.getElementById('countdown');
@@ -1511,9 +1606,11 @@ $(document).on(":start :passagerender", addUndoButton);
   $(document).on(':storyready', function() {
     createModal();
     createPermissionModal();
-    
-    // Always show permission modal at the start
-    document.getElementById('permissionModal').style.display = 'flex';
+
+    // Only show permission modal if we don't have permission yet
+    if (!permissionGranted || !mediaStream) {
+      document.getElementById('permissionModal').style.display = 'flex';
+    }
   });
   
   // Optional: Clean up when leaving the page
@@ -1524,9 +1621,48 @@ $(document).on(":start :passagerender", addUndoButton);
 &lt;&lt;set $choice_1 to &quot;trapped&quot;&gt;&gt;
 &lt;&lt;set $choice_2 to &quot;defiant&quot;&gt;&gt;
 &lt;&lt;set $choice_3 to &quot;critique&quot;&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;\</tw-passagedata><tw-passagedata pid="2" name="Start" tags="no-undo" position="200,100" size="100,100">&lt;div class=&quot;title&quot;&gt;[[The Last Poem You&#39;ll Ever Write-&gt;intro_1]]&lt;/div&gt;\</tw-passagedata><tw-passagedata pid="3" name="intro_1" tags="" position="350,100" size="100,100">As punishment for the &lt;&lt;linkappend &quot;great crime&quot; t8n&gt;&gt; of writing [[poetry-&gt;intro_2]]&lt;&lt;/linkappend&gt;&gt;...</tw-passagedata><tw-passagedata pid="4" name="intro_2" tags="" position="475,100" size="100,100">Our poet will be psionically severed from [[her muses-&gt;intro_3]].</tw-passagedata><tw-passagedata pid="5" name="intro_3" tags="" position="600,100" size="100,100">Before this, she will be permitted to write a final poem for [[the Empress&#39;s personal collection-&gt;intro_4]]...</tw-passagedata><tw-passagedata pid="6" name="intro_4" tags="" position="725,100" size="100,100">Which will be yet another of her many [[trophies-&gt;intro_5]].</tw-passagedata><tw-passagedata pid="7" name="intro_5" tags="" position="850,100" size="100,100">But the poet is grateful that she can listen to [[her muses-&gt;intro_6]] for one last time...</tw-passagedata><tw-passagedata pid="8" name="intro_6" tags="" position="975,100" size="100,100">And possibly, change the [[Empress&#39;s mind-&gt;intro_7]].</tw-passagedata><tw-passagedata pid="9" name="intro_7" tags="" position="1100,100" size="100,100">&lt;&lt;timed 2s t8n&gt;&gt;\
+&lt;&lt;/nobr&gt;&gt;\</tw-passagedata><tw-passagedata pid="2" name="Start" tags="no-undo" position="200,100" size="100,100">&lt;div class=&quot;title&quot;&gt;[[The Last Poem You&#39;ll Ever Write-&gt;audio_test]]&lt;/div&gt;\</tw-passagedata><tw-passagedata pid="3" name="audio_test" tags="" position="350,100" size="100,100">//(This is a test page to make sure the audio recording is working properly.)//
+
+//(Click on each option below and make noise when prompted. The game will record the volume level.)//
+
+[[Skip-&gt;intro_1]]
+
+&lt;&lt;nobr&gt;&gt;\
+&lt;span class=&quot;choice-container&quot;&gt;
+  • &lt;&lt;link &quot;Option 1&quot;&gt;&gt;
+    &lt;&lt;run AudioChoice.record(&quot;Option 1&quot;, &quot;test1&quot;, &quot;audio_test&quot;)&gt;&gt;
+  &lt;&lt;/link&gt;&gt;
+  &lt;&lt;if AudioChoice.getDb(&quot;audio_test&quot;, &quot;test1&quot;) !== null&gt;&gt;
+    &lt;span class=&quot;db-result&quot;&gt;(&lt;&lt;print AudioChoice.getDb(&quot;audio_test&quot;, &quot;test1&quot;)&gt;&gt; dB)&lt;/span&gt;
+  &lt;&lt;/if&gt;&gt;
+&lt;/span&gt;
+&lt;&lt;/nobr&gt;&gt;\
+&lt;&lt;nobr&gt;&gt;\
+&lt;span class=&quot;choice-container&quot;&gt;
+  • &lt;&lt;link &quot;Option 2&quot;&gt;&gt;
+    &lt;&lt;run AudioChoice.record(&quot;Option 2&quot;, &quot;test2&quot;, &quot;audio_test&quot;)&gt;&gt;
+  &lt;&lt;/link&gt;&gt;
+  &lt;&lt;if AudioChoice.getDb(&quot;audio_test&quot;, &quot;test2&quot;) !== null&gt;&gt;
+    &lt;span class=&quot;db-result&quot;&gt;(&lt;&lt;print AudioChoice.getDb(&quot;audio_test&quot;, &quot;test2&quot;)&gt;&gt; dB)&lt;/span&gt;
+  &lt;&lt;/if&gt;&gt;
+&lt;/span&gt;
+&lt;&lt;/nobr&gt;&gt;\
+&lt;&lt;nobr&gt;&gt;\
+&lt;&lt;if AudioChoice.allRecorded(&quot;audio_test&quot;)&gt;&gt;
+  &lt;div class=&quot;final-choice-container&quot;&gt;
+    &lt;&lt;if AudioChoice.getWinner(&quot;audio_test&quot;) === &quot;test1&quot;&gt;&gt;
+      &lt;p class=&quot;winner-text&quot;&gt;Option 1 was louder!&lt;/p&gt;
+    &lt;&lt;else&gt;&gt;
+      &lt;p class=&quot;winner-text&quot;&gt;Option 2 was louder!&lt;/p&gt;
+    &lt;&lt;/if&gt;&gt;
+    &lt;div class=&quot;continue&quot;&gt;
+      [[Start the story-&gt;intro_1]]
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;\</tw-passagedata><tw-passagedata pid="4" name="intro_1" tags="" position="475,100" size="100,100">As punishment for the &lt;&lt;linkappend &quot;great crime&quot; t8n&gt;&gt; of writing [[poetry-&gt;intro_2]]&lt;&lt;/linkappend&gt;&gt;...</tw-passagedata><tw-passagedata pid="5" name="intro_2" tags="" position="600,100" size="100,100">Our poet will be psionically severed from [[her muses-&gt;intro_3]].</tw-passagedata><tw-passagedata pid="6" name="intro_3" tags="" position="725,100" size="100,100">Before this, she will be permitted to write a final poem for [[the Empress&#39;s personal collection-&gt;intro_4]]...</tw-passagedata><tw-passagedata pid="7" name="intro_4" tags="" position="850,100" size="100,100">Which will be yet another of her many [[trophies-&gt;intro_5]].</tw-passagedata><tw-passagedata pid="8" name="intro_5" tags="" position="975,100" size="100,100">But the poet is grateful that she can listen to [[her muses-&gt;intro_6]] for one last time...</tw-passagedata><tw-passagedata pid="9" name="intro_6" tags="" position="1100,100" size="100,100">And possibly, change the [[Empress&#39;s mind-&gt;intro_7]].</tw-passagedata><tw-passagedata pid="10" name="intro_7" tags="" position="1225,100" size="100,100">&lt;&lt;timed 2s t8n&gt;&gt;\
 //(You will all play as the [[poet&#39;s muses-&gt;intro_8]].)//
-&lt;&lt;/timed&gt;&gt;\</tw-passagedata><tw-passagedata pid="10" name="intro_8" tags="" position="1225,100" size="100,100">//(I will present several options for [[you to choose from-&gt;choices_0]].)//</tw-passagedata><tw-passagedata pid="11" name="choices_0" tags="" position="100,225" size="100,100">//(After I click on an option, the microphone will record the volume level of this room.)//
+&lt;&lt;/timed&gt;&gt;\</tw-passagedata><tw-passagedata pid="11" name="intro_8" tags="" position="100,225" size="100,100">//(I will present several options for [[you to choose from-&gt;choices_0]].)//</tw-passagedata><tw-passagedata pid="12" name="choices_0" tags="" position="225,225" size="100,100">//(After I click on an option, the microphone will record the volume level of this room.)//
 
 //(The game will select the option with the loudest average volume.)//
 
@@ -1569,7 +1705,7 @@ Now in her cell, the poet prays to her muses...
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;\</tw-passagedata><tw-passagedata pid="12" name="choices_0_1" tags="" position="225,225" size="100,100">&lt;&lt;if $choice_0 is &quot;comfort&quot;&gt;&gt;\
+&lt;&lt;/nobr&gt;&gt;\</tw-passagedata><tw-passagedata pid="13" name="choices_0_1" tags="" position="350,225" size="100,100">&lt;&lt;if $choice_0 is &quot;comfort&quot;&gt;&gt;\
 The poet feels the gentle kindness of an invisible, anonymous crowd.
 
 Despite her dire situation, she now feels more [[ready to write-&gt;choices_1]].
@@ -1577,9 +1713,9 @@ Despite her dire situation, she now feels more [[ready to write-&gt;choices_1]].
 A million images from an ancient writers festival flash before the poet&#39;s eyes.
 
 The poet [[blacks out-&gt;choices_0_2]].
-&lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="13" name="choices_0_2" tags="" position="350,225" size="100,100">After a few minutes, the poet sits up, unable to remember what just happened.
+&lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="14" name="choices_0_2" tags="" position="475,225" size="100,100">After a few minutes, the poet sits up, unable to remember what just happened.
 
-Nevertheless, she somehow feels more [[ready to write-&gt;choices_1]].</tw-passagedata><tw-passagedata pid="14" name="choices_1" tags="" position="475,225" size="100,100">From the window of her dark cell, the poet looks at the Empress&#39;s ruby gardens.
+Nevertheless, she somehow feels more [[ready to write-&gt;choices_1]].</tw-passagedata><tw-passagedata pid="15" name="choices_1" tags="" position="600,225" size="100,100">From the window of her dark cell, the poet looks at the Empress&#39;s ruby gardens.
 
 She wonders how she should start her poem.
 
@@ -1618,7 +1754,7 @@ She wonders how she should start her poem.
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;\</tw-passagedata><tw-passagedata pid="15" name="choices_2" tags="" position="600,225" size="100,100">Now, she wonders how she should write the body of the poem.
+&lt;&lt;/nobr&gt;&gt;\</tw-passagedata><tw-passagedata pid="16" name="choices_2" tags="" position="725,225" size="100,100">Now, she wonders how she should write the body of the poem.
 
 She doesn&#39;t want to think about the content—she would rather think about the tone.
 
@@ -1657,7 +1793,7 @@ She doesn&#39;t want to think about the content—she would rather think about t
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;\</tw-passagedata><tw-passagedata pid="16" name="choices_3" tags="" position="725,225" size="100,100">Now, as is tradition, the poet must end this poem with a comment on the Empress&#39;s reign.
+&lt;&lt;/nobr&gt;&gt;\</tw-passagedata><tw-passagedata pid="17" name="choices_3" tags="" position="850,225" size="100,100">Now, as is tradition, the poet must end this poem with a comment on the Empress&#39;s reign.
 
 She wonders what she should do.
 
@@ -1696,9 +1832,9 @@ She wonders what she should do.
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;\</tw-passagedata><tw-passagedata pid="17" name="choices_4" tags="" position="850,225" size="100,100">The muses have made their opinions known.
+&lt;&lt;/nobr&gt;&gt;\</tw-passagedata><tw-passagedata pid="18" name="choices_4" tags="" position="975,225" size="100,100">The muses have made their opinions known.
 
-Inspired, the poet now [[writes the poem-&gt;final_poem]].</tw-passagedata><tw-passagedata pid="18" name="final_poem" tags="" position="975,225" size="100,100">&#39;&#39;p-BF842786&#39;&#39;
+Inspired, the poet now [[writes the poem-&gt;final_poem]].</tw-passagedata><tw-passagedata pid="19" name="final_poem" tags="" position="1100,225" size="100,100">&#39;&#39;p-BF842786&#39;&#39;
 
 &lt;&lt;if $choice_1 is &quot;trapped&quot;&gt;&gt;\
 I am swallowed by the obsidian walls
@@ -1762,7 +1898,7 @@ One day, all her darkmarble palaces will crumble.
 One day, we will have the freedom to write
 
 About [[love and death-&gt;ending]].
-&lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="19" name="ending" tags="" position="1100,225" size="100,100">&lt;&lt;if $choice_1 is &quot;gardens&quot; and $choice_2 is &quot;melancholic&quot; and $choice_3 is &quot;praise&quot;&gt;&gt;\
+&lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="20" name="ending" tags="" position="1225,225" size="100,100">&lt;&lt;if $choice_1 is &quot;gardens&quot; and $choice_2 is &quot;melancholic&quot; and $choice_3 is &quot;praise&quot;&gt;&gt;\
 After a few days, the handler tells the poet that the Empress was pleased with the poem.
 
 But the Empress did not reverse her punishment.
@@ -1772,9 +1908,9 @@ The Empress is beyond pity and [[love-&gt;ending_2]].
 After a few days, the handler tells the poet that the Empress was displeased with the poem.
 
 Later that day, the poet is [[psionically severed from her muses-&gt;ending_1]].
-&lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="20" name="ending_1" tags="" position="1225,225" size="100,100">The last emotion she feels is the satisfaction that she wrote something &lt;&lt;linkreplace &quot;that felt true&quot; t8n&gt;&gt;true&lt;&lt;/linkreplace&gt;&gt;.
+&lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="21" name="ending_1" tags="" position="100,350" size="100,100">The last emotion she feels is the satisfaction that she wrote something &lt;&lt;linkreplace &quot;that felt true&quot; t8n&gt;&gt;true&lt;&lt;/linkreplace&gt;&gt;.
 
-The muses guided her to a truth.</tw-passagedata><tw-passagedata pid="21" name="ending_2" tags="" position="100,350" size="100,100">The poet is still psionically severed from her muses.
+The muses guided her to a truth.</tw-passagedata><tw-passagedata pid="22" name="ending_2" tags="" position="225,350" size="100,100">The poet is still psionically severed from her muses.
 
 The last emotion you sense from her is not anger, but disappointment.
 
