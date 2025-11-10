@@ -1307,7 +1307,7 @@ $(document).on(":start :passagerender", addUndoButton);
     dbReadings = [];
 
     const modal = document.getElementById('audioModal');
-    document.getElementById('choiceText').textContent = choiceText;
+    document.getElementById('choiceText').innerHTML = choiceText;
     document.getElementById('confirmButton').classList.remove('visible');
     document.getElementById('skipButton').style.display = 'inline-block';
 
@@ -1894,13 +1894,13 @@ One day, we will have the freedom to write
 About [[love and death-&gt;ending]].
 &lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="25" name="ending" tags="" position="600,350" size="100,100">&lt;&lt;if $choice_1 is &quot;gardens&quot; and $choice_2 is &quot;melancholic&quot; and $choice_3 is &quot;praise&quot;&gt;&gt;\
 After a few days, the poet hears that the Empress was [[pleased with the poem-&gt;ending_bad_1]].
-&lt;&lt;else if $choice_3 is &quot;praise&quot;&gt;&gt;\
+&lt;&lt;elseif $choice_3 is &quot;praise&quot;&gt;&gt;\
 After a few days, the poet hears that the Empress was not pleased with the poem, despite your [[pitiful attempt at praising her-&gt;ending_good_1]].
 &lt;&lt;else&gt;&gt;\
 After a few days, the poet hears that the Empress was [[not pleased with the poem-&gt;ending_good_1]].
 &lt;&lt;/if&gt;&gt;\</tw-passagedata><tw-passagedata pid="26" name="ending_good_1" tags="" position="725,350" size="100,100">But the Empress did not escalate her punishment.
 
-The Empress is accustomed to this [[climate of hate-&gt;ending_good_2]].</tw-passagedata><tw-passagedata pid="27" name="ending_good_2" tags="" position="850,350" size="100,100">Later that day, the poet is still [[psionically severed from her muses-&gt;ending_good_3]].</tw-passagedata><tw-passagedata pid="28" name="ending_good_3" tags="" position="975,350" size="100,100">The last emotion she feels is the satisfaction that she wrote something true.
+The Empress is accustomed to a [[climate of hate-&gt;ending_good_2]].</tw-passagedata><tw-passagedata pid="27" name="ending_good_2" tags="" position="850,350" size="100,100">Later that day, the poet is still [[psionically severed from her muses-&gt;ending_good_3]].</tw-passagedata><tw-passagedata pid="28" name="ending_good_3" tags="" position="975,350" size="100,100">The last emotion she feels is the satisfaction that she wrote something true.
 
 The muses guided her to &lt;&lt;linkreplace &quot;the truth&quot; t8n&gt;&gt;a truth&lt;&lt;/linkreplace&gt;&gt;.</tw-passagedata><tw-passagedata pid="29" name="ending_bad_1" tags="" position="1100,350" size="100,100">But the Empress did not [[reverse her punishment-&gt;ending_bad_2]].</tw-passagedata><tw-passagedata pid="30" name="ending_bad_2" tags="" position="1225,350" size="100,100">The Empress is beyond pity and [[love-&gt;ending_bad_3]].</tw-passagedata><tw-passagedata pid="31" name="ending_bad_3" tags="" position="100,475" size="100,100">So the poet is still psionically severed from her muses.
 
