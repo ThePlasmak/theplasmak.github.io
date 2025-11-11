@@ -1038,7 +1038,7 @@ $(document).on(":start :passagerender", addUndoButton);
           </div>
           <div class="db-display" id="dbDisplay" style="display: none"></div>
           <div class="recording-status" id="recordingStatus"></div>
-          <button class="skip-button" id="skipButton" style="display: none;">Skip countdown</button>
+          <button class="skip-button" id="skipButton" style="display: none;">Skip</button>
           <button class="confirm-button" id="confirmButton">Return to passage</button>
         </div>
       </div>
@@ -1454,7 +1454,7 @@ $(document).on(":start :passagerender", addUndoButton);
 
     function startCountdown() {
       updateCountdown(countdown);
-      document.getElementById('skipButton').textContent = 'Skip countdown';
+      document.getElementById('skipButton').textContent = 'Skip';
 
       countdownInterval = setInterval(() => {
         countdown--;
