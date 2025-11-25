@@ -4,10 +4,10 @@
 <meta charset="UTF-8" />
 <title>All the Skin(s) You Left Behind</title>
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<meta name="description" content="A semi-interactive story about playing an old MMORPG, reflecting on a lost friendship, and confronting what you left behind." />
+<meta name="description" content="A semi-interactive story about playing an old MMORPG and reflecting on a lost friendship." />
 <meta property="og:title" content="All the Skin(s) You Left Behind" />
-<meta property="og:description" content="A semi-interactive story about playing an old MMORPG, reflecting on a lost friendship, and confronting what you left behind." />
-<meta property="twitter:description" content="A semi-interactive story about playing an old MMORPG, reflecting on a lost friendship, and confronting what you left behind." />
+<meta property="og:description" content="A semi-interactive story about playing an old MMORPG and reflecting on a lost friendship." />
+<meta property="twitter:description" content="A semi-interactive story about playing an old MMORPG and reflecting on a lost friendship." />
 <link rel="preload" as="image" href="assets/parchment-unsplash.webp">
 <link rel="preload" as="image" href="assets/beasts.webp">
 <link rel="preload" as="image" href="assets/store.webp">
@@ -1117,7 +1117,7 @@ body.no-undo #undobar {
 	z-index: -1;
 }
 
-.ml-frame :where(h1, h2, h3, h4, h5, h6):not(.nav__heading) {
+.ml-frame :where(h1, h2, h3, h4, h5, h6) {
 	font-family: var(--heading-font-ml);
 	margin: 0;
 	margin-block-end: var(--space-m);
@@ -2458,24 +2458,24 @@ $(document).on(":passagestart", function () {
 });
 
 // GO TO PASSAGE ON REFRESH
-window.onbeforeunload = function () {
-	window.sessionStorage.setItem("twine-reload-flag", "true");
-};
+// window.onbeforeunload = function () {
+// 	window.sessionStorage.setItem("twine-reload-flag", "true");
+// };
 
-$(document).on(":passagedisplay", function () {
-	var willRefresh = sessionStorage.getItem("twine-reload-flag");
+// $(document).on(":passagedisplay", function () {
+// 	var willRefresh = sessionStorage.getItem("twine-reload-flag");
 
-	if (willRefresh === "true") {
-		// Clear the flag immediately after retrieving it to prevent unintended behavior
-		sessionStorage.removeItem("twine-reload-flag");
+// 	if (willRefresh === "true") {
+// 		// Clear the flag immediately after retrieving it to prevent unintended behavior
+// 		sessionStorage.removeItem("twine-reload-flag");
 
-		// Redirect to refresh screen (unless already there to avoid loops)
-		if (passage() !== "refresh_screen") {
-			Engine.play("refresh_screen");
-		}
-	}
-});
-</script><tw-tag name="ml-forest" color="green"></tw-tag><tw-tag name="ml-cave" color="blue"></tw-tag><tw-tag name="ml-dungeon" color="purple"></tw-tag><tw-tag name="hoh" color="red"></tw-tag><tw-tag name="book" color="yellow"></tw-tag><tw-tag name="flashback" color="orange"></tw-tag><tw-tag name="message-app" color="blue"></tw-tag><tw-passagedata pid="1" name="StoryInit" tags="" position="50,50" size="100,100">&lt;&lt;nobr&gt;&gt;\
+// 		// Redirect to refresh screen (unless already there to avoid loops)
+// 		if (passage() !== "refresh_screen") {
+// 			Engine.play("refresh_screen");
+// 		}
+// 	}
+// });
+</script><tw-tag name="hoh" color="red"></tw-tag><tw-tag name="book" color="yellow"></tw-tag><tw-tag name="flashback" color="orange"></tw-tag><tw-tag name="message-app" color="blue"></tw-tag><tw-tag name="ml-forest" color="green"></tw-tag><tw-tag name="ml-cave" color="blue"></tw-tag><tw-tag name="ml-dungeon" color="purple"></tw-tag><tw-passagedata pid="1" name="StoryInit" tags="" position="50,50" size="100,100">&lt;&lt;nobr&gt;&gt;\
 &lt;&lt;set $chapter_select_variable_reset = false&gt;&gt;
 &lt;&lt;set $chapter_select_mode = false&gt;&gt;
 
@@ -4664,7 +4664,7 @@ When you see a phone symbol, click [[here-&gt;d4.1.1]] to start the next section
 &lt;span id=&quot;loading&quot;&gt;Connecting...&lt;/span&gt;</tw-passagedata><tw-passagedata pid="244" name="d4.1.5" tags="hoh hoh-login collapse-linebreaks center-passage" position="2275,5250" size="100,100">&lt;span class=&quot;hoh__title hoh__title--main&quot;&gt;
 [[Play-&gt;d4.1.6]]
 &lt;/span&gt;</tw-passagedata><tw-passagedata pid="245" name="d4.1.6" tags="hoh" position="2300,5450" size="100,100">&lt;&lt;run setup.setDarkness(0.1)&gt;&gt;\
-You don’t know what you should choose.
+You don’t know what you&#39;re doing.
 
 &lt;div class=&quot;hoh__buttons&quot;&gt;
 &lt;&lt;link &quot;Dalen, the Warrior of Westreach&quot; &quot;d4.1.13.1&quot;&gt;&gt;&lt;&lt;set $hero to &quot;dalen&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
@@ -4672,33 +4672,39 @@ You don’t know what you should choose.
 &lt;&lt;link &quot;Glacian, the Cryogenic Crystallian&quot; &quot;d4.1.15.1&quot;&gt;&gt;&lt;&lt;set $hero to &quot;glacian&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="246" name="d4.1.8" tags="hoh" position="1250,5625" size="100,100">/* Skins */\
 &lt;&lt;run setup.setDarkness(0.2)&gt;&gt;\
-Everything about your body feels wrong—not just what you’re wearing, not just your eczema-ridden skin, but also the substance wrapping around your innermost self.
+You don’t know what you want.
 
-You wish you could scratch it all off, until you are reduced to a pure orb of being. Somewhere, somehow, there must be a core of you that is true, something true that no one can take away from you.
+You don’t even know what your body wants.
 
-But you couldn’t reveal yourself to others. It could have ruined you.</tw-passagedata><tw-passagedata pid="247" name="d4.1.9" tags="hoh" position="1350,5625" size="100,100">/* Locations */\
+Everything about your body feels wrong—not just what you’re wearing, not just your eczema-ridden skin, but also the substance wrapping your innermost self.
+
+You wish you could scratch it all off, until you are reduced to some pure orb of being, but even the core of you feels like an explosion that you’re trying to hold in.
+
+You feel like a split atom, and you can’t take this pain for much longer.</tw-passagedata><tw-passagedata pid="247" name="d4.1.9" tags="hoh" position="1350,5625" size="100,100">/* Locations */\
 &lt;&lt;run setup.setDarkness(0.3)&gt;&gt;\
-You wonder if the kids at school could smell it. Maybe there was a scent you couldn’t shake off.
+This pain was always some static noise in the background, but you shut it all out, refused to put words to it, as if naming it would have brought some terrible monster to life.
 
-Someone could tell, once. She slung that word at you, like a weapon. You deflected it then, but you always wondered when the invisible sword above your head would drop again.
+You were always scared that someone could smell it anyway, like a scent you couldn’t shake off.
 
-If you slip up, everyone will rip you to shreds, like wolves.</tw-passagedata><tw-passagedata pid="248" name="d4.1.10" tags="hoh" position="1450,5625" size="100,100">/* Items */\
+So you hid yourself away, refused to reveal yourself to others, because if they ever saw your true form, they would tear you apart, like wolves.</tw-passagedata><tw-passagedata pid="248" name="d4.1.10" tags="hoh" position="1450,5625" size="100,100">/* Items */\
 &lt;&lt;run setup.setDarkness(0.4)&gt;&gt;\
-Of course that’s not true. But it //feels// true, and that’s what matters.
+So you performed your assigned roles, followed your social scripts, hoping, sincerely, that if you’re useful, needed, and good enough, everyone would overlook your fundamental montrosity.
 
-So you never felt safe.
+But still, you never felt safe.
 
-In your bid to find safety, you did something that made you feel even more unsafe—you revealed yourself, and it ruined you. Maybe you were already doomed by this original sin.
-
-But maybe if you were untouched by shame in the first place, any relationship, any thread of human connection, would have survived this “mistake”.</tw-passagedata><tw-passagedata pid="249" name="d4.1.11" tags="hoh" position="1550,5625" size="100,100">/* Skills */\
+In a bid to find safety, you did things that made you feel even more unsafe. When you were truly safe, you ran away, opening new wounds because you couldn’t confront your oldest ones.</tw-passagedata><tw-passagedata pid="249" name="d4.1.11" tags="hoh" position="1550,5625" size="100,100">/* Skills */\
 &lt;&lt;run setup.setDarkness(0.5)&gt;&gt;\
-But instead of letting go of shame, you let it dominate your life.
+Could you blame yourself? You have spent your entire life running.
 
-Layers and layers of shame, rolling around in your mind, protecting a grain of pure loathing. You were paralysed by your pain—so you could only focus on performing your assigned roles, your social scripts, wanting what everyone else wanted, instead of wanting for yourself.
+Running away from others, from your pain, from yourself.
 
-So you know now, that you don’t want to keep waiting.
+But you couldn’t keep on running, so you built up walls, protected yourself with layers of shame and fear, because a single mistake would completely ruin you.
 
-You can’t let this protect you anymore.</tw-passagedata><tw-passagedata pid="250" name="d4.1.12" tags="hoh" position="1950,5825" size="100,100">&lt;&lt;run setup.setDarkness(0.6)&gt;&gt;\
+But you couldn’t stop making mistakes, so you stopped making choices. You let yourself sink into the paralysis of passivity, all to protect your wounds from the world.
+
+But you understand this, now.
+
+You can’t let this control you anymore.</tw-passagedata><tw-passagedata pid="250" name="d4.1.12" tags="hoh" position="1950,5825" size="100,100">&lt;&lt;run setup.setDarkness(0.6)&gt;&gt;\
 Time to [[leave it all behind-&gt;d4.2.1]].</tw-passagedata><tw-passagedata pid="251" name="d4.1.13.1" tags="hoh" position="1725,5625" size="100,100">&lt;span class=&quot;hoh__title hoh__title--selection&quot;&gt;\
 SELECTED HERO: DALEN
 &lt;/span&gt;\
