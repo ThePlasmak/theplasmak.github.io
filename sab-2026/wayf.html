@@ -932,25 +932,45 @@ setup.live = (function () {
     cloud.querySelectorAll(".cloud-word").forEach(function (el) {
       existing.set(el.dataset.key, el);
     });
-    list.forEach(function (w) {
-      var el = existing.get(w.key);
-      if (!el) {
-        el = document.createElement("span");
-        el.className = "cloud-word cloud-new";
-        el.dataset.key = w.key;
-        el.textContent = w.text;
-        el.title = "Click to remove";
-        el.style.color = colourFor(w.key);
-        el.style.animationDelay = "0s, " + (-Math.random() * 6).toFixed(2) + "s";
-        el.addEventListener("click", function () { hideWord(w.key); });
-        // insert at a random spot so new words don't always land at the end
-        var kids = cloud.children;
-        cloud.insertBefore(el, kids[Math.floor(Math.random() * (kids.length + 1))] || null);
-      }
-      el.style.fontSize = sizeFor(w.count);
-      existing.delete(w.key);
+    slideWords(cloud, function () {
+      list.forEach(function (w) {
+        var el = existing.get(w.key);
+        if (!el) {
+          el = document.createElement("span");
+          el.className = "cloud-word";
+          el.dataset.key = w.key;
+          el.textContent = w.text;
+          el.title = "Click to remove";
+          el.style.color = colourFor(w.key);
+          el.style.animationDelay = "0s, " + (-Math.random() * 6).toFixed(2) + "s";
+          // land at a random spot so new words don't always go at the end
+          el.style.order = Math.floor(Math.random() * (cloud.children.length + 1));
+          el.addEventListener("click", function () { hideWord(w.key); });
+          cloud.appendChild(el);
+        }
+        el.style.fontSize = sizeFor(w.count);
+        existing.delete(w.key);
+      });
+      existing.forEach(function (el) { el.remove(); });
     });
-    existing.forEach(function (el) { el.remove(); });
+  }
+
+  // Apply a layout change, then glide the words that were already on screen
+  // from their old spots to their new ones instead of jumping.
+  function slideWords(cloud, change) {
+    var kids = Array.from(cloud.children);
+    var before = new Map(kids.map(function (el) { return [el, el.getBoundingClientRect()]; }));
+    change();
+    kids.forEach(function (el) {
+      if (!el.isConnected) return;
+      var a = before.get(el), b = el.getBoundingClientRect();
+      var dx = a.left - b.left, dy = a.top - b.top;
+      if (!dx && !dy) return;
+      el.animate(
+        [{ translate: dx + "px " + dy + "px" }, { translate: "0 0" }],
+        { duration: 1600, easing: "cubic-bezier(.45,0,.2,1)" }
+      );
+    });
   }
 
   function hideWord(key) {
@@ -960,22 +980,19 @@ setup.live = (function () {
   }
 
   // Every few seconds, reshuffle the words and slide them to their new places.
+  // Uses CSS `order` rather than moving elements: re-inserting an element
+  // restarts its pop-in animation, which made the whole cloud flash.
   function shuffleCloud() {
     var cloud = document.getElementById("cloud");
     if (!cloud || cloud.children.length < 2) return;
     var kids = Array.from(cloud.children);
-    var before = new Map(kids.map(function (el) { return [el, el.getBoundingClientRect()]; }));
-    for (var i = kids.length - 1; i > 0; i--) {
+    var slots = kids.map(function (_, i) { return i; });
+    for (var i = slots.length - 1; i > 0; i--) {
       var j = Math.floor(Math.random() * (i + 1));
-      var t = kids[i]; kids[i] = kids[j]; kids[j] = t;
+      var t = slots[i]; slots[i] = slots[j]; slots[j] = t;
     }
-    kids.forEach(function (el) { cloud.appendChild(el); });
-    kids.forEach(function (el) {
-      var a = before.get(el), b = el.getBoundingClientRect();
-      el.animate(
-        [{ translate: (a.left - b.left) + "px " + (a.top - b.top) + "px" }, { translate: "0 0" }],
-        { duration: 1600, easing: "cubic-bezier(.45,0,.2,1)" }
-      );
+    slideWords(cloud, function () {
+      kids.forEach(function (el, i) { el.style.order = slots[i]; });
     });
   }
   setInterval(shuffleCloud, 7000);
