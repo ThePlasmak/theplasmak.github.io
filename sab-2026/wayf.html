@@ -790,7 +790,7 @@ body.cloud .passage {
 
 /* LIVE: poem blanks */
 a.blank {
-  letter-spacing: 0.18em;
+  letter-spacing: -1.2px;
   cursor: pointer;
   text-decoration: none;
 }
@@ -827,10 +827,10 @@ $(document).on(":start :passagerender", addUndoButton);
 // LIVE WORD CLOUD
 // Audience phones post words to one fixed public ntfy.sh topic;
 // the presenter screen listens to that topic and draws the cloud.
-//   Audience:  theplasmak.github.io/private/sab-2026/wayf
-//   Presenter: theplasmak.github.io/private/sab-2026/wayf?host  (or the file opened locally)
+//   Audience:  theplasmak.github.io/sab-2026/wayf
+//   Presenter: theplasmak.github.io/sab-2026/wayf?host  (or the file opened locally)
 setup.live = (function () {
-  var HOSTED_URL = "https://theplasmak.github.io/private/sab-2026/wayf";
+  var HOSTED_URL = "https://theplasmak.github.io/sab-2026/wayf";
   var TOPIC = "wayf-theplasmak-live";
   var params = new URLSearchParams(location.search);
   var isHost = params.has("host") || location.protocol === "file:";
