@@ -591,16 +591,23 @@ body.card #undobar a {
 /* LIVE: presenter word cloud screen */
 body.cloud {
   max-width: none;
+  padding: 0;
+}
+
+/* 40px gap around the white card so it fits inside the screen */
+body.cloud #story {
+  margin: 40px;
 }
 
 body.cloud #passages {
-  min-height: 100vh;
+  min-height: calc(100vh - 80px);
+  padding: 49px 74px;
 }
 
 body.cloud .passage {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 6em);
+  min-height: calc(100vh - 80px - 96px);
 }
 
 .live-head {
@@ -693,10 +700,15 @@ body.cloud .passage {
 }
 
 .live-foot {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+  position: relative;
+  text-align: center;
   font-size: 1.3em;
+}
+
+.live-admin {
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
 
 .live-admin a {
@@ -756,8 +768,12 @@ a.blank {
 }
 
 @keyframes blank-fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">//--Not necessary if you use the base UI, but you can put Javascript here if you want
 //--If you want to have settings, this is where you will put the code
@@ -790,7 +806,7 @@ $(document).on(":start :passagerender", addUndoButton);
 //   Presenter: theplasmak.github.io/sab-2026/Where_Are_You_From_Live.html
 //              (or ?host on any copy, or the file opened locally)
 setup.live = (function () {
-  var HOSTED_URL = "https://theplasmak.github.io/sab-2026/wayf";
+  var HOSTED_URL = "https://bit.ly/4iPBvop";
   var TOPIC = "wayf-theplasmak-live";
   var params = new URLSearchParams(location.search);
   var isHost =
@@ -875,7 +891,7 @@ setup.live = (function () {
   }
 
   // --- cloud drawing ---
-  var COLOURS = ["#f94144ff", "rgb(236, 96, 20)", "#f8961eff", "#f9844aff", "rgb(232, 169, 20)", "rgb(125, 187, 77)", "#43aa8bff", "#4d908eff", "#277da1ff"];
+  var COLOURS = ["#f94144ff", "rgb(236, 96, 20)", "rgb(248, 146, 23)", "#f9844aff", "rgb(232, 169, 20)", "rgb(98, 165, 47)", "#43aa8bff", "#4d908eff", "#277da1ff"];
 
   function colourFor(key) {
     var h = 0;
