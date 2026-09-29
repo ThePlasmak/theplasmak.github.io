@@ -589,14 +589,15 @@ body.card #undobar a {
   }
 }
 /* LIVE: presenter word cloud screen */
+/* 40px gap around the white card so it fits inside the screen.
+   Padding (not margin on #story) so the gap can't leak out and make the page scroll. */
 body.cloud {
   max-width: none;
-  padding: 0;
+  padding: 40px;
 }
 
-/* 40px gap around the white card so it fits inside the screen */
 body.cloud #story {
-  margin: 40px;
+  margin: 0;
 }
 
 body.cloud #passages {
@@ -607,7 +608,7 @@ body.cloud #passages {
 body.cloud .passage {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 80px - 96px);
+  min-height: calc(100vh - 80px - 98px);
 }
 
 .live-head {
