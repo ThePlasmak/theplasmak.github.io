@@ -172,6 +172,12 @@ body {
     background-color 0.5s;
 }
 
+input,
+select,
+textarea {
+  color: black;
+}
+
 #footer {
   height: 4em;
   width: 100%;
@@ -193,6 +199,7 @@ p:first-of-type {
 div.title {
   font-size: 1.8em;
   font-weight: 700;
+  line-height: 1.2;
 }
 
 div.subtitle {
@@ -200,73 +207,10 @@ div.subtitle {
   font-style: italic;
 }
 
-body.morning {
-  background: #3eb47b;
-}
-
-body.midday {
-  background: #3eb45f;
-}
-
-body.afternoon {
-  background: #44b43e;
-}
-
-body.evening {
-  background: #1b3f4e;
-}
-
-body.black {
-  background: #000000;
-  transition: 0s;
-}
-
-body.quickmorning {
-  background: #3eb47b;
-  transition: 0s;
-}
-
-body.pink,
-body.dream {
-  background: #ff8080;
-}
-
-body.card,
-body.white {
-  background: #dcdcdc;
-}
-
-#passage.quickmorning {
-  transition: 0s;
-}
-
-#passage.black {
-  background-color: transparent;
-  color: white;
-  transition: 0s;
-}
-
-#passage.white {
-  background-color: transparent;
-  transition: 0s;
-}
-
-#passage.dream {
-  background-color: rgba(255, 205, 180, 0.9) !important;
-}
-
-#passage.card {
-  background-color: rgba(255, 255, 255, 0.9) !important;
-}
-
-#passage.pink {
-  background-color: transparent;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+input,
+select,
+textarea {
+  color:;
 }
 
 a {
@@ -544,6 +488,12 @@ body.card #undobar a {
   opacity: 0.5;
 }
 
+@media screen and (max-width: 1136px) {
+  #story {
+    margin: 0.5em;
+  }
+}
+
 @media screen and (max-width: 920px) {
   body {
     font-size: 13pt;
@@ -600,6 +550,10 @@ body.card #undobar a {
   body {
     font-size: 12pt;
     padding: 2em 1em;
+  }
+
+  div.title {
+    font-size: 1.7em;
   }
 
   #footer {
@@ -790,15 +744,20 @@ body.cloud .passage {
 
 /* LIVE: poem blanks */
 a.blank {
-  letter-spacing: -1.2px;
+  letter-spacing: -2px;
   cursor: pointer;
   text-decoration: none;
 }
 
 .blank-word {
   font-weight: bold;
-  animation: cloud-pop 0.6s ease-out;
+  animation: blank-fadein 0.8s ease;
   display: inline-block;
+}
+
+@keyframes blank-fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">//--Not necessary if you use the base UI, but you can put Javascript here if you want
 //--If you want to have settings, this is where you will put the code
@@ -916,7 +875,7 @@ setup.live = (function () {
   }
 
   // --- cloud drawing ---
-  var COLOURS = ["#4562BA", "#CF1020", "#E25822", "#1B3F4E", "#3EB47B", "#8a4fbf"];
+  var COLOURS = ["#f94144ff", "rgb(236, 96, 20)", "#f8961eff", "#f9844aff", "rgb(232, 169, 20)", "rgb(125, 187, 77)", "#43aa8bff", "#4d908eff", "#277da1ff"];
 
   function colourFor(key) {
     var h = 0;
@@ -1000,7 +959,7 @@ setup.live = (function () {
       .then(function (r) {
         if (!r.ok) throw new Error(r.status);
         input.value = "";
-        status.textContent = "Sent: " + text;
+        status.textContent = "Sent.";
       })
       .catch(function () {
         status.textContent = "Entry failed. Try again in a few seconds.";
@@ -1074,7 +1033,7 @@ Macro.add("blank", {
 &lt;/div&gt;
 &lt;div id=&quot;cloud&quot;&gt;&lt;/div&gt;
 &lt;div class=&quot;live-foot&quot;&gt;
-	[[This is where you are from|1][$words to setup.live.poemWords()]]
+	&lt;span&gt;[[This is where you are from|1][$words to setup.live.poemWords()]].&lt;/span&gt;
 	&lt;span class=&quot;live-admin&quot;&gt;&lt;&lt;link &quot;Reset&quot;&gt;&gt;&lt;&lt;run setup.live.reset()&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="Join" tags="no-undo join nobr" position="350,100" size="100,100">&lt;div class=&quot;join-box&quot;&gt;
 	&lt;div class=&quot;title&quot;&gt;Where are you from?&lt;/div&gt;
